@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster } from "react-hot-toast";
-import { NextThemeProvider } from "@/providers/NextThemeProvider";
+// import { NextThemeProvider } from "@/providers/NextThemeProvider";
 import NavBar from "@/components/NavBar";
 import Container from "@/components/Container/Container";
 import { options } from "@/lib/hotToast";
@@ -27,7 +27,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning>
       <body className={inter.className}>
-        <NextThemeProvider>
+        {/* <NextThemeProvider> */}
         <Container>
               <NavBar 
               // searchParams={searchParams}
@@ -39,7 +39,7 @@ export default function RootLayout({
                 gutter={24} />
             </Container>
           {children}
-        </NextThemeProvider>
+        {/* </NextThemeProvider> */}
       </body>
     </html>
     </ClerkProvider>
