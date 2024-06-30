@@ -27,7 +27,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning>
       <body className={inter.className}>
-        {/* <NextThemeProvider> */}
+        <NextThemeProvider>
         <Container>
               <NavBar 
               // searchParams={searchParams}
@@ -39,7 +39,7 @@ export default function RootLayout({
                 gutter={24} />
             </Container>
           {children}
-        {/* </NextThemeProvider> */}
+        </NextThemeProvider>
       </body>
     </html>
     </ClerkProvider>

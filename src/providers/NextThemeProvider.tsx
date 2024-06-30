@@ -10,8 +10,8 @@ export function NextThemeProvider({ children }: Props) {
   return (
     <NextThemesProvider 
       attribute="class" 
+      defaultTheme="dark"
       // enableSystem
-      // defaultTheme="dark
       >
       {children}
     </NextThemesProvider>
