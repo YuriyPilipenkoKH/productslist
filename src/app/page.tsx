@@ -1,7 +1,34 @@
-import Image from "next/image";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
+import {auth} from '@clerk/nextjs/server'
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const {userId} = auth()
+  if(userId) {
+    redirect('/dashboard')
+  }
   return (
-    <div>products</div>
+    <section className="py-6">
+      <div className="text-center mx-auto py-12 px-4 ">
+      <h1 className="text-3xl font-extrabold text-black">
+        <span className="block">
+          Perosonal Item Organizer
+        </span>
+        <span >
+         Your Perosonal Item Organizer, voted as the best tracker available
+        </span>
+      </h1>
+      <div className="flex-shrink-0">
+        <div className="mt-12 inline-flex rounded-md">
+        <Link href={'/sign-in'}>
+          <Button className="bg-green-800">
+            SignIn
+          </Button>
+        </Link>
+        </div>
+      </div>
+      </div>
+    </section>
   );
 }
