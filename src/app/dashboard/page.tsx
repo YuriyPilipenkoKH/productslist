@@ -22,8 +22,20 @@ async function Dashboard() {
                 <th className='px-5 py-3 text-sm font-normal text-center text-gray-900 uppercase bg-slate-400 border-b border-gray-200'>
                   Name
                 </th>
+                <th className='px-5 py-3 text-sm font-normal text-center text-gray-900 uppercase bg-slate-400 border-b border-gray-200'>
+                  Update
+                </th>
               </tr>
             </thead>
+            <tbody>
+              {categories.map((category:any, idx:number) => (
+                <tr key={idx}>
+                  <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
+
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         ) : (
           <div className='text-center'>
