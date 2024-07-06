@@ -17,6 +17,13 @@ async function Dashboard() {
         </div>
         {categories.length > 0 ? (
           <table className='min-w-full leading-normal text-center'>
+            <thead>
+              <tr>
+                <th className='px-5 py-3 text-sm font-normal text-center text-gray-900 uppercase bg-slate-400 border-b border-gray-200'>
+                  Name
+                </th>
+              </tr>
+            </thead>
           </table>
         ) : (
           <div className='text-center'>
