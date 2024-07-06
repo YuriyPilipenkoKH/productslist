@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Dashboard() {
+async function Dashboard() {
   return (
-    <div>
+    <section className='p-24 space-y-6 min-h-screen flex flex-col'>
         Dashboardpage
-    </div>
+    </section>
   )
 }
 
