@@ -35,7 +35,7 @@ async function Dashboard() {
                     {category.name}
                   </td>
                   <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
-                  <Link href={`/dashboard/category/[id]/update`}>
+                  <Link href={`/dashboard/category/${category.id}/update`}>
                   Details
                   </Link>
                   <button>Delete</button>
