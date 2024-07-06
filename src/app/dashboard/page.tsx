@@ -16,9 +16,12 @@ async function Dashboard() {
           Add category
         </div>
         {categories.length > 0 ? (
-          <></>
+          <table className='min-w-full leading-normal text-center'>
+          </table>
         ) : (
-          <div>Add Category today</div>
+          <div className='text-center'>
+            Add Category today
+          </div>
         )}
     </section>
   )
