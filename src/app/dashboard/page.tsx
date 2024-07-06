@@ -1,6 +1,7 @@
 import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
+import Link from 'next/link'
 
 async function Dashboard() {
   const user = await currentUser()
@@ -31,7 +32,13 @@ async function Dashboard() {
               {categories.map((category:any, idx:number) => (
                 <tr key={idx}>
                   <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
-
+                    {category.name}
+                  </td>
+                  <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
+                  <Link href={`/dashboard/category/[id]/update`}>
+                  Details
+                  </Link>
+                  <button>Delete</button>
                   </td>
                 </tr>
               ))}
