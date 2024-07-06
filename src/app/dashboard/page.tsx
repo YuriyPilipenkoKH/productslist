@@ -12,7 +12,14 @@ async function Dashboard() {
   })
   return (
     <section className='p-24 space-y-6 min-h-screen flex flex-col'>
-        Dashboardpage
+        <div>
+          Add category
+        </div>
+        {categories.length > 0 ? (
+          <></>
+        ) : (
+          <div>Add Category today</div>
+        )}
     </section>
   )
 }
