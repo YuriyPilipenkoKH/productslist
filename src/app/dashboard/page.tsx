@@ -3,11 +3,11 @@ import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
 import { Button } from '@nextui-org/react'
-import AddNewcategoryForm from '@/components/forms/AddNewcategoryForm'
+import AddNewCategoryForm from '@/components/forms/AddNewcategoryForm'
 
 async function Dashboard() {
   const user = await currentUser()
-  const creator = user?.firstName
+  const creator = user?.firstName || ""; // Provide a fallback value for creator
   const categories = await prisma.category.findMany({
     where: {
       creator
@@ -16,7 +16,8 @@ async function Dashboard() {
   return (
     <section className='p-24 space-y-6 min-h-screen flex flex-col'>
         <div>
-         <AddNewcategoryForm
+         <AddNewCategoryForm 
+         creator={creator}
          />
         </div>
         {categories.length > 0 ? (
