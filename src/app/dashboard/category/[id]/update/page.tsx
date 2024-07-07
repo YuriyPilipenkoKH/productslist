@@ -1,4 +1,4 @@
-import UpdateCategoryForm from '@/components/forms/UpdateCategory'
+import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import prisma from '@/lib/prisma'
 import React from 'react'
 interface Params {

@@ -6,8 +6,14 @@ import { redirect } from "next/navigation"
 
 
 export const updateCategory = async (formData: FormData) => {
-    const {name, id} = Object.fromEntries(formData)
+    const name = formData.get('name') as string;
+    const id = formData.get('id') as string;
+  
+    if (typeof name !== 'string' || typeof id !== 'string') {
+      throw new Error('Form values must be strings');
+    }
     console.log(name)
+
     try {
         const updatedCategory = await prisma.category.update({
             where: { id },

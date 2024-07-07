@@ -2,7 +2,7 @@ import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import DeleteCategoryForm from '@/components/forms/DeleteCategory'
+import DeleteCategoryForm from '@/components/forms/DeleteCategoryForm'
 import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
 
 async function Dashboard() {
