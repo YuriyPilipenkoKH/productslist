@@ -1,8 +1,16 @@
+import { addCategory } from '@/actions/add-category'
 import React from 'react'
 
 function AddNewcategoryForm() {
   return (
-    <div>AddNewcategoryForm</div>
+    <form action={addCategory}>
+			<input
+				hidden
+				id='creator'
+				name='creator'
+				// defaultValue={creator}
+				/>
+    </form>
   )
 }
 
