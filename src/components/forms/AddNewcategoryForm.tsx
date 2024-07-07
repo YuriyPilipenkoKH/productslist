@@ -1,17 +1,23 @@
 import { addCategory } from '@/actions/add-category'
 import React from 'react'
 
-function AddNewcategoryForm() {
+interface AddNewCategoryFormProps {
+	creator: string
+}
+
+const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
+	creator
+	}) => {
   return (
     <form action={addCategory}>
 			<input
 				hidden
 				id='creator'
 				name='creator'
-				// defaultValue={creator}
+				defaultValue={creator}
 				/>
     </form>
   )
 }
 
-export default AddNewcategoryForm
+export default AddNewCategoryForm

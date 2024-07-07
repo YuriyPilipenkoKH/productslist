@@ -3,6 +3,7 @@ import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
 import { Button } from '@nextui-org/react'
+import AddNewcategoryForm from '@/components/forms/AddNewcategoryForm'
 
 async function Dashboard() {
   const user = await currentUser()
@@ -15,7 +16,8 @@ async function Dashboard() {
   return (
     <section className='p-24 space-y-6 min-h-screen flex flex-col'>
         <div>
-          Add category
+         <AddNewcategoryForm
+         />
         </div>
         {categories.length > 0 ? (
           <table className='min-w-full leading-normal text-center'>
