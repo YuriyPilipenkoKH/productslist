@@ -2,7 +2,6 @@ import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import { Button } from '@nextui-org/react'
 import AddNewCategoryForm from '@/components/forms/AddNewcategoryForm'
 import DeleteCategoryForm from '@/components/forms/DeleteCategory'
 
