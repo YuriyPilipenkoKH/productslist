@@ -1,11 +1,14 @@
+import UpdateCategoryForm from '@/components/forms/UpdateCategory'
 import prisma from '@/lib/prisma'
 import React from 'react'
-interface UpdateCategoryPageProps {
-    id:string
-}
+interface Params {
+    params: {
+      id: string;
+    };
+  }
 
-async function UpdateCategoryPage({ id }:UpdateCategoryPageProps) {
-
+async function UpdateCategoryPage({ params }: Params) {
+    const id = params.id
     const data = await prisma.category.findUnique({
         where: { id },
         include: {
@@ -14,7 +17,9 @@ async function UpdateCategoryPage({ id }:UpdateCategoryPageProps) {
     })
   return (
     <section className='p-24 space-y-6 min-h-screen flex flex-col'>
-        UpdateCategory
+        <UpdateCategoryForm 
+        id={data?.id || ''} 
+        name={data?.name || ''} />
     </section>
   )
 }
