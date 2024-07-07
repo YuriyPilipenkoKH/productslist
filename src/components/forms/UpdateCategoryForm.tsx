@@ -17,7 +17,8 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 		className='flex flex-col gap-2'>
 			<input
 				hidden
-				id='cid'
+				name='id'
+				id='id'
 				defaultValue={id}
 				/>
 			<Input 
