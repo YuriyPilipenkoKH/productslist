@@ -19,4 +19,5 @@ export const addCategory = async (formData: FormData) => {
         console.log('Error'+ error)
     }
     revalidatePath('/dashboard')
+    redirect('/')
 }
