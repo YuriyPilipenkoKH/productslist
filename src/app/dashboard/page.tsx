@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Button } from '@nextui-org/react'
 import AddNewCategoryForm from '@/components/forms/AddNewcategoryForm'
 
+
 async function Dashboard() {
   const user = await currentUser()
   const creator = user?.firstName || ""; // Provide a fallback value for creator

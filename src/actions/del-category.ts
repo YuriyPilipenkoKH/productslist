@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export const dsleteCategory = async (formData: FormData) => {
+export const deleteCategory = async (formData: FormData) => {
     const id = formData.get('id')
     console.log(id)
     try {
