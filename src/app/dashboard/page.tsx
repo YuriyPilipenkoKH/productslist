@@ -4,6 +4,7 @@ import prisma from '@/lib/prisma'
 import Link from 'next/link'
 import { Button } from '@nextui-org/react'
 import AddNewCategoryForm from '@/components/forms/AddNewcategoryForm'
+import DeleteCategoryForm from '@/components/forms/DeleteCategory'
 
 
 async function Dashboard() {
@@ -45,9 +46,8 @@ async function Dashboard() {
                     <Link href={`/dashboard/category/${category.id}/update`}>
                     Details
                     </Link>
-                    <Button className='bg-transparent text-gray-900'>
-                      Delete
-                    </Button>
+                  <DeleteCategoryForm
+                  id={category.id}/>
                   </td>
                 </tr>
               ))}
