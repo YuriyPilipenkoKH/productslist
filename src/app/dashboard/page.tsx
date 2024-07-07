@@ -2,9 +2,8 @@ import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import AddNewCategoryForm from '@/components/forms/AddNewcategoryForm'
 import DeleteCategoryForm from '@/components/forms/DeleteCategory'
-
+import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
 
 async function Dashboard() {
   const user = await currentUser()
