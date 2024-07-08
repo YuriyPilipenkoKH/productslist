@@ -14,7 +14,7 @@ async function Dashboard() {
     }
   })
   return (
-    <section className='p-24 space-y-6 min-h-screen flex flex-col'>
+    <section className='dashboard p-4 space-y-6 min-h-screen flex flex-col'>
         <div>
          <AddNewCategoryForm 
          creator={creator}

@@ -38,7 +38,7 @@ export default function RootLayout({
                 toastOptions={options} 
                 gutter={24} />
             </Container>
-          {children}
+
         {/* </NextThemeProvider> */}
       </body>
     </html>
