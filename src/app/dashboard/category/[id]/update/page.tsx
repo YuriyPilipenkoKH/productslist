@@ -29,10 +29,32 @@ async function UpdateCategoryPage({ params }: Params) {
         </div>
         {(data?.products?.length ?? 0) > 0 ? (
 
-          <div>
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th className='px-5 py-3 border-b-1  text-gray-800 text-sm uppercase tracking-wider'>
+                Name
+                </th>
+                <th className='px-5 py-3 border-b-1  text-gray-800 text-sm uppercase tracking-wider'>
+                Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.products.map((product, idx:number) => (
+                <tr
+                 key={idx}
+                 className='hover:bg-gray-200 transition duration-400'>
+                  <td className='px-5 py-3  border-b text-center border-gray-200'>
+
+                  </td>
+
+                </tr>
+              ))}
+            </tbody>
+          </table>
         ) : (
-          <div> Add your first product
+          <div className='text-center '> Add your first product
           </div>
         )}
     </section>
