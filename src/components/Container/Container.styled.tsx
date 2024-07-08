@@ -8,7 +8,7 @@ export const MContainer = styled('div')`
     flex-direction: column;
     gap: 4px;
     margin: 0 auto;
-    height:  100vh ;
+    /* height:  100vh ; */
 
     @media screen and (min-width: 320px) {
     width: 320px;
