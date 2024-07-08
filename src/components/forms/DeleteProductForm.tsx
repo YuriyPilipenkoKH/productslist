@@ -1,6 +1,10 @@
 import React from 'react'
 
-function DeleteProductForm() {
+interface DeleteProductFormProps {
+    id: string;
+  }
+
+const DeleteProductForm: React.FC<DeleteProductFormProps> = ({ id }) => {
   return (
     <div>DeleteProductForm</div>
   )
