@@ -22,6 +22,19 @@ async function UpdateCategoryPage({ params }: Params) {
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />
+        <hr />
+        <h2 className='text-center my-4 '>Products below</h2>
+        <div>
+          Addd product
+        </div>
+        {(data?.products?.length ?? 0) > 0 ? (
+
+          <div>
+          </div>
+        ) : (
+          <div> Add your first product
+          </div>
+        )}
     </section>
   )
 }

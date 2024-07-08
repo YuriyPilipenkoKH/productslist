@@ -12,7 +12,9 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
   return (
     <form 
 		action={addCategory}
-		className='flex flex-col gap-2'>
+		className='flex flex-col gap-2'
+		autoComplete="off"
+		noValidate>
 			<input
 				hidden
 				id='creator'
