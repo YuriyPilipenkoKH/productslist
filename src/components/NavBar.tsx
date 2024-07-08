@@ -5,9 +5,8 @@ import Logo from './Logo';
 function NavBar() {
   const {userId} = auth()
 
-
   return (
-    <nav className='flex items-center justify-between px-4 py-4 border-b-slate-200'>
+    <nav className='flex items-center justify-between p-4 border-b-slate-200'>
         <Logo/>
         {/* <ThemeChanger /> */}
 

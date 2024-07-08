@@ -18,7 +18,7 @@ async function UpdateCategoryPage({ params }: Params) {
         }
     })
   return (
-    <section className='p-24 space-y-6 min-h-screen flex flex-col'>
+    <section className='p-4 space-y-6 min-h-screen flex flex-col'>
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />

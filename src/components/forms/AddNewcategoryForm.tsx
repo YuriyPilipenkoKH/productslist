@@ -12,7 +12,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
   return (
     <form 
 		action={addCategory}
-		className='flex flex-col gap-2'
+		className='flex  gap-2'
 		autoComplete="off"
 		noValidate>
 			<input
@@ -24,8 +24,12 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			<Input 
 			name='name'
 			id='name'
-			placeholder='category name'/>
-			<Button type='submit'>Add New category</Button>
+			placeholder='category name'
+			/>
+			<Button 
+			type='submit'
+			className='rounded-full'>
+				Add</Button>
     </form>
   )
 }
