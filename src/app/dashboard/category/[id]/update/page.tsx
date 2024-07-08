@@ -46,7 +46,10 @@ async function UpdateCategoryPage({ params }: Params) {
                  key={idx}
                  className='hover:bg-gray-200 transition duration-400'>
                   <td className='px-5 py-3  border-b text-center border-gray-200'>
-
+                    {product.name}
+                  </td>
+                  <td className='px-5 py-3  border-b text-center border-gray-200'>
+                    Delete
                   </td>
 
                 </tr>
