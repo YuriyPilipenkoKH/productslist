@@ -1,14 +1,32 @@
+import { addProduct } from '@/actions/add-product'
+import { Button, Input } from '@nextui-org/react'
 import React from 'react'
 interface ddNewProductFormProps {
-	creator: string
+	categoryId: string
 }
 
 
 const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
-	creator
+	categoryId
 	}) => {
   return (
-    <div>AddNewProductForm</div>
+    <form 
+		action={addProduct}
+		className='flex flex-col gap-2'
+		autoComplete="off"
+		noValidate>
+			<input
+				hidden
+				id='categoryId'
+				name='categoryId'
+				defaultValue={categoryId}
+				/>
+			<Input 
+			name='name'
+			id='name'
+			placeholder='product name'/>
+			<Button type='submit'>Add product</Button>
+    </form>
   )
 }
 
