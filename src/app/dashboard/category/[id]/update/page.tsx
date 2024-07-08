@@ -1,3 +1,4 @@
+import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import prisma from '@/lib/prisma'
 import React from 'react'
@@ -25,7 +26,7 @@ async function UpdateCategoryPage({ params }: Params) {
         <hr />
         <h2 className='text-center my-4 '>Products below</h2>
         <div>
-          Addd product
+         <AddNewProductForm categoryId= {data?.id || ''}/>
         </div>
         {(data?.products?.length ?? 0) > 0 ? (
 
