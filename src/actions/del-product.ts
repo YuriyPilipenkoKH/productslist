@@ -8,7 +8,6 @@ export const deleteProduct = async (formData: FormData) => {
     if (typeof id !== 'string') {
         throw new Error('Form values must be strings');
       }
-    console.log(id)
     try {
         await prisma.product.delete({
             where: { id }

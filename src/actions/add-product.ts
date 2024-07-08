@@ -11,7 +11,6 @@ export const addProduct = async (formData: FormData) => {
     if (typeof name !== 'string' || typeof categoryId !== 'string') {
       throw new Error('Form values must be strings');
     }
-    console.log(name, categoryId)
     try {
         const newProduct = await prisma.product.create({
             data: {
@@ -19,7 +18,6 @@ export const addProduct = async (formData: FormData) => {
                 categoryId
             }
         })
-        console.log('Category created:', newProduct);
     }
      catch (error) {
         console.log('Error'+ error)

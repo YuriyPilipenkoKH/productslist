@@ -11,14 +11,12 @@ interface Params {
 
 async function UpdateCategoryPage({ params }: Params) {
     const id = params.id
-    console.log(id)
     const data = await prisma.category.findUnique({
         where: { id },
         include: {
             products: true
         }
     })
-    console.log(data)
   return (
     <section className='p-24 space-y-6 min-h-screen flex flex-col'>
         <UpdateCategoryForm 
