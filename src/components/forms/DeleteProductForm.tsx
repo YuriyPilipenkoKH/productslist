@@ -17,7 +17,7 @@ const DeleteProductForm: React.FC<DeleteProductFormProps> = ({ id }) => {
     <Button
      type='submit'
      variant='light'>
-      Delete Category</Button>
+      Delete</Button>
   </form>
   )
 }

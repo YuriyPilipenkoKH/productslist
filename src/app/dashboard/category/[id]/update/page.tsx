@@ -1,4 +1,5 @@
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
+import DeleteProductForm from '@/components/forms/DeleteProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import prisma from '@/lib/prisma'
 import React from 'react'
@@ -50,7 +51,7 @@ async function UpdateCategoryPage({ params }: Params) {
                     {product.name}
                   </td>
                   <td className='px-5 py-3  border-b text-center border-gray-200'>
-                    Delete
+                    <DeleteProductForm id ={product.id}/>
                   </td>
 
                 </tr>
