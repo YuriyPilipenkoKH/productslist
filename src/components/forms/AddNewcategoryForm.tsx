@@ -1,5 +1,6 @@
+'use client'
 import { addCategory } from '@/actions/add-category'
-import { Button, Input } from '@nextui-org/react'
+import {  Input } from '@nextui-org/react'
 import React from 'react'
 import { AddCategoryBtnStyles } from './FormStyles'
 
@@ -15,7 +16,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
   return (
     <form
 		action={addCategory}
-		className='flex gap-2'
+		className='flex gap-2 items-center'
 		autoComplete="off"
 		noValidate>
 			<input
@@ -31,9 +32,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			/>
 			<button 
 			type='submit'
-			style={AddCategoryBtnStyles}
-			className='w-46 h-46 rounded-full '
-			>
+						>
 				Add</button>
     </form>
   )
