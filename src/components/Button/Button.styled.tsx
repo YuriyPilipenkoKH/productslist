@@ -89,7 +89,7 @@ export const SAddNewBtn = styled('button')`
 
   width: 60px;
   height: 60px;
-  color: #222;
+  color: #cbd5e1;
   border: 4px solid #14532d;
   border-radius: 50%;
   padding: 0.25rem 1rem;

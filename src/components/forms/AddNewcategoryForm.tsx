@@ -1,10 +1,8 @@
 'use client'
 import { addCategory } from '@/actions/add-category'
-import {  Input } from '@nextui-org/react'
 import React from 'react'
 import { AddNewBtn } from '../Button/Button'
 import { Form_AddNewCategory, FormInput } from './FormStyles.styled'
-
 
 
 
