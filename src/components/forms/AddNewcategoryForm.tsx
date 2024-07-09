@@ -2,6 +2,7 @@ import { addCategory } from '@/actions/add-category'
 import { Button, Input } from '@nextui-org/react'
 import React from 'react'
 
+
 interface AddNewCategoryFormProps {
 	creator: string
 }
@@ -10,9 +11,9 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 	creator
 	}) => {
   return (
-    <form 
+    <form
 		action={addCategory}
-		className='flex  gap-2'
+		className='flex gap-2'
 		autoComplete="off"
 		noValidate>
 			<input

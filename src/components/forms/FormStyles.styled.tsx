@@ -85,13 +85,10 @@ export const AuthError = styled('div')`
 `;
 
 export const Form_AddNewCategory = styled('form')`
-    display: grid;
+    display: flex;
     gap: 12px;
-    grid-template-rows: 70px 70px 28px;
-    height: 195px;
+    height: 40px;
 `;
-
-
 
 export const Avatar = styled('div')`
     /* border: 2px solid var(--green); */
