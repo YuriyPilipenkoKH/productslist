@@ -30,6 +30,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			name='name'
 			id='name'
 			placeholder='category name'
+			
 			/>
 			<AddNewBtn 
 			type='submit'
