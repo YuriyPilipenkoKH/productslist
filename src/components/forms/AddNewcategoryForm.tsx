@@ -3,6 +3,7 @@ import { addCategory } from '@/actions/add-category'
 import {  Input } from '@nextui-org/react'
 import React from 'react'
 import { AddNewBtn } from '../Button/Button'
+import { FormInput } from './FormStyles.styled'
 
 
 
@@ -26,7 +27,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 				name='creator'
 				defaultValue={creator}
 				/>
-			<Input 
+			<FormInput 
 			name='name'
 			id='name'
 			placeholder='category name'

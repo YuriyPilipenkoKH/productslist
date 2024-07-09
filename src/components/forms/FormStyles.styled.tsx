@@ -36,6 +36,7 @@ export const baseInputStyles = css`
 
 export const FormInput = styled('input')`
     ${baseInputStyles};
+    border-radius: 1.25rem;
     &::placeholder{
         color: #555;
     }
