@@ -3,7 +3,7 @@ import { addCategory } from '@/actions/add-category'
 import {  Input } from '@nextui-org/react'
 import React from 'react'
 import { AddNewBtn } from '../Button/Button'
-import { FormInput } from './FormStyles.styled'
+import { Form_AddNewCategory, FormInput } from './FormStyles.styled'
 
 
 
@@ -16,7 +16,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 	creator
 	}) => {
   return (
-    <form
+    <Form_AddNewCategory
 		action={addCategory}
 		className='flex gap-2 items-center'
 		autoComplete="off"
@@ -37,7 +37,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			type='submit'
 						>
 				Add</AddNewBtn>
-    </form>
+    </Form_AddNewCategory>
   )
 }
 

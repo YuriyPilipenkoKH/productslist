@@ -37,6 +37,7 @@ export const baseInputStyles = css`
 export const FormInput = styled('input')`
     ${baseInputStyles};
     border-radius: 1.25rem;
+    border: none;
     &::placeholder{
         color: #555;
     }
@@ -94,11 +95,12 @@ export const AuthError = styled('div')`
     white-space: nowrap; 
 `;
 
-export const Form_AddNew = styled('form')`
-    display: grid;
-    gap: 12px;
-    grid-template-rows: 70px 70px 28px;
-    height: 195px;
+export const Form_AddNewCategory = styled('form')`
+    display: flex;
+    gap: 8px;
+    background-color: #cbd5e1;
+    border-radius: 1.25rem;
+    height: 38px;
 `;
 
 export const Form_PhoneEdit = styled('form')`

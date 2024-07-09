@@ -89,7 +89,7 @@ export const SAddNewBtn = styled('button')`
 
   width: 60px;
   height: 60px;
-  color: #888;
+  color: #222;
   border: 4px solid #14532d;
   border-radius: 50%;
   padding: 0.25rem 1rem;
@@ -97,7 +97,8 @@ export const SAddNewBtn = styled('button')`
   background-color: #14532d;
   transition: all 0.5s ease;
   &:hover {
-    background-color: #14532dcc;
+    background-color: #2da95f;
+    border-color: #2da95f;
     color: #eee;
   }
 
