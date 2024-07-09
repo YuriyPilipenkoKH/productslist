@@ -1,17 +1,24 @@
 'use client'
 
-import { Button } from '@nextui-org/react'
 import { useTheme } from 'next-themes'
 import React from 'react'
+import { PiHeadlightsBold } from "react-icons/pi";
+import { BsMoonStars } from "react-icons/bs";
+import { FlatBtn } from './Button/Button';
 
 function ThemeChanger() {
     const { theme, setTheme } = useTheme()
   return (
     <div>
-    The current theme is: {theme}
-    <Button onClick={() => setTheme('light')}>Light Mode</Button>
-    <Button onClick={() => setTheme('dark')}>Dark Mode</Button>
-  </div>
+    
+      <FlatBtn onClick={() => setTheme('light')}>
+        <PiHeadlightsBold/>
+      </FlatBtn>
+      <FlatBtn onClick={() => setTheme('dark')}>
+        <BsMoonStars/>
+      </FlatBtn>
+
+    </div>
   )
 }
 
