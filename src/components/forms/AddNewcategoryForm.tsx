@@ -6,7 +6,7 @@ import { AuthError, Form_AddNewCategory, FormInput } from './FormStyles.styled'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/createContact'
-
+import toast from 'react-hot-toast';
 
 
 interface AddNewCategoryFormProps {

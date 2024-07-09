@@ -5,22 +5,25 @@ import { revalidatePath } from "next/cache"
 
 
 export const addCategory = async (formData: FormData) => {
-    const name = formData.get('name') as string;
-    const creator = formData.get('creator') as string;
+    const name = formData.get('name') 
+    const creator = formData.get('creator') 
   
-    if (typeof name !== 'string' || typeof creator !== 'string') {
-      throw new Error('Form values must be strings');
-    }
     try {
         const newCategory = await prisma.category.create({
             data: {
-                name,
-                creator
+                name: name as string,
+                creator: creator as string,
             }
         })
+        revalidatePath('/dashboard')
+        return { success: true, newCategory };
     }
      catch (error) {
         console.log('Error'+ error)
+        let errorMessage = 'An unexpected error occurred';
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+        return { success: false, error: errorMessage };
     }
-    revalidatePath('/dashboard')
 }
