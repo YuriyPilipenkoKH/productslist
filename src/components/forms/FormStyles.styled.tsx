@@ -79,13 +79,13 @@ export const PricingWrap = styled('div')`
 `
 
 export const AuthError = styled('div')`
-    color: #eee;
-    background-color: #dc2626cc;
+    color: #ededed;
+    background-color: transparent;
     font-size: 0.7rem;
     line-height: 1.25rem/* 20px */;
-    padding: 12px 8px;
-    padding-right: 0.75rem/* 12px */;
-    border-radius: 0.375rem/* 6px */;
+    padding: 8px 8px;
+    /* padding-right: 0.75rem/* 12px; */
+    border-radius: 0.8rem/* 6px */;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -96,6 +96,7 @@ export const AuthError = styled('div')`
 `;
 
 export const Form_AddNewCategory = styled('form')`
+    position: relative;
     display: flex;
     gap: 8px;
     background-color: #cbd5e1;

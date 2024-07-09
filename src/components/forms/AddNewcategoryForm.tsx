@@ -1,8 +1,11 @@
 'use client'
 import { addCategory } from '@/actions/add-category'
-import React from 'react'
+import React, { useState } from 'react'
 import { AddNewBtn } from '../Button/Button'
-import { Form_AddNewCategory, FormInput } from './FormStyles.styled'
+import { AuthError, Form_AddNewCategory, FormInput } from './FormStyles.styled'
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/createContact'
 
 
 
@@ -13,6 +16,29 @@ interface AddNewCategoryFormProps {
 const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 	creator
 	}) => {
+		const [logError, setLogError] = useState<string>('')
+		const {
+			register, 
+			handleSubmit,
+			formState,
+			reset,
+			watch
+		} = useForm<addNewCategorySchemaType>({
+			defaultValues: {
+				name: '',
+
+			},
+				mode:'all',
+				resolver: zodResolver(addNewCategorySchema),
+		})
+		const {
+			errors,
+			isDirty,
+			isValid ,
+			isSubmitting,
+		} = formState
+
+
   return (
     <Form_AddNewCategory
 		action={addCategory}
@@ -26,15 +52,26 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 				defaultValue={creator}
 				/>
 			<FormInput 
-			name='name'
-			id='name'
-			placeholder='category name'
-			
+			 {...register('name')}
+			 placeholder='category name'
+			 // name='name'
+			 // id='name'
 			/>
 			<AddNewBtn 
 			type='submit'
+			disabled={isSubmitting || !isDirty || !isValid}
 						>
-				Add</AddNewBtn>
+				{( isSubmitting ) 
+				? "Process" 
+				: "Add" }
+			</AddNewBtn>
+		<div className='absolute bottom-[-24px]'>
+		{( errors?.name ) && (
+				<AuthError className="autherror">
+					{errors.name && <div>{errors?.name.message}</div>}
+				</AuthError>
+			)}
+		</div>		
     </Form_AddNewCategory>
   )
 }
