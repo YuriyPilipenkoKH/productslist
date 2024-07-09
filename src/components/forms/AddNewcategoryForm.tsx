@@ -71,15 +71,15 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 				/>
 			<FormInput 
 			 {...register('name')}
-			 placeholder='category name'
+				 placeholder=	{( isSubmitting ) 
+				? "Process" 
+				: 'category name'}
 			/>
 			<AddNewBtn 
 			type='submit'
 			disabled={isSubmitting || !isDirty || !isValid}
 						>
-				{( isSubmitting ) 
-				? "Process" 
-				: "Add" }
+				Add
 			</AddNewBtn>
 		<div className='absolute bottom-[-24px]'>
 		{( errors?.name ) && (
