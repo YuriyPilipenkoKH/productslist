@@ -37,11 +37,29 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			isValid ,
 			isSubmitting,
 		} = formState
+		const onSubmit = async (data: addNewCategorySchemaType) => {
+			const formData = new FormData();
+			formData.append('name', data.name);
+			formData.append('creator', creator);
+
+			try {
+					const result = await addCategory(formData);
+					if (result.success) {
+							toast.success('Category added successfully!');
+							reset();
+					} else {
+							toast.error(`Failed to add category: ${result.error}`);
+					}
+        } catch (error) {
+					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+					toast.error(`An error occurred: ${errorMessage}`);
+			}
+	};
 
 
   return (
     <Form_AddNewCategory
-		action={addCategory}
+		onSubmit={handleSubmit(onSubmit)}
 		className='flex gap-2 items-center'
 		autoComplete="off"
 		noValidate>
@@ -54,8 +72,6 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			<FormInput 
 			 {...register('name')}
 			 placeholder='category name'
-			 // name='name'
-			 // id='name'
 			/>
 			<AddNewBtn 
 			type='submit'
