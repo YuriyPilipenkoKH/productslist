@@ -2,7 +2,8 @@
 import { addCategory } from '@/actions/add-category'
 import {  Input } from '@nextui-org/react'
 import React from 'react'
-import { AddCategoryBtnStyles } from './FormStyles'
+import { AddNewBtn } from '../Button/Button'
+
 
 
 
@@ -30,10 +31,10 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			id='name'
 			placeholder='category name'
 			/>
-			<button 
+			<AddNewBtn 
 			type='submit'
 						>
-				Add</button>
+				Add</AddNewBtn>
     </form>
   )
 }

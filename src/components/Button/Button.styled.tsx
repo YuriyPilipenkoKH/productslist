@@ -87,16 +87,17 @@ export const SBtnDelete = styled('button')`
 export const SAddNewBtn = styled('button')`
   ${buttonStyles} ;
 
-  width: 300px;
-  color: #14532d;
+  width: 60px;
+  height: 60px;
+  color: #888;
   border: 4px solid #14532d;
+  border-radius: 50%;
   padding: 0.25rem 1rem;
-  border-radius: 0.75rem;
   font-weight: 600;
-  background-color: transparent;
-
+  background-color: #14532d;
+  transition: all 0.5s ease;
   &:hover {
-    background-color: #14532d;
+    background-color: #14532dcc;
     color: #eee;
   }
 
