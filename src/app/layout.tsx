@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster } from "react-hot-toast";
-// import { NextThemeProvider } from "@/providers/NextThemeProvider";
+import {ThemeProvider} from "styled-components"
 import NavBar from "@/components/NavBar";
 import Container from "@/components/Container/Container";
 import { options } from "@/lib/hotToast";
+import { theme } from "@/lib/theme";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -27,7 +28,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning>
       <body className={inter.className}>
-        {/* <NextThemeProvider> */}
+        <ThemeProvider theme={theme}>
         <Container>
               <NavBar 
               // searchParams={searchParams}
@@ -39,7 +40,7 @@ export default function RootLayout({
                 gutter={24} />
             </Container>
 
-        {/* </NextThemeProvider> */}
+        </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>
