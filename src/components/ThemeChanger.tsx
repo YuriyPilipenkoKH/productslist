@@ -9,16 +9,19 @@ import { FlatBtn } from './Button/Button';
 function ThemeChanger() {
     const { theme, setTheme } = useTheme()
   return (
-    <div>
-    
-      <FlatBtn onClick={() => setTheme('light')}>
+    <>
+    {(theme === 'light') && (
+      <FlatBtn onClick={() => setTheme('dark')}>
+        
         <PiHeadlightsBold/>
       </FlatBtn>
-      <FlatBtn onClick={() => setTheme('dark')}>
+    )}
+    {(theme === 'dark' ) && (
+      <FlatBtn onClick={() => setTheme('light')}>
         <BsMoonStars/>
       </FlatBtn>
-
-    </div>
+    )}
+    </>
   )
 }
 
