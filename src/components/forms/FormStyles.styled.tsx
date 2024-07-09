@@ -84,25 +84,7 @@ export const AuthError = styled('div')`
     white-space: nowrap; 
 `;
 
-export const Form_AddNewCategory = styled('form')`
-    display: flex;
-    gap: 12px;
-    height: 40px;
-`;
 
-export const Avatar = styled('div')`
-    /* border: 2px solid var(--green); */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    &>.photo{
-        width: 100px;
-        height: 100px;
-        border: 2px solid var(--green);
-        border-radius:20px; 
-    }
-`;
 
 interface AvatarWrapProps {
     avatarurl: string;
@@ -171,6 +153,18 @@ export const AvatarWrap = styled("div", {
         border: 2px solid #999;
    }
 `
+const OneLiner = styled.div`
+    border: 2px solid var(--grey);
+    border-radius: 0.5rem/* 8px */;
+    padding: 8px 16px;
+    background-color: #cbd5e1;
+    width: 100%;
+    height: 38px;
+    transition: all 0.4s ease;
+    color: #222;
+    font-weight: 600;
+`
+
 
 export const lowPriceColor = {
     backgroundColor: '#2196f3',
