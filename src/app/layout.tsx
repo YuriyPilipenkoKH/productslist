@@ -6,7 +6,6 @@ import { Toaster } from "react-hot-toast";
 import NavBar from "@/components/NavBar";
 import Container from "@/components/Container/Container";
 import { options } from "@/lib/hotToast";
-import { theme } from "@/lib/theme";
 import { NextThemeProvider } from "@/providers/NextThemeProvider";
 
 
