@@ -27,12 +27,12 @@ async function Dashboard() {
         </div>
         {categories.length > 0 ? (
           <table className='Mtable min-w-full leading-normal text-center'>
-            <thead >
+            <thead className='headst rounded-ss-2xl'>
               <tr>
-                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase bg-slate-400 border-b border-gray-200'>
+                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase  border-b border-gray-200 bl'>
                   Name
                 </th>
-                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase bg-slate-400 border-b border-gray-200'>
+                <th className='mtext px-5 py-3 text-sm font-medium text-center  uppercase  border-b border-gray-200 br'>
                   Update
                 </th>
               </tr>

@@ -137,16 +137,16 @@ export const SAddNewBtn = styled('button')`
   width: 60px;
   height: 60px;
   color: #cbd5e1;
-  border: 4px solid #14532d;
+  border: 4px solid var(--dark-green);
   border-radius: 50%;
   padding: 0.25rem 1rem;
   font-weight: 600;
-  background-color: #14532d;
+  background-color: var(--dark-green);
   transition: all 0.5s ease;
   &:hover {
-    background-color: #2da95f;
-    border-color: #2da95f;
-    color: #eee;
+    background-color: var(--green);
+    border-color: var(--green);
+    color: var(--yellow);
   }
 
 `;
