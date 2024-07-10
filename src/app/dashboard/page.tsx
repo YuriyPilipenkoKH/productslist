@@ -8,6 +8,7 @@ import MainModal from '@/components/modals/MainModal'
 import { DeletingCategoryConfirmProps, ShowCategoryDetailsProps } from '@/data/modalProps'
 import { Category } from '@prisma/client'
 import { ShowDetails } from '@/components/Button/Button.styled'
+import EditIcon from '@/components/icons/EditIcon'
 
 async function Dashboard() {
   const user = await currentUser()
@@ -50,6 +51,7 @@ async function Dashboard() {
                     <ShowDetails
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>
+                      <EditIcon/>
                       details
                     </ShowDetails>
                     <MainModal 

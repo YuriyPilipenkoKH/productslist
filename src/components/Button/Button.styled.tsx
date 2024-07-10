@@ -86,7 +86,7 @@ export const SBtnDelete = styled('button')`
   color: var(--text-color);
   border-color: var(--text-color);
   border-radius: 5px;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.5rem;
   transition: all 0.4s ease;
   & >svg {
   fill: var(--text-color);
@@ -112,7 +112,7 @@ export const ShowDetails = styled(Link)`
   color: var(--text-color);
   border-color: var(--text-color);
   border-radius: 5px;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.5rem;
   transition: all 0.4s ease;
   & >svg {
   fill: var(--text-color);
@@ -120,12 +120,12 @@ export const ShowDetails = styled(Link)`
   }
 
   &:hover  {
-  color: var(--dark-green);
-  border-color: var(--dark-green);
+  color: var(--green);
+  border-color: var(--green);
   background-color: transparent;
   transition: all 0.4s ease;
   & >svg {
-  fill: var(--dark-green);
+  fill: var(--green);
   transition: all 0.4s ease;
   }
   }
