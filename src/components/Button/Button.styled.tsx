@@ -80,12 +80,25 @@ export const SBtnDelete = styled('button')`
   overflow: hidden;
   
   ${buttonStyles} ;
-  ${ripple} ;
   background-color: transparent;
   color: var(--text-color);
   border-color: var(--text-color);
   border-radius: 5px;
   padding: 0.25rem 1rem;
+  transition: all 0.4s ease;
+
+
+  &:hover  {
+  color: var(--red);
+  box-shadow: var(--shadow-two);
+  border-color: var(--red);
+  background-color: transparent;
+  transition: all 0.4s ease;
+  & >svg {
+  fill: var(--red);
+  transition: all 0.4s ease;
+  }
+  }
 `;
 
 export const SAddNewBtn = styled('button')`

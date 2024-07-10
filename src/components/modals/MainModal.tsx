@@ -6,6 +6,7 @@ import { LiaEditSolid } from 'react-icons/lia';
 import toast from 'react-hot-toast';
 import { dellBtnStyle } from '../Button/Button.styled';
 import { ModalBaseTypes } from '@/types/modalTypes';
+import DelIcon from '../icons/DelIcon';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -61,7 +62,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id }) => {
     <BtnDelete
         type="button" 
         onClick={showModal}>
-        <LiaEditSolid  /> delete
+        <DelIcon  /> delete
     </BtnDelete>
     <Modal
         className=' relative'
