@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/createContact'
 import toast from 'react-hot-toast';
+import capitalize from '@/lib/capitalize'
 
 
 interface AddNewCategoryFormProps {
@@ -45,10 +46,10 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			try {
 					const result = await addCategory(formData);
 					if (result.success) {
-							toast.success('Category added successfully!');
+							toast.success(`Category ${capitalize(data.name)} added successfully`!);
 							reset();
 					} else {
-							toast.error(`Failed to add category: ${result.error}`);
+							toast.error(`Failed to add ${capitalize(data.name)} category : ${result.error}`);
 					}
         } catch (error) {
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
