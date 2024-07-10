@@ -64,12 +64,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[ 
-        <DeleteCategoryForm
-                key='del'
-                id={id}
-                name={name}
-                setIsSubmitting={setIsSubmitting}
-                />  ,
+          
         <CancelBtn
             key="back" 
             className='cancel_btn w-[70px] rounded-md '
@@ -78,13 +73,19 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         Cancel
         </CancelBtn>
          ]}
-    >
-    <p>
-         There will be no return....
-    </p>
-
-
-
+        >
+        <p>
+            There will be no return....
+        </p>
+        <div className='absolute bottom-[20px]'>
+            {(modalName === 'DeletingCategoryConfirm') && (
+            <DeleteCategoryForm
+                id={id}
+                name={name}
+                setIsSubmitting={setIsSubmitting}
+                    />
+                )}
+        </div>
     </Modal>
     </>
   )
