@@ -81,7 +81,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         footer={[ 
         <DeleteCategoryForm
                 key='del'
-                id={id}/>  ,
+                id={id}
+                name={name}/>  ,
         <CancelBtn
             key="back" 
             className='cancel_btn w-[70px] rounded-md '
