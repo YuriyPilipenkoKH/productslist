@@ -1,4 +1,4 @@
-import { SAddNewBtn, SBtn, SBtnDelete, SCancelBtn, SEditBtn, SFlatBtn, SPagBtn } from "./Button.styled";
+import { SAddNewBtn, SBtn, SBtnDelete, SCancelBtn, SEditBtn, SFlatBtn, SModalDelBtn, SPagBtn } from "./Button.styled";
 
   interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
       children: React.ReactNode;
@@ -18,6 +18,9 @@ import { SAddNewBtn, SBtn, SBtnDelete, SCancelBtn, SEditBtn, SFlatBtn, SPagBtn }
   };
   export const CancelBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SCancelBtn type='button' {...props}> {children}</SCancelBtn>;
+  };
+  export const ModalDelBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
+      return <SModalDelBtn type='button' {...props}> {children}</SModalDelBtn>;
   };
   export const EditBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SEditBtn type='button' {...props}> {children}</SEditBtn>;

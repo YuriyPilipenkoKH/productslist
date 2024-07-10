@@ -7,13 +7,16 @@ import toast from 'react-hot-toast';
 
 import { ModalBaseTypes } from '@/types/modalTypes';
 import DelIcon from '../icons/DelIcon';
+import capitalize from '@/lib/capitalize';
+import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
     id: string
+    name: string
 }
 
-const MainModal: React.FC<MainModalProps> = ({ modalTypes, id }) => {
+const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     const {
         dimentions, 
         modalName, 
@@ -68,22 +71,17 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id }) => {
     )}
 
     <Modal
-        className=' relative'
+        className='delModal relative'
         open={open}
         title={( isSubmitting ) 
             ? "Processing" 
-            : `Are you sure deleting ?`}
+            : `Are you sure deleting ${capitalize(name)}?`}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[ 
-        <Btn
-            key="add" 
-            className='addphone_btn w-[70px] rounded-md '
-            disabled={ isSubmitting }
-            onClick={removal}
-            >
-            Del
-        </Btn>,
+        <DeleteCategoryForm
+                key='del'
+                id={id}/>  ,
         <CancelBtn
             key="back" 
             className='cancel_btn w-[70px] rounded-md '

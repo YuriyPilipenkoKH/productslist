@@ -167,6 +167,22 @@ export const SCancelBtn = styled('button')`
   }
 
 `;
+export const SModalDelBtn = styled('button')`
+  ${buttonStyles} ;
+
+  font-weight: 600;
+  border-radius:6px; 
+
+  background-color: var(--red);
+
+  &:hover {
+  background-color: #5604efa0;
+  }
+  &:disabled{
+  background-color: #888;
+  }
+
+`;
 
 export const SEditBtn = styled('button')`
   ${buttonStyles} ;

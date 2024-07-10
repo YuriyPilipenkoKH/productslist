@@ -1,6 +1,7 @@
 import { deleteCategory } from '@/actions/del-category';
 import { Button, Input } from '@nextui-org/react';
 import React from 'react';
+import { ModalDelBtn } from '../Button/Button';
 
 interface DeleteCategoryFormProps {
   id: string;
@@ -14,10 +15,11 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ id }) => {
         name='id'
         defaultValue={id}
       />
-      <Button
+      <ModalDelBtn
        type='submit'
-       variant='light'>
-        Delete </Button>
+       >
+        Delete 
+      </ModalDelBtn>
     </form>
   );
 };
