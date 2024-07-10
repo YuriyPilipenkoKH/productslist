@@ -1,7 +1,7 @@
 'use client'
 import { Modal } from 'antd';
 import React, {  useContext, useState } from 'react'
-import {   Btn, CancelBtn, FlatBtn } from '../Button/Button';
+import {   Btn, BtnDelete, CancelBtn, FlatBtn } from '../Button/Button';
 import { LiaEditSolid } from 'react-icons/lia';
 import toast from 'react-hot-toast';
 import { dellBtnStyle } from '../Button/Button.styled';
@@ -58,11 +58,11 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id }) => {
 
   return (
     <>
-    <FlatBtn 
+    <BtnDelete
         type="button" 
         onClick={showModal}>
         <LiaEditSolid  /> delete
-    </FlatBtn>
+    </BtnDelete>
     <Modal
         className=' relative'
         open={open}
