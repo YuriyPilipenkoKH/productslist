@@ -82,7 +82,9 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         <DeleteCategoryForm
                 key='del'
                 id={id}
-                name={name}/>  ,
+                name={name}
+                setIsSubmitting={setIsSubmitting}
+                />  ,
         <CancelBtn
             key="back" 
             className='cancel_btn w-[70px] rounded-md '

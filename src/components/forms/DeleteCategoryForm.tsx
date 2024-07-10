@@ -8,12 +8,19 @@ import capitalize from '@/lib/capitalize';
 interface DeleteCategoryFormProps {
   id: string;
   name: string
-}
+  setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  }
 
-const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ id, name }) => {
+const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ 
+  id, 
+  name,
+  setIsSubmitting,
+ 
+ }) => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitting(true)
     const formData = new FormData();
     formData.append('id', id);
    
@@ -28,7 +35,10 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ id, name }) => 
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
         toast.error(`An error occurred: ${errorMessage}`);
-    }
+      }
+      finally{
+        setIsSubmitting(false)
+      }
 };
   return (
     <form onSubmit={handleSubmit}
