@@ -117,3 +117,24 @@ img {
   border-radius:0 22px 0 0 ;
 
 }
+/*  custom modal styles */
+.delModal >div[tabindex='-1'] {
+  display: grid;
+  place-items: center;
+
+}
+
+.delModal > div>.ant-modal-content{
+  height: 180px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  
+}
+.delModal >div>.ant-modal-content >.ant-modal-footer {
+  display: flex;
+  gap: 22px;
+  justify-content: flex-end;
+  margin-top: auto;
+}
