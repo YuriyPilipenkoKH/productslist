@@ -13,7 +13,7 @@ export const ShowCategoryDetailsProps: ModalBaseTypes = {
   modalName: 'ShowCategoryDetails',
   dimentions: ['400px', '300px'],
   title: 'Details',
-  text: 'Are you sure?',
+  text: 'You can edit any field?',
   imageUrl: null,
   
 };
