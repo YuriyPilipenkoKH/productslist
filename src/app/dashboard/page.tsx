@@ -40,7 +40,7 @@ async function Dashboard() {
             <tbody>
               {categories.map((category:Category, idx:number) => (
                 <tr key={idx}>
-                  <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
+                  <td className='px-2 py-3 text-sm font-normal text-left text-gray-900 border-b border-gray-200'>
                     <Link 
                     className='mtext'
                     href={`/dashboard/category/${category.id}`}>
