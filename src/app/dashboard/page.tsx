@@ -9,6 +9,7 @@ import { DeletingCategoryConfirmProps, ShowCategoryDetailsProps } from '@/data/m
 import { Category } from '@prisma/client'
 import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
+import capitalize from '@/lib/capitalize'
 
 async function Dashboard() {
   const user = await currentUser()
@@ -44,7 +45,7 @@ async function Dashboard() {
                     <Link 
                     className='mtext'
                     href={`/dashboard/category/${category.id}`}>
-                      {category.name}
+                      {capitalize(category.name)}
                     </Link>
                   </td>
                   <td className= ' flex items-center gap-4 px-1 py-3 text-sm font-normal text-center border-b border-gray-200'>
