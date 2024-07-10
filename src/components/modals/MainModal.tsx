@@ -44,21 +44,6 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         setOpen(false);
     };
 
-    const removal = async() => {
-        setLoading(true)
-        setIsSubmitting(true)
-        try {
-           
-           }
- 
-        catch (error) {
-            toast.error("Deleting failed")
-        }
-        finally{
-            setIsSubmitting(false)
-            setLoading(false);
-        }
-    };
 
   return (
     <>
