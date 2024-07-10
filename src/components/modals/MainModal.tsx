@@ -4,28 +4,21 @@ import React, {  useContext, useState } from 'react'
 import {   Btn, CancelBtn, FlatBtn } from '../Button/Button';
 import { LiaEditSolid } from 'react-icons/lia';
 import toast from 'react-hot-toast';
-// import capitalize from '@/lib/capitalize';
 import { dellBtnStyle } from '../Button/Button.styled';
-
+import { ModalBaseTypes } from '@/types/modalTypes';
 
 interface MainModalProps {
-    modalName: string
-    dimentions: string[]    
-    title: string
-    text: string
-    imageUrl: string
-    delId: string
+    modalTypes: ModalBaseTypes
+    id: string
 }
 
-const MainModal: React.FC<MainModalProps> = ({
-    modalName,
-    dimentions,
-    title,
-    text,
-    imageUrl,
-    delId
-}) => {
-  
+const MainModal: React.FC<MainModalProps> = ({ modalTypes, id }) => {
+    const {
+        dimentions, 
+        modalName, 
+        text, 
+        title
+    } = modalTypes
     const [loading, setLoading] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
@@ -67,14 +60,11 @@ const MainModal: React.FC<MainModalProps> = ({
     <>
     <FlatBtn 
         type="button" 
-        style={dellBtnStyle}
         onClick={showModal}>
-        <LiaEditSolid 
-            className='visually-hidden'
-        />
+        <LiaEditSolid  /> delete
     </FlatBtn>
     <Modal
-        className='AddNew_modal Del_Numbers relative'
+        className=' relative'
         open={open}
         title={( isSubmitting ) 
             ? "Processing" 

@@ -4,6 +4,8 @@ import prisma from '@/lib/prisma'
 import Link from 'next/link'
 import DeleteCategoryForm from '@/components/forms/DeleteCategoryForm'
 import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
+import MainModal from '@/components/modals/MainModal'
+import { DeletingCategoryConfirmProps } from '@/data/modalProps'
 
 async function Dashboard() {
   const user = await currentUser()
@@ -48,8 +50,12 @@ async function Dashboard() {
                     href={`/dashboard/category/${category.id}/update`}>
                     Details
                     </Link>
-                  <DeleteCategoryForm
-                  id={category.id}/>
+                    <MainModal 
+                    modalTypes={DeletingCategoryConfirmProps}
+                    id={category.id}
+                    />
+                  {/* <DeleteCategoryForm
+                  id={category.id}/> */}
                   </td>
                 </tr>
               ))}
