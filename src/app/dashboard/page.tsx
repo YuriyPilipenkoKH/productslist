@@ -30,10 +30,10 @@ async function Dashboard() {
           <table className='Mtable min-w-full leading-normal text-center'>
             <thead className='headst rounded-ss-2xl'>
               <tr>
-                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase  border-b border-gray-200 bl'>
+                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase  bl'>
                   Name
                 </th>
-                <th className='mtext px-5 py-3 text-sm font-medium text-center  uppercase  border-b border-gray-200 br'>
+                <th className='mtext px-5 py-3 text-sm font-medium text-center  uppercase  br'>
                   Update
                 </th>
               </tr>
