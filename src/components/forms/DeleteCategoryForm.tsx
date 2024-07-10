@@ -4,18 +4,20 @@ import React from 'react';
 import { ModalDelBtn } from '../Button/Button';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
+import { wait } from '@/lib/wait';
 
 interface DeleteCategoryFormProps {
   id: string;
   name: string
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
 const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ 
   id, 
   name,
   setIsSubmitting,
- 
+  setOpen
  }) => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,7 +30,8 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
         const result = await deleteCategory(formData);
         if (result.success) {
             toast.success(`Category ${capitalize(name)} deleted successfully!`);
-
+            await wait(1000)
+            setOpen(false)
         } else {
             toast.error(`Failed to delete ${capitalize(name)} category: ${result.error}`);
         }

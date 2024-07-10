@@ -83,6 +83,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
                 id={id}
                 name={name}
                 setIsSubmitting={setIsSubmitting}
+                setOpen={setOpen}
                     />
                 )}
         </div>
