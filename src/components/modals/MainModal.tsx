@@ -51,7 +51,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     <BtnDelete
         type="button" 
         onClick={showModal}>
-        <DelIcon  /> delete
+        <DelIcon  />
+         {/* delete */}
     </BtnDelete>
     )}
 

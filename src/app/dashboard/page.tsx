@@ -53,7 +53,7 @@ async function Dashboard() {
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>
                       <EditIcon/>
-                      details
+                      {/* details */}
                     </ShowDetails>
                     <MainModal 
                     modalTypes={DeletingCategoryConfirmProps}
