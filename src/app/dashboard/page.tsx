@@ -5,7 +5,9 @@ import Link from 'next/link'
 import DeleteCategoryForm from '@/components/forms/DeleteCategoryForm'
 import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
 import MainModal from '@/components/modals/MainModal'
-import { DeletingCategoryConfirmProps } from '@/data/modalProps'
+import { DeletingCategoryConfirmProps, ShowCategoryDetailsProps } from '@/data/modalProps'
+import { Category } from '@prisma/client'
+import { ShowDetails } from '@/components/Button/Button.styled'
 
 async function Dashboard() {
   const user = await currentUser()
@@ -16,7 +18,7 @@ async function Dashboard() {
     }
   })
   return (
-    <section className='dashboard p-4 space-y-6 min-h-screen flex flex-col'>
+    <section className='dashboard py-4 space-y-6 min-h-screen flex flex-col'>
         <div>
          <AddNewCategoryForm 
          creator={creator}
@@ -35,7 +37,7 @@ async function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {categories.map((category:any, idx:number) => (
+              {categories.map((category:Category, idx:number) => (
                 <tr key={idx}>
                   <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
                     <Link 
@@ -44,12 +46,12 @@ async function Dashboard() {
                       {category.name}
                     </Link>
                   </td>
-                  <td className= ' flex items-center gap-4 px-5 py-3 text-sm font-normal text-center border-b border-gray-200'>
-                    <Link 
+                  <td className= ' flex items-center gap-4 px-1 py-3 text-sm font-normal text-center border-b border-gray-200'>
+                    <ShowDetails
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>
-                    Details
-                    </Link>
+                      details
+                    </ShowDetails>
                     <MainModal 
                     modalTypes={DeletingCategoryConfirmProps}
                     id={category.id}

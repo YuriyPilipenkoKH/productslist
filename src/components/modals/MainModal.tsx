@@ -1,10 +1,10 @@
 'use client'
 import { Modal } from 'antd';
-import React, {  useContext, useState } from 'react'
-import {   Btn, BtnDelete, CancelBtn, FlatBtn } from '../Button/Button';
-import { LiaEditSolid } from 'react-icons/lia';
+import React, {  useState } from 'react'
+import {   Btn, BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
+
 import toast from 'react-hot-toast';
-import { dellBtnStyle } from '../Button/Button.styled';
+
 import { ModalBaseTypes } from '@/types/modalTypes';
 import DelIcon from '../icons/DelIcon';
 
@@ -59,11 +59,14 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id }) => {
 
   return (
     <>
+    {(modalName === 'DeletingCategoryConfirm') && (
     <BtnDelete
         type="button" 
         onClick={showModal}>
         <DelIcon  /> delete
     </BtnDelete>
+    )}
+
     <Modal
         className=' relative'
         open={open}

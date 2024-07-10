@@ -1,6 +1,8 @@
+'use client'
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import Link from 'next/link';
 
 export const buttonStyles =css`
   font-weight: 600;
@@ -86,11 +88,14 @@ export const SBtnDelete = styled('button')`
   border-radius: 5px;
   padding: 0.25rem 1rem;
   transition: all 0.4s ease;
+  & >svg {
+  fill: var(--text-color);
+  transition: all 0.4s ease;
+  }
 
 
   &:hover  {
   color: var(--red);
-  box-shadow: var(--shadow-two);
   border-color: var(--red);
   background-color: transparent;
   transition: all 0.4s ease;
@@ -100,6 +105,31 @@ export const SBtnDelete = styled('button')`
   }
   }
 `;
+
+export const ShowDetails = styled(Link)`
+  ${buttonStyles} ;
+  background-color: transparent;
+  color: var(--text-color);
+  border-color: var(--text-color);
+  border-radius: 5px;
+  padding: 0.25rem 1rem;
+  transition: all 0.4s ease;
+  & >svg {
+  fill: var(--text-color);
+  transition: all 0.4s ease;
+  }
+
+  &:hover  {
+  color: var(--dark-green);
+  border-color: var(--dark-green);
+  background-color: transparent;
+  transition: all 0.4s ease;
+  & >svg {
+  fill: var(--dark-green);
+  transition: all 0.4s ease;
+  }
+  }
+`
 
 export const SAddNewBtn = styled('button')`
   ${buttonStyles} ;

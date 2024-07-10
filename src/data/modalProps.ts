@@ -8,3 +8,12 @@ export const DeletingCategoryConfirmProps: ModalBaseTypes = {
   imageUrl: null,
   
 };
+
+export const ShowCategoryDetailsProps: ModalBaseTypes = {
+  modalName: 'ShowCategoryDetails',
+  dimentions: ['400px', '300px'],
+  title: 'Details',
+  text: 'Are you sure?',
+  imageUrl: null,
+  
+};
