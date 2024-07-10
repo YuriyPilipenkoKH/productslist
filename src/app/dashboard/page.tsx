@@ -21,13 +21,13 @@ async function Dashboard() {
          />
         </div>
         {categories.length > 0 ? (
-          <table className='min-w-full leading-normal text-center'>
-            <thead>
+          <table className='Mtable min-w-full leading-normal text-center'>
+            <thead >
               <tr>
-                <th className='px-5 py-3 text-sm font-normal text-center text-gray-900 uppercase bg-slate-400 border-b border-gray-200'>
+                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase bg-slate-400 border-b border-gray-200'>
                   Name
                 </th>
-                <th className='px-5 py-3 text-sm font-normal text-center text-gray-900 uppercase bg-slate-400 border-b border-gray-200'>
+                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase bg-slate-400 border-b border-gray-200'>
                   Update
                 </th>
               </tr>
@@ -36,12 +36,16 @@ async function Dashboard() {
               {categories.map((category:any, idx:number) => (
                 <tr key={idx}>
                   <td className='px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
-                    <Link href={`/dashboard/category/${category.id}`}>
+                    <Link 
+                    className='mtext'
+                    href={`/dashboard/category/${category.id}`}>
                       {category.name}
                     </Link>
                   </td>
-                  <td className= 'flex items-center gap-4 px-5 py-3 text-sm font-normal text-center text-gray-900 border-b border-gray-200'>
-                    <Link href={`/dashboard/category/${category.id}/update`}>
+                  <td className= ' flex items-center gap-4 px-5 py-3 text-sm font-normal text-center border-b border-gray-200'>
+                    <Link 
+                    className='mtext'
+                    href={`/dashboard/category/${category.id}/update`}>
                     Details
                     </Link>
                   <DeleteCategoryForm
