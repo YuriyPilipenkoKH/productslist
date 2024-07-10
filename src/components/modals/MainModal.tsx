@@ -60,7 +60,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         open={open}
         title={( isSubmitting ) 
             ? "Processing" 
-            : `Are you sure deleting ${capitalize(name)}?`}
+            : `${title} ${capitalize(name)}?`}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[ 
@@ -75,7 +75,9 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
          ]}
         >
         <p>
-            There will be no return....
+            {( isSubmitting ) 
+            ? "Too late"
+            :text }
         </p>
         <div className='absolute bottom-[20px]'>
             {(modalName === 'DeletingCategoryConfirm') && (
