@@ -40,15 +40,15 @@ async function Dashboard() {
             </thead>
             <tbody>
               {categories.map((category:Category, idx:number) => (
-                <tr key={idx} >
-                  <td className='h-[57px] px-2 py-3 text-sm font-normal text-left text-gray-900 border-b border-gray-200'>
+                <tr key={idx} className='border-b border-[var(--text-color)]'>
+                  <td className=' px-2 py-3 text-sm font-normal text-left text-gray-900 '>
                     <Link 
                     className='mtext'
                     href={`/dashboard/category/${category.id}`}>
                       {capitalize(category.name)}
                     </Link>
                   </td>
-                  <td className= 'h-[57px] flex items-center gap-4 px-1 py-3 text-sm font-normal text-center border-b border-gray-200'>
+                  <td className= 'flex items-center gap-4 px-1 py-3 text-sm font-normal text-center '>
                     <ShowDetails
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>
