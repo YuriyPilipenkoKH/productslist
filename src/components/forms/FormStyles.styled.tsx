@@ -1,3 +1,4 @@
+'use client'
 import isPropValid from '@emotion/is-prop-valid';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
@@ -163,24 +164,35 @@ export const Avatar = styled('div')`
     }
 `;
 
-interface AvatarWrapProps {
-    avatarurl: string;
-    fileurl: string;
-  }
+    interface AvatarWrapProps {
+        avatarurl: string;
+        fileurl: string;
+    }
 
-export const AvatarWrap = styled("div", {
+    export const AvatarWrap = styled("div", {
     shouldForwardProp: (prop: string) =>
       isPropValid(prop) && !["avatarurl", "fileurl"].includes(prop),
-  })<AvatarWrapProps>(
-    ({ avatarurl, fileurl }) => {
-      return {
-        backgroundImage: fileurl ? `url(${fileurl})` : `url(${avatarurl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+    })<AvatarWrapProps>(
+        ({ avatarurl, fileurl }) => {
+        return {
+            backgroundImage: fileurl ? `url(${fileurl})` : `url(${avatarurl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
 
-      }
-    }
-  )
+        }
+        }
+    )
+
+  export const PicWrapper = styled('div')`
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 29px;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    
+  `
+
 
   export const StyledSearchingForm = styled('form')`
     position: relative;

@@ -10,6 +10,8 @@ import { Category } from '@prisma/client'
 import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
+import { PicWrapper } from '@/components/forms/FormStyles.styled'
+import { MdOutlineAddAPhoto } from "react-icons/md";
 
 async function Dashboard() {
   const user = await currentUser()
@@ -30,10 +32,10 @@ async function Dashboard() {
           <table className='Mtable min-w-full leading-normal text-center'>
             <thead className='headst rounded-ss-2xl'>
               <tr>
-                <th className='mtext px-5 py-3 text-sm font-normal text-center  uppercase  bl'>
+                <th className='mtext px-5 py-3 text-sm font-semibold text-center  uppercase  bl'>
                   Name
                 </th>
-                <th className='mtext px-5 py-3 text-sm font-medium text-center  uppercase  br'>
+                <th className='mtext px-5 py-3 text-sm font-semibold text-center  uppercase  br'>
                   Update
                 </th>
               </tr>
@@ -48,7 +50,10 @@ async function Dashboard() {
                       {capitalize(category.name)}
                     </Link>
                   </td>
-                  <td className= 'flex items-center gap-4 px-1 py-3 text-sm font-normal text-center '>
+                  <td className= 'flex items-center gap-4 px-1 py-3 text-sm font-medium text-center '>
+                    <PicWrapper  className='pic'>
+                      <MdOutlineAddAPhoto size={20}/>
+                    </PicWrapper>
                     <ShowDetails
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>
