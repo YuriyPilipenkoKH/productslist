@@ -178,7 +178,6 @@ export const Avatar = styled('div')`
             backgroundImage: fileurl ? `url(${fileurl})` : `url(${avatarurl})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-
         }
         }
     )

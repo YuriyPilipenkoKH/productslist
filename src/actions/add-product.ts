@@ -23,5 +23,5 @@ export const addProduct = async (formData: FormData) => {
         console.log('Error'+ error)
     }
     revalidatePath('/dashboard')
-    redirect('/')
+
 }
