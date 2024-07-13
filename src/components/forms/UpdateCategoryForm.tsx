@@ -46,10 +46,10 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			try {
 					const result = await updateCategory(formData);
 					if (result.success) {
-							toast.success(`Category ${capitalize(data.name)} added successfully`!);
+							toast.success(`Category ${capitalize(name)} updated successfully`!);
 							reset();
 					} else {
-							toast.error(`Failed to add ${capitalize(data.name)} category : ${result.error}`);
+							toast.error(`Failed to update ${capitalize(name)} category : ${result.error}`);
 					}
         } catch (error) {
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -73,7 +73,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
 				? "Process" 
-				: ''}
+				: name}
 			/>
 			<AddNewBtn 
 			type='submit'
