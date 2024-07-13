@@ -12,7 +12,7 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
   return (
     <form 
 		action={addProduct}
-		className='flex flex-col gap-2'
+		className='flex  gap-2'
 		autoComplete="off"
 		noValidate>
 			<input

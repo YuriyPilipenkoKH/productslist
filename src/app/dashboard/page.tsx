@@ -31,7 +31,7 @@ async function Dashboard() {
         {categories.length > 0 ? (
           <table className='Mtable min-w-full leading-normal text-center'>
             <thead className='headst rounded-ss-2xl'>
-              <tr>
+              <tr >
                 <th className='mtext px-5 py-3 text-sm font-semibold text-center  uppercase  bl'>
                   Name
                 </th>

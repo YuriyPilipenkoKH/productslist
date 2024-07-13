@@ -14,7 +14,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
   return (
     <form 
 		action={updateCategory}
-		className='flex flex-col gap-2'
+		className='flex  gap-2'
 		autoComplete='off'
 		noValidate>
 			<input
@@ -28,7 +28,9 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			id='name'
             defaultValue={name}
 			placeholder='category name'/>
-			<Button type='submit'>update </Button>
+			<Button type='submit'>
+				update 
+			</Button>
     </form>
   )
 }
