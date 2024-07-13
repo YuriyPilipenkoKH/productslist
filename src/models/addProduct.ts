@@ -1,12 +1,12 @@
 import { z, ZodType } from 'zod';
 
-export const addNewCategorySchema: ZodType<{
+export const addProductSchema: ZodType<{
     name: string;
 
 }> = z.object({
     name: z
     .string()
-    .min(3, 'Name should be at least 3 characters long')
+    .min(3, 'Product should be at least 3 characters long')
     .regex(/^[a-zA-Z]+$|^[0-9]+$|^[\w\s]+$|^[\w\s_]+$/, { 
         message: "Use letters, numbers & underscore" 
     }),      
@@ -14,5 +14,5 @@ export const addNewCategorySchema: ZodType<{
     
 })
 
-export type addNewCategorySchemaType = z.infer<typeof addNewCategorySchema>
+export type addProductSchemaType = z.infer<typeof addProductSchema>
 
