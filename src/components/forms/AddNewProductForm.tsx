@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { addProductSchema, addProductSchemaType } from '@/models/addProduct'
 import toast from 'react-hot-toast'
 import capitalize from '@/lib/capitalize'
-import { AuthError, Form_AddNewCategory, FormInput } from './FormStyles.styled'
+import { AuthError, Form_AddNew,  FormInput } from './FormStyles.styled'
 import { AddNewBtn } from '../Button/Button'
 interface ddNewProductFormProps {
 	categoryId: string
@@ -23,7 +23,6 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			handleSubmit,
 			formState,
 			reset,
-			watch
 		} = useForm<addProductSchemaType>({
 			defaultValues: {
 				name: '',
@@ -46,10 +45,10 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			try {
 					const result = await addProduct(formData);
 					if (result.success) {
-							toast.success(`Category ${capitalize(data.name)} added successfully`!);
+							toast.success(`Product ${capitalize(data.name)} added successfully`!);
 							reset();
 					} else {
-							toast.error(`Failed to add ${capitalize(data.name)} category : ${result.error}`);
+							toast.error(`Failed to add ${capitalize(data.name)} product : ${result.error}`);
 					}
         } catch (error) {
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -57,7 +56,7 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			}
 	};
   return (
-    <Form_AddNewCategory 
+    <Form_AddNew
 		onSubmit={handleSubmit(onSubmit)}
 		className='flex  gap-2 items-center'
 		autoComplete="off"
@@ -71,8 +70,8 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			<FormInput 
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
-				? "Process" 
-				: 'Product name'}
+				? "Processing..." 
+				: 'product name'}
 			/>
 			<AddNewBtn 
 			type='submit'
@@ -87,7 +86,7 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 				</AuthError>
 			)}
 		</div>	
-    </Form_AddNewCategory >
+    </Form_AddNew>
   )
 }
 
