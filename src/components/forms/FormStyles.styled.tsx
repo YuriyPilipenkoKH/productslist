@@ -96,7 +96,7 @@ export const AuthError = styled('div')`
     white-space: nowrap; 
 `;
 
-export const Form_AddNew = styled('form')`
+export const Form_Universal = styled('form')`
     position: relative;
     display: flex;
     gap: 8px;

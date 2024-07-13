@@ -1,13 +1,12 @@
 'use client'
 import { addProduct } from '@/actions/add-product'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Input } from '@nextui-org/react'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { addProductSchema, addProductSchemaType } from '@/models/addProduct'
 import toast from 'react-hot-toast'
 import capitalize from '@/lib/capitalize'
-import { AuthError, Form_AddNew,  FormInput } from './FormStyles.styled'
+import { AuthError, Form_Universal,  FormInput } from './FormStyles.styled'
 import { AddNewBtn } from '../Button/Button'
 interface ddNewProductFormProps {
 	categoryId: string
@@ -56,7 +55,7 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			}
 	};
   return (
-    <Form_AddNew
+    <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
 		className='flex  gap-2 items-center'
 		autoComplete="off"
@@ -86,7 +85,7 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 				</AuthError>
 			)}
 		</div>	
-    </Form_AddNew>
+    </Form_Universal>
   )
 }
 

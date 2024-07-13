@@ -1,7 +1,14 @@
-
+'use client'
 import { updateCategory } from '@/actions/update-category'
+import capitalize from '@/lib/capitalize'
+import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/addCategory'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input } from '@nextui-org/react'
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
+import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
+import { AddNewBtn } from '../Button/Button'
 
 interface UpdateCategoryFormProps {
     id:string,
@@ -11,10 +18,49 @@ interface UpdateCategoryFormProps {
 const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 	id, name
 	}) => {
+		const [logError, setLogError] = useState<string>('')
+		const {
+			register, 
+			handleSubmit,
+			formState,
+			reset,
+		} = useForm<addNewCategorySchemaType>({
+			defaultValues: {
+				name: name,
+
+			},
+				mode:'all',
+				resolver: zodResolver(addNewCategorySchema),
+		})
+		const {
+			errors,
+			isDirty,
+			isValid ,
+			isSubmitting,
+		} = formState
+		const onSubmit = async (data: addNewCategorySchemaType) => {
+			const formData = new FormData();
+			formData.append('name', data.name);
+			formData.append('id', id);
+
+			try {
+					const result = await updateCategory(formData);
+					if (result.success) {
+							toast.success(`Category ${capitalize(data.name)} added successfully`!);
+							reset();
+					} else {
+							toast.error(`Failed to add ${capitalize(data.name)} category : ${result.error}`);
+					}
+        } catch (error) {
+					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+					toast.error(`An error occurred: ${errorMessage}`);
+			}
+	};
+
   return (
-    <form 
-		action={updateCategory}
-		className='flex  gap-2'
+    <Form_Universal
+		onSubmit={handleSubmit(onSubmit)}
+		className='flex gap-2 items-center'
 		autoComplete='off'
 		noValidate>
 			<input
@@ -23,15 +69,26 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 				id='id'
 				defaultValue={id}
 				/>
-			<Input 
-			name='name'
-			id='name'
-            defaultValue={name}
-			placeholder='category name'/>
-			<Button type='submit'>
-				update 
-			</Button>
-    </form>
+			<FormInput 
+			 {...register('name')}
+				 placeholder=	{( isSubmitting ) 
+				? "Process" 
+				: ''}
+			/>
+			<AddNewBtn 
+			type='submit'
+			disabled={isSubmitting || !isDirty || !isValid}
+						>
+				update
+			</AddNewBtn>
+			<div className='absolute bottom-[-24px]'>
+		{( errors?.name ) && (
+				<AuthError className="autherror">
+					{errors.name && <div>{errors?.name.message}</div>}
+				</AuthError>
+			)}
+		</div>	
+    </Form_Universal>
   )
 }
 

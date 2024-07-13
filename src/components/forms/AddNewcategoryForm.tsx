@@ -2,7 +2,7 @@
 import { addCategory } from '@/actions/add-category'
 import React, { useState } from 'react'
 import { AddNewBtn } from '../Button/Button'
-import { AuthError, Form_AddNew, FormInput } from './FormStyles.styled'
+import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/addCategory'
@@ -56,9 +56,8 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			}
 	};
 
-
   return (
-    <Form_AddNew
+    <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
 		className='flex gap-2 items-center'
 		autoComplete="off"
@@ -88,7 +87,7 @@ const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 				</AuthError>
 			)}
 		</div>		
-    </Form_AddNew>
+    </Form_Universal>
   )
 }
 

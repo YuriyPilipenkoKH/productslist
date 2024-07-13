@@ -18,10 +18,19 @@ export const updateCategory = async (formData: FormData) => {
             where: { id },
             data: { name }
         })
+        revalidatePath('/dashboard')
+        return { success: true, updatedCategory  };
     }
-     catch (error) {
+    catch (error) {
         console.log('Error'+ error)
+        let errorMessage = 'An unexpected error occurred';
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+        revalidatePath('/dashboard')
+        return { success: false, error: errorMessage };
     }
-    revalidatePath('/dashboard')
-    redirect('/dashboard')
-}
+    // finally{
+    //     redirect('/dashboard')
+    // }
+    }
