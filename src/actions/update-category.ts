@@ -18,7 +18,7 @@ export const updateCategory = async (formData: FormData) => {
             where: { id },
             data: { name }
         })
-        revalidatePath(`/dashboard/category/${id}/update`)
+        revalidatePath(`/dashboard`)
         return { success: true, updatedCategory  };
     }
     catch (error) {

@@ -27,6 +27,7 @@ export const addProduct = async (formData: FormData) => {
         if (error instanceof Error) {
             errorMessage = error.message;
         }
+        revalidatePath('/dashboard')
         return { success: false, error: errorMessage };
     }
 

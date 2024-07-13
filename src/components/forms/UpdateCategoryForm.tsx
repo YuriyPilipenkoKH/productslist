@@ -4,7 +4,7 @@ import capitalize from '@/lib/capitalize'
 import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/addCategory'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input } from '@nextui-org/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
@@ -38,6 +38,11 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			isValid ,
 			isSubmitting,
 		} = formState
+
+		useEffect(() => {
+			reset({ name })
+		}, [name, reset])
+
 		const onSubmit = async (data: addNewCategorySchemaType) => {
 			const formData = new FormData();
 			formData.append('name', data.name);
@@ -73,7 +78,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			 {...register('name')}
 				 placeholder=	{( isSubmitting ) 
 				? "Process" 
-				: name}
+				: '...'}
 			/>
 			<AddNewBtn 
 			type='submit'
