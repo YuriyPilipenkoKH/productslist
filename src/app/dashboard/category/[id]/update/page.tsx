@@ -1,8 +1,12 @@
+// 'use client'
+import { EditBtn } from '@/components/Button/Button';
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import DeleteProductForm from '@/components/forms/DeleteProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import prisma from '@/lib/prisma'
+// import { useRouter } from 'next/navigation';
 import React from 'react'
+import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
 interface Params {
     params: {
       id: string;
@@ -10,6 +14,7 @@ interface Params {
   }
 
 async function UpdateCategoryPage({ params }: Params) {
+    // const router = useRouter()
     const id = params.id
     const data = await prisma.category.findUnique({
         where: { id },
@@ -19,6 +24,11 @@ async function UpdateCategoryPage({ params }: Params) {
     })
   return (
     <section className='p-4 space-y-6 min-h-screen flex flex-col'>
+      <EditBtn
+        // onClick={() => router.back()}
+          >
+              <PiArrowFatLinesLeftFill />
+      </EditBtn>
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />

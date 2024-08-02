@@ -2,7 +2,6 @@
 
 import prisma from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
-import { redirect } from "next/navigation"
 
 
 export const updateCategory = async (formData: FormData) => {
@@ -12,7 +11,8 @@ export const updateCategory = async (formData: FormData) => {
     if (typeof name !== 'string' || typeof id !== 'string') {
       throw new Error('Form values must be strings');
     }
-
+ 
+    
     try {
         const updatedCategory = await prisma.category.update({
             where: { id },
@@ -27,10 +27,7 @@ export const updateCategory = async (formData: FormData) => {
         if (error instanceof Error) {
             errorMessage = error.message;
         }
-        revalidatePath(`/dashboard/category/${id}/update`)
+        revalidatePath(`/dashboard`)
         return { success: false, error: errorMessage };
     }
-    // finally{
-    //     redirect('/dashboard')
-    // }
     }

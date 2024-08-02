@@ -1,3 +1,4 @@
+
 import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
@@ -46,7 +47,7 @@ async function Dashboard() {
                   <td className=' px-2 py-3 text-sm font-normal text-left text-gray-900 '>
                     <Link 
                     className='mtext'
-                    href={`/dashboard/category/${category.id}`}>
+                    href={`/dashboard/category/${category.id}/update`}>
                       {capitalize(category.name)}
                     </Link>
                   </td>
