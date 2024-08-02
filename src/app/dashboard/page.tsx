@@ -65,7 +65,7 @@ async function Dashboard() {
                     modalTypes={DeletingCategoryConfirmProps}
                     id={category.id}
                     name={category.name}
-                    />
+                                  />
                   {/* <DeleteCategoryForm
                   id={category.id}/> */}
                   </td>

@@ -3,7 +3,6 @@ import { Modal } from 'antd';
 import React, {  useState } from 'react'
 import {   Btn, BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
 
-import toast from 'react-hot-toast';
 
 import { ModalBaseTypes } from '@/types/modalTypes';
 import DelIcon from '../icons/DelIcon';

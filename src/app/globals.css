@@ -30,6 +30,7 @@
 :root.light {
   --background-color: #9a9b96;
   --background-link: transparent;
+  --background-modal:  #9a9b96;
   --text-color: #1C1E21;
   --card-color: #fff;
   
@@ -40,6 +41,7 @@
 :root.dark {
   --background-color: #041020;
   --background-link: #ff75;
+  --background-modal:  #042043;
   --text-color: #f5f6f7cc;
   --card-color: #9994;
 
@@ -131,13 +133,28 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background-color: var(--background-modal) ;
+  color: var(--text-color);
   
 }
+.delModal >div>.ant-modal-content>div>.ant-modal-title {
+  background-color: var(--background-modal) ;
+  color: var(--text-color); 
+
+}
+.delModal >div>.ant-modal-content>div>.ant-modal-title>svg{
+  fill: var(--text-color); 
+}
+.ant-modal-content>button.ant-modal-close>span>span>svg{
+  fill: var(--text-color); 
+}
+
 .delModal >div>.ant-modal-content >.ant-modal-footer {
   display: flex;
   gap: 22px;
   justify-content: flex-end;
   margin-top: auto;
+
 }
 
 
