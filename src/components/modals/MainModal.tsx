@@ -1,7 +1,7 @@
 'use client'
 import { Modal } from 'antd';
 import React, {  useState } from 'react'
-import {   Btn, BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
+import { BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
 
 
 import { ModalBaseTypes } from '@/types/modalTypes';

@@ -9,6 +9,15 @@ export const DeletingCategoryConfirmProps: ModalBaseTypes = {
   
 };
 
+export const DeletingProductConfirmProps: ModalBaseTypes = {
+  modalName: 'DeletingProductConfirm',
+  dimentions: ['400px', '400px'],
+  title: 'Are you sure deleting',
+  text: 'There will be no return....',
+  imageUrl: null,
+  
+};
+
 export const ShowCategoryDetailsProps: ModalBaseTypes = {
   modalName: 'ShowCategoryDetails',
   dimentions: ['400px', '300px'],
