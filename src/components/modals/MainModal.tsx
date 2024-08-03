@@ -27,7 +27,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
+console.log(modalName)
 
     const showModal = () => {
         setOpen(true);
@@ -47,13 +47,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
   return (
     <>
-    {(modalName === 'DeletingCategoryConfirm') || (modalName === 'DeletingProductConfirm') 
+    {(modalName === 'DeletingCategoryConfirm' || modalName === 'DeletingProductConfirm')
     && (
     <BtnDelete
         type="button" 
         onClick={showModal}>
         <DelIcon  />
-         {/* delete */}
     </BtnDelete>
     )}
 
@@ -61,7 +60,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         className='delModal relative'
         open={open}
         title={( isSubmitting ) 
-            ? "Processing" 
+            ? "Moving to trash" 
             : `${title} ${capitalize(name)}?`}
         onOk={handleOk}
         onCancel={handleCancel}
