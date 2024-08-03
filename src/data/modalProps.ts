@@ -18,6 +18,14 @@ export const DeletingProductConfirmProps: ModalBaseTypes = {
   
 };
 
+export const EditProductProps: ModalBaseTypes = {
+  modalName: 'EditProduct',
+  dimentions: ['400px', '300px'],
+  title: 'Details',
+  text: 'You can edit any field?',
+  imageUrl: null,
+  
+};
 export const ShowCategoryDetailsProps: ModalBaseTypes = {
   modalName: 'ShowCategoryDetails',
   dimentions: ['400px', '300px'],

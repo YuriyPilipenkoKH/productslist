@@ -4,7 +4,7 @@ import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import DeleteProductForm from '@/components/forms/DeleteProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
-import { DeletingProductConfirmProps } from '@/data/modalProps';
+import { DeletingProductConfirmProps, EditProductProps } from '@/data/modalProps';
 import prisma from '@/lib/prisma'
 
 import React from 'react'
@@ -58,8 +58,13 @@ async function UpdateCategoryPage({ params }: Params) {
                   <td className='px-5 py-3  border-b text-center border-gray-200'>
                     {product.name}
                   </td>
-                  <td className='px-5 py-3  border-b text-center border-gray-200'>
+                  <td className='flex gap-3 px-5 py-3  border-b text-center border-gray-200'>
                     {/* <DeleteProductForm id ={product.id}/> */}
+                    <MainModal 
+                    modalTypes={EditProductProps}
+                    id={product.id}
+                    name={product.name}
+                                  />
                     <MainModal 
                     modalTypes={DeletingProductConfirmProps}
                     id={product.id}
