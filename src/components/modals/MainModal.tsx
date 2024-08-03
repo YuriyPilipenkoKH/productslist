@@ -9,6 +9,7 @@ import DelIcon from '../icons/DelIcon';
 import capitalize from '@/lib/capitalize';
 import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 import DeleteProductForm from '../forms/DeleteProductForm';
+import EditIcon from '../icons/EditIcon';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -47,12 +48,17 @@ console.log(modalName)
 
   return (
     <>
-    {(modalName === 'DeletingCategoryConfirm' || modalName === 'DeletingProductConfirm')
+    {(modalName === 'DeletingCategoryConfirm' || modalName === 'DeletingProductConfirm' || modalName === 'EditProduct')
     && (
     <BtnDelete
         type="button" 
         onClick={showModal}>
-        <DelIcon  />
+            {(modalName === 'EditProduct') 
+            ? <EditIcon/>
+            : <DelIcon  />
+            }
+        
+        {/* <EditIcon/> */}
     </BtnDelete>
     )}
 
