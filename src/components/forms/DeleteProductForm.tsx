@@ -28,11 +28,11 @@ const DeleteProductForm: React.FC<DeleteProductFormProps> = ({
     try {
         const result = await deleteProduct(formData);
         if (result.success) {
-            toast.success(`Category ${capitalize(name)} deleted successfully!`);
+            toast.success(`Product ${capitalize(name)} deleted successfully!`);
             await wait(1000)
             setOpen(false)
         } else {
-            toast.error(`Failed to delete ${capitalize(name)} category: ${result.error}`);
+            toast.error(`Failed to delete ${capitalize(name)} product: ${result.error}`);
         }
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -44,7 +44,7 @@ const DeleteProductForm: React.FC<DeleteProductFormProps> = ({
 };
 
   return (
-    <form action={deleteProduct}>
+    <form onSubmit={handleSubmit}>
     <input
       hidden
       name='id'

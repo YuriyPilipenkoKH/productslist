@@ -24,6 +24,5 @@ export const deleteProduct = async (formData: FormData) => {
     }
     finally{
        revalidatePath('/dashboard')
-
    }
 }

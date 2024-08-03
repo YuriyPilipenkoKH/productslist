@@ -44,8 +44,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
       }
 };
   return (
-    <form onSubmit={handleSubmit}
-    >
+    <form onSubmit={handleSubmit}>
       <input
         hidden
         name='id'

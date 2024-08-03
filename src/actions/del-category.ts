@@ -14,7 +14,6 @@ export const deleteCategory = async (formData: FormData) => {
         await prisma.category.delete({
             where: { id }
         })
-        revalidatePath('/dashboard')
         return { success: true };
     }
     catch (error) {
@@ -24,5 +23,8 @@ export const deleteCategory = async (formData: FormData) => {
             errorMessage = error.message;
         }
         return { success: false, error: errorMessage };
+    }
+    finally{
+        revalidatePath('/dashboard')
     }
 }
