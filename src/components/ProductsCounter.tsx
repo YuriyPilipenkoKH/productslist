@@ -5,7 +5,7 @@ interface ProductsCounterProps {
 
 function ProductsCounter({qty}:ProductsCounterProps) {
   return (
-    <div className='flex items-center justify-center p-1 w-9 rounded-full bg-green-800 font-semibold' >
+    <div className='flex items-center justify-center p-1 w-8 rounded-full bg-green-800 font-semibold' >
         { qty }
     </div>
   )

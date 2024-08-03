@@ -49,16 +49,17 @@ async function Dashboard() {
               {categories.map((category:CategoryWithProducts, idx:number) => (
                 <tr key={idx} className='border-b border-[var(--text-color)]'>
                   <td className=' px-2 py-3 text-sm font-normal text-left text-gray-900 '>
-                    <Link 
-                    className='mtext'
-                    href={`/dashboard/category/${category.id}/update`}>
-                      {capitalize(category.name)}
-                    </Link>
-                  </td>
-                  <td>
+                    <div className='flex items-center justify-between gap-2 text-[var(--text-color)]'>
+                      <Link
+                      className='mtext'
+                      href={`/dashboard/category/${category.id}/update`}>
+                        {capitalize(category.name)}
+                      </Link>
                     <ProductsCounter qty={category.products.length}/>
+                    </div>
                   </td>
-                  <td className= 'flex items-center gap-4 px-1 py-3 text-sm font-medium text-center '>
+       
+                  <td className= 'flex items-center justify-end gap-4 px-1 py-3 text-sm font-medium text-center '>
                     {/* <PicWrapper  className='pic'>
                       <MdOutlineAddAPhoto size={20}/>
                     </PicWrapper> */}
