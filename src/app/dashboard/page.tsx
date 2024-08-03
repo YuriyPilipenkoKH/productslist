@@ -1,26 +1,30 @@
-
 import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import DeleteCategoryForm from '@/components/forms/DeleteCategoryForm'
 import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
 import MainModal from '@/components/modals/MainModal'
 import { DeletingCategoryConfirmProps, ShowCategoryDetailsProps } from '@/data/modalProps'
-import { Category } from '@prisma/client'
+import { Category, Product } from '@prisma/client'
 import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
-import { PicWrapper } from '@/components/forms/FormStyles.styled'
-import { MdOutlineAddAPhoto } from "react-icons/md";
+import ProductsCounter from '@/components/ProductsCounter'
+
+type CategoryWithProducts = Category & {
+  products: Product[];
+};
 
 async function Dashboard() {
   const user = await currentUser()
   const creator = user?.firstName || ""; // Provide a fallback value for creator
-  const categories = await prisma.category.findMany({
+  const categories:CategoryWithProducts[] = await prisma.category.findMany({
     where: {
       creator
-    }
+    },
+    include: {
+      products: true, // Include related products
+    },
   })
   return (
     <section className='dashboard py-4 space-y-6 min-h-screen flex flex-col'>
@@ -42,7 +46,7 @@ async function Dashboard() {
               </tr>
             </thead>
             <tbody>
-              {categories.map((category:Category, idx:number) => (
+              {categories.map((category:CategoryWithProducts, idx:number) => (
                 <tr key={idx} className='border-b border-[var(--text-color)]'>
                   <td className=' px-2 py-3 text-sm font-normal text-left text-gray-900 '>
                     <Link 
@@ -50,6 +54,9 @@ async function Dashboard() {
                     href={`/dashboard/category/${category.id}/update`}>
                       {capitalize(category.name)}
                     </Link>
+                  </td>
+                  <td>
+                    <ProductsCounter qty={category.products.length}/>
                   </td>
                   <td className= 'flex items-center gap-4 px-1 py-3 text-sm font-medium text-center '>
                     {/* <PicWrapper  className='pic'>
