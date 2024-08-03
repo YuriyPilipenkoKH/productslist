@@ -1,8 +1,10 @@
 // 'use client'
-import { BackBtn, EditBtn } from '@/components/Button/Button';
+import { BackBtn } from '@/components/Button/Button';
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import DeleteProductForm from '@/components/forms/DeleteProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
+import MainModal from '@/components/modals/MainModal';
+import { DeletingProductConfirmProps } from '@/data/modalProps';
 import prisma from '@/lib/prisma'
 
 import React from 'react'
@@ -52,12 +54,17 @@ async function UpdateCategoryPage({ params }: Params) {
               {data?.products.map((product, idx:number) => (
                 <tr
                  key={idx}
-                 className='hover:bg-gray-200 transition duration-400'>
+                 className='hover:bg-gray-700 transition duration-400'>
                   <td className='px-5 py-3  border-b text-center border-gray-200'>
                     {product.name}
                   </td>
                   <td className='px-5 py-3  border-b text-center border-gray-200'>
-                    <DeleteProductForm id ={product.id}/>
+                    {/* <DeleteProductForm id ={product.id}/> */}
+                    <MainModal 
+                    modalTypes={DeletingProductConfirmProps}
+                    id={product.id}
+                    name={product.name}
+                                  />
                   </td>
 
                 </tr>

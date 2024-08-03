@@ -8,6 +8,7 @@ import { ModalBaseTypes } from '@/types/modalTypes';
 import DelIcon from '../icons/DelIcon';
 import capitalize from '@/lib/capitalize';
 import DeleteCategoryForm from '../forms/DeleteCategoryForm';
+import DeleteProductForm from '../forms/DeleteProductForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -46,7 +47,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
   return (
     <>
-    {(modalName === 'DeletingCategoryConfirm') && (
+    {(modalName === 'DeletingCategoryConfirm') || (modalName === 'DeletingProductConfirm') 
+    && (
     <BtnDelete
         type="button" 
         onClick={showModal}>
@@ -82,6 +84,14 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         <div className='absolute bottom-[20px]'>
             {(modalName === 'DeletingCategoryConfirm') && (
             <DeleteCategoryForm
+                id={id}
+                name={name}
+                setIsSubmitting={setIsSubmitting}
+                setOpen={setOpen}
+                    />
+                )}
+            {(modalName === 'DeletingProductConfirm')  && (
+            <DeleteProductForm
                 id={id}
                 name={name}
                 setIsSubmitting={setIsSubmitting}

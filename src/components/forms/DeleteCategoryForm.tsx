@@ -52,8 +52,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
         defaultValue={id}
       />
       <ModalDelBtn
-       type='submit'
-       >
+       type='submit' >
         Delete 
       </ModalDelBtn>
     </form>

@@ -12,9 +12,18 @@ export const deleteProduct = async (formData: FormData) => {
         await prisma.product.delete({
             where: { id }
         })
+        return { success: true };
     }
-     catch (error) {
+    catch (error) {
         console.log('Error'+ error)
+        let errorMessage = 'An unexpected error occurred';
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+        return { success: false, error: errorMessage };
     }
-    revalidatePath('/dashboard')
+    finally{
+       revalidatePath('/dashboard')
+
+   }
 }
