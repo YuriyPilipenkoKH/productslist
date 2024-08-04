@@ -121,14 +121,14 @@ img {
 
 }
 /*  custom modal styles */
-.delModal >div[tabindex='-1'] {
+.MainModal >div[tabindex='-1'] {
   display: grid;
   place-items: center;
 
 }
 
-.delModal > div>.ant-modal-content{
-  height: 180px;
+.MainModal > div>.ant-modal-content{
+  /* height: 280px; */
   width: 320px;
   display: flex;
   flex-direction: column;
@@ -137,19 +137,19 @@ img {
   color: var(--text-color);
   
 }
-.delModal >div>.ant-modal-content>div>.ant-modal-title {
+.MainModal >div>.ant-modal-content>div>.ant-modal-title {
   background-color: var(--background-modal) ;
   color: var(--text-color); 
 
 }
-.delModal >div>.ant-modal-content>div>.ant-modal-title>svg{
+.MainModal >div>.ant-modal-content>div>.ant-modal-title>svg{
   fill: var(--text-color); 
 }
 .ant-modal-content>button.ant-modal-close>span>span>svg{
   fill: var(--text-color); 
 }
 
-.delModal >div>.ant-modal-content >.ant-modal-footer {
+.MainModal >div>.ant-modal-content >.ant-modal-footer {
   display: flex;
   gap: 22px;
   justify-content: flex-end;

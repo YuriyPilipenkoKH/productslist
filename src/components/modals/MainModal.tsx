@@ -10,6 +10,7 @@ import capitalize from '@/lib/capitalize';
 import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 import DeleteProductForm from '../forms/DeleteProductForm';
 import EditIcon from '../icons/EditIcon';
+import { cn } from '@/lib/utils';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -57,13 +58,13 @@ console.log(modalName)
             ? <EditIcon/>
             : <DelIcon  />
             }
-        
-        {/* <EditIcon/> */}
     </BtnDelete>
     )}
 
     <Modal
-        className='delModal relative'
+        className={cn('MainModal relative',
+            true && `h-[${dimentions[1]}]`
+            )}
         open={open}
         title={( isSubmitting ) 
             ? "Moving to trash" 
@@ -86,6 +87,11 @@ console.log(modalName)
             ? "Too late"
             :text }
         </p>
+        {(modalName === 'EditProduct') && (
+            <div>
+
+            </div>
+        )}
         <div className='absolute bottom-[20px]'>
             {(modalName === 'DeletingCategoryConfirm') && (
             <DeleteCategoryForm
