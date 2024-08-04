@@ -1,6 +1,6 @@
 'use client'
 import { Modal } from 'antd';
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
 
 
@@ -11,6 +11,7 @@ import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 import DeleteProductForm from '../forms/DeleteProductForm';
 import EditIcon from '../icons/EditIcon';
 import { cn } from '@/lib/utils';
+import { setModalStyles } from '@/lib/customizeAntModals';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -45,7 +46,10 @@ console.log(modalName)
         setCanceling(true)
         setOpen(false);
     };
-
+console.log(dimentions[1])
+    useEffect(() => {
+        setModalStyles(dimentions[1])
+    }, [dimentions])
 
   return (
     <>
