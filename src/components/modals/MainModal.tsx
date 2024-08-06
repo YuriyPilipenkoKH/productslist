@@ -9,6 +9,7 @@ import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 import DeleteProductForm from '../forms/DeleteProductForm';
 import EditIcon from '../icons/EditIcon';
 import { cn } from '@/lib/utils';
+import UpdateProductForm from '../forms/UpdateProductForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -51,63 +52,66 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     <BtnDelete
         type="button" 
         onClick={showModal}>
-            {(modalName === 'EditProduct') 
-            ? <EditIcon/>
-            : <DelIcon  />
-            }
+          {(modalName === 'EditProduct') 
+          ? <EditIcon/>
+          : <DelIcon  />
+          }
     </BtnDelete>
     )}
 
     <Modal
-        className={cn('MainModal relative',
-            (modalName === 'DeletingCategoryConfirm')  && `delCategoryConfirm`,
-            (modalName === 'DeletingProductConfirm')  && `delProductConfirm`,
-            (modalName === 'EditProduct')  && `editProduct`,
-            )}
-        open={open}
-        title={( isSubmitting ) 
-            ? "Moving to trash" 
-            : `${title} ${capitalize(name)} ?`}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={[ 
+      className={cn('MainModal relative',
+        (modalName === 'DeletingCategoryConfirm')  && `delCategoryConfirm`,
+        (modalName === 'DeletingProductConfirm')  && `delProductConfirm`,
+        (modalName === 'EditProduct')  && `editProduct`,
+        )}
+      open={open}
+      title={( isSubmitting ) 
+          ? "Moving to trash" 
+          : `${title} ${capitalize(name)} ?`}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      footer={[ 
           
-        <CancelBtn
-            key="back" 
-            className='cancel_btn w-[70px] rounded-md '
-            disabled={ isSubmitting }
-            onClick={handleCancel}>
-        Cancel
-        </CancelBtn>
+      <CancelBtn
+          key="back" 
+          className='cancel_btn w-[70px] rounded-md '
+          disabled={ isSubmitting }
+          onClick={handleCancel}>
+      Cancel
+      </CancelBtn>
          ]}
         >
         <p>
-            {( isSubmitting ) 
-            ? "Too late"
-            :text }
+          {( isSubmitting ) 
+          ? "Too late"
+          :text }
         </p>
         {(modalName === 'EditProduct') && (
-            <div>
-
-            </div>
+          <div className='mt-6'>
+           <UpdateProductForm 
+              id={id}
+              name={name}
+           />     
+          </div>
         )}
         <div className='absolute bottom-[20px]'>
-            {(modalName === 'DeletingCategoryConfirm') && (
-            <DeleteCategoryForm
-                id={id}
-                name={name}
-                setIsSubmitting={setIsSubmitting}
-                setOpen={setOpen}
-                    />
-                )}
-            {(modalName === 'DeletingProductConfirm')  && (
-            <DeleteProductForm
-                id={id}
-                name={name}
-                setIsSubmitting={setIsSubmitting}
-                setOpen={setOpen}
-                    />
-                )}
+        {(modalName === 'DeletingCategoryConfirm') && (
+          <DeleteCategoryForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            />
+        )}
+        {(modalName === 'DeletingProductConfirm')  && (
+          <DeleteProductForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            />
+        )}
         </div>
     </Modal>
     </>

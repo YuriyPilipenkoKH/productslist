@@ -1,20 +1,20 @@
 'use client'
 import { updateCategory } from '@/actions/update-category'
 import capitalize from '@/lib/capitalize'
-import { addNewCategorySchema, addNewCategorySchemaType } from '@/models/addCategory'
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
 import { AddNewBtn } from '../Button/Button'
+import { addProductSchema, addProductSchemaType } from '@/models/addProduct'
 
-interface UpdateCategoryFormProps {
+interface UpdateProductFormProps {
     id:string,
     name: string,
 }
 
-const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
+const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 	id, name
 	}) => {
 		const [logError, setLogError] = useState<string>('')
@@ -23,13 +23,13 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			handleSubmit,
 			formState,
 			reset,
-		} = useForm<addNewCategorySchemaType>({
+		} = useForm<addProductSchemaType>({
 			defaultValues: {
 				name: name,
 
 			},
 				mode:'all',
-				resolver: zodResolver(addNewCategorySchema),
+				resolver: zodResolver(addProductSchema),
 		})
 		const {
 			errors,
@@ -42,7 +42,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 			reset({ name })
 		}, [name, reset])
 
-		const onSubmit = async (data: addNewCategorySchemaType) => {
+		const onSubmit = async (data: addProductSchemaType) => {
 			const formData = new FormData();
 			formData.append('name', data.name);
 			formData.append('id', id);
@@ -96,4 +96,4 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
   )
 }
 
-export default UpdateCategoryForm
+export default UpdateProductForm
