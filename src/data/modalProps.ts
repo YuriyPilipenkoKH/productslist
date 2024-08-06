@@ -2,7 +2,7 @@ import { ModalBaseTypes } from '@/types/modalTypes';
 
 export const DeletingCategoryConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingCategoryConfirm',
-  dimentions: ['320px', '160px'],
+  dimentions: ['320px', '180px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
   imageUrl: null,
@@ -11,7 +11,7 @@ export const DeletingCategoryConfirmProps: ModalBaseTypes = {
 
 export const DeletingProductConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingProductConfirm',
-  dimentions: ['320px', '180px'],
+  dimentions: ['320px', '200px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
   imageUrl: null,

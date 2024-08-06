@@ -1,6 +1,6 @@
 'use client'
 import { Modal } from 'antd';
-import React, {  useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
 
 
@@ -30,10 +30,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     const [open, setOpen] = useState<boolean>(false);
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-console.log(modalName)
+
+    console.log(modalName)
 
     const showModal = () => {
         setOpen(true);
+        setModalStyles(dimentions[1]);
     };
     const handleOk = () => {
         setLoading(true);
@@ -41,15 +43,13 @@ console.log(modalName)
         setLoading(false);
         setOpen(false);
         }, 3000);
+        // setModalStyles('160px');
     };
     const handleCancel = () => {
         setCanceling(true)
         setOpen(false);
+        // setModalStyles('160px');
     };
-console.log(dimentions[1])
-    useEffect(() => {
-        setModalStyles(dimentions[1])
-    }, [dimentions])
 
   return (
     <>
@@ -67,12 +67,14 @@ console.log(dimentions[1])
 
     <Modal
         className={cn('MainModal relative',
-            true && `h-[${dimentions[1]}]`
+            (modalName === 'DeletingCategoryConfirm')  && `delCategoryConfirm`,
+            (modalName === 'DeletingProductConfirm')  && `delProductConfirm`,
+            (modalName === 'EditProduct')  && `editProduct`,
             )}
         open={open}
         title={( isSubmitting ) 
             ? "Moving to trash" 
-            : `${title} ${capitalize(name)}?`}
+            : `${title} ${capitalize(name)}`}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[ 

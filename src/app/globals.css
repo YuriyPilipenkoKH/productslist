@@ -127,8 +127,7 @@ img {
 
 }
 
-.MainModal > div>.ant-modal-content{
-  /* height: 280px; */
+.MainModal >div>.ant-modal-content{
   width: 320px;
   display: flex;
   flex-direction: column;
@@ -145,7 +144,7 @@ img {
 .MainModal >div>.ant-modal-content>div>.ant-modal-title>svg{
   fill: var(--text-color); 
 }
-.ant-modal-content>button.ant-modal-close>span>span>svg{
+.MainModal .ant-modal-content>button.ant-modal-close>span>span>svg{
   fill: var(--text-color); 
 }
 
