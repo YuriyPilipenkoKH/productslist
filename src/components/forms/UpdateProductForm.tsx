@@ -9,14 +9,20 @@ import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
 import { AddNewBtn } from '../Button/Button'
 import { addProductSchema, addProductSchemaType } from '@/models/addProduct'
 import { updateProduct } from '@/actions/update-product'
+import { wait } from '@/lib/wait'
 
 interface UpdateProductFormProps {
     id:string,
     name: string,
+		setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
-	id, name
+	id, 
+  name,
+  setIsSubmitting,
+  setOpen
 	}) => {
 		const [logError, setLogError] = useState<string>('')
 		const {
@@ -43,6 +49,7 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 		}, [name, reset])
 
 		const onSubmit = async (data: addProductSchemaType) => {
+			setIsSubmitting(true)
 			const formData = new FormData();
 			formData.append('name', data.name);
 			formData.append('id', id);
@@ -52,6 +59,8 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 					if (result.success) {
 							toast.success(`Product ${capitalize(name)} updated successfully`!);
 							reset();
+							await wait(1000)
+							setOpen(false)
 					} else {
 							toast.error(`Failed to update ${capitalize(name)} product : ${result.error}`);
 					}
@@ -59,6 +68,9 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
 					toast.error(`An error occurred: ${errorMessage}`);
 			}
+			finally{
+        setIsSubmitting(false)
+      }
 	};
 
   return (

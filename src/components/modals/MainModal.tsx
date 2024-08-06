@@ -67,8 +67,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         )}
       open={open}
       title={( isSubmitting ) 
-          ? "Moving to trash" 
-          : `${title} ${capitalize(name)} ?`}
+        ? (modalName === 'EditProduct') 
+          ? "updating.." 
+          : "moving to trash.." 
+        : `${title} ${capitalize(name)} ?`
+      }
+
       onOk={handleOk}
       onCancel={handleCancel}
       footer={[ 
@@ -83,15 +87,20 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
          ]}
         >
         <p>
-          {( isSubmitting ) 
-          ? "Too late"
-          :text }
+        {( isSubmitting ) 
+        ? (modalName === 'EditProduct') 
+          ? "writing to database.." 
+          : "too late.." 
+        : text 
+        }
         </p>
         {(modalName === 'EditProduct') && (
           <div className='mt-6'>
            <UpdateProductForm 
               id={id}
               name={name}
+              setIsSubmitting={setIsSubmitting}
+              setOpen={setOpen}
            />     
           </div>
         )}
