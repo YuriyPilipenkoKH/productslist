@@ -8,6 +8,7 @@ import toast from 'react-hot-toast'
 import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
 import { AddNewBtn } from '../Button/Button'
 import { addProductSchema, addProductSchemaType } from '@/models/addProduct'
+import { updateProduct } from '@/actions/update-product'
 
 interface UpdateProductFormProps {
     id:string,
@@ -47,12 +48,12 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 			formData.append('id', id);
 
 			try {
-					const result = await updateCategory(formData);
+					const result = await updateProduct(formData);
 					if (result.success) {
-							toast.success(`Category ${capitalize(name)} updated successfully`!);
+							toast.success(`Product ${capitalize(name)} updated successfully`!);
 							reset();
 					} else {
-							toast.error(`Failed to update ${capitalize(name)} category : ${result.error}`);
+							toast.error(`Failed to update ${capitalize(name)} product : ${result.error}`);
 					}
         } catch (error) {
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
