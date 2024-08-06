@@ -26,7 +26,6 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 		} = useForm<addProductSchemaType>({
 			defaultValues: {
 				name: name,
-
 			},
 				mode:'all',
 				resolver: zodResolver(addProductSchema),
