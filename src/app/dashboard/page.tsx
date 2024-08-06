@@ -60,9 +60,7 @@ async function Dashboard() {
                   </td>
        
                   <td className= 'flex items-center justify-end gap-4 px-1 py-3 text-sm font-medium text-center '>
-                    {/* <PicWrapper  className='pic'>
-                      <MdOutlineAddAPhoto size={20}/>
-                    </PicWrapper> */}
+
                     <ShowDetails
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>

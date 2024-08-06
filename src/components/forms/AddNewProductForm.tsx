@@ -41,19 +41,21 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			formData.append('name', data.name);
 			formData.append('categoryId', categoryId);
 
-			try {
-					const result = await addProduct(formData);
-					if (result.success) {
-							toast.success(`Product ${capitalize(data.name)} added successfully`!);
-							reset();
-					} else {
-							toast.error(`Failed to add ${capitalize(data.name)} product : ${result.error}`);
-					}
-        } catch (error) {
-					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-					toast.error(`An error occurred: ${errorMessage}`);
+		try {
+			const result = await addProduct(formData);
+			if (result.success) {
+					toast.success(`Product ${capitalize(data.name)} added successfully`!);
+					reset();
+			} else {
+					toast.error(`Failed to add ${capitalize(data.name)} product : ${result.error}`);
 			}
+		} 
+		catch (error) {
+			const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+			toast.error(`An error occurred: ${errorMessage}`);
+		}
 	};
+	
   return (
     <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
