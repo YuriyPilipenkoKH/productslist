@@ -136,6 +136,16 @@ img {
   color: var(--text-color);
   
 }
+.delCategoryConfirm >div>.ant-modal-content{
+  height: 160px;
+}
+.delProductConfirm >div>.ant-modal-content{
+  height: 160px;
+}
+.editProduct >div>.ant-modal-content{
+  height: 280px;
+}
+
 .MainModal >div>.ant-modal-content>div>.ant-modal-title {
   background-color: var(--background-modal) ;
   color: var(--text-color); 

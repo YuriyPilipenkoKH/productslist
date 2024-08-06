@@ -2,8 +2,6 @@
 import { Modal } from 'antd';
 import React, { useState } from 'react'
 import { BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
-
-
 import { ModalBaseTypes } from '@/types/modalTypes';
 import DelIcon from '../icons/DelIcon';
 import capitalize from '@/lib/capitalize';
@@ -11,7 +9,6 @@ import DeleteCategoryForm from '../forms/DeleteCategoryForm';
 import DeleteProductForm from '../forms/DeleteProductForm';
 import EditIcon from '../icons/EditIcon';
 import { cn } from '@/lib/utils';
-import { setModalStyles } from '@/lib/customizeAntModals';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -21,7 +18,6 @@ interface MainModalProps {
 
 const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     const {
-        dimentions, 
         modalName, 
         text, 
         title
@@ -35,7 +31,6 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
     const showModal = () => {
         setOpen(true);
-        setModalStyles(dimentions[1]);
     };
     const handleOk = () => {
         setLoading(true);
@@ -43,12 +38,10 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         setLoading(false);
         setOpen(false);
         }, 3000);
-        // setModalStyles('160px');
     };
     const handleCancel = () => {
         setCanceling(true)
         setOpen(false);
-        // setModalStyles('160px');
     };
 
   return (
@@ -74,7 +67,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         open={open}
         title={( isSubmitting ) 
             ? "Moving to trash" 
-            : `${title} ${capitalize(name)}`}
+            : `${title} ${capitalize(name)} ?`}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[ 
