@@ -8,6 +8,7 @@ const UploadImgForm= () => {
     const [uploadSuccess, setUploadSuccess] = useState<any>(null);
 
     const handleImageChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e)
         if (e.target.files && e.target.files[0]) {
             setImage(e.target.files[0]);
         }
