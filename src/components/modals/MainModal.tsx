@@ -111,7 +111,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         )}
         {(modalName === 'UpdateImgUrl') && (
           <div className='mt-6'>
-            <UploadImgForm/>
+            <UploadImgForm
+              id={id}
+              name={name}
+              setIsSubmitting={setIsSubmitting}
+              setOpen={setOpen}
+            />
           </div>
         )}
         <div className='absolute bottom-[20px]'>

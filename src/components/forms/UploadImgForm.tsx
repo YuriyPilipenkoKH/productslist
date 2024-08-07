@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+interface UploadImgFormProps {
+    id:string,
+    name: string,
+    setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const UploadImgForm= () => {
+const UploadImgForm: React.FC<UploadImgFormProps> = ({
+		id, 
+    name,
+    setIsSubmitting,
+    setOpen
+	}) => {
     const [image, setImage] = useState<File | null>(null);
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
