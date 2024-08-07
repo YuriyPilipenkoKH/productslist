@@ -145,6 +145,9 @@ img {
 .editProduct >div>.ant-modal-content{
   height: 240px;
 }
+.updateImgUrl >div>.ant-modal-content{
+  height: 280px;
+}
 
 .MainModal >div>.ant-modal-content>div>.ant-modal-title {
   background-color: var(--background-modal) ;

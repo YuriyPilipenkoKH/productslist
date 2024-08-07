@@ -5,7 +5,7 @@ import DeleteProductForm from '@/components/forms/DeleteProductForm';
 import { PicWrapper } from '@/components/forms/FormStyles.styled';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
-import { DeletingProductConfirmProps, EditProductProps } from '@/data/modalProps';
+import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
 import prisma from '@/lib/prisma'
 import { MdOutlineAddAPhoto } from "react-icons/md";
 
@@ -63,9 +63,11 @@ async function UpdateCategoryPage({ params }: Params) {
                   </td>
                   <td className='flex justify-end gap-3 px-2 py-3  border-b text-center border-gray-200'>
 
-                    <PicWrapper  className='pic'>
-                      <MdOutlineAddAPhoto size={20}/>
-                    </PicWrapper>
+                    <MainModal 
+                    modalTypes={UpdateImgUrlProps}
+                    id={product.id}
+                    name={product.name}
+                                  />
                     <MainModal 
                     modalTypes={EditProductProps}
                     id={product.id}

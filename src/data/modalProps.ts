@@ -26,6 +26,14 @@ export const EditProductProps: ModalBaseTypes = {
   imageUrl: null,
   
 };
+export const UpdateImgUrlProps: ModalBaseTypes = {
+  modalName: 'UpdateImgUrl',
+  dimentions: ['320px', '300px'],
+  title: 'Update ImgUrl',
+  text: 'You can add any picture',
+  imageUrl: null,
+  
+};
 export const ShowCategoryDetailsProps: ModalBaseTypes = {
   modalName: 'ShowCategoryDetails',
   dimentions: ['320px', '300px'],

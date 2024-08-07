@@ -10,6 +10,7 @@ import DeleteProductForm from '../forms/DeleteProductForm';
 import EditIcon from '../icons/EditIcon';
 import { cn } from '@/lib/utils';
 import UpdateProductForm from '../forms/UpdateProductForm';
+import { MdOutlineAddAPhoto } from 'react-icons/md';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -47,13 +48,15 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
 
   return (
     <>
-    {(modalName === 'DeletingCategoryConfirm' || modalName === 'DeletingProductConfirm' || modalName === 'EditProduct')
+    {(modalName === 'DeletingCategoryConfirm' || modalName === 'DeletingProductConfirm' || modalName === 'EditProduct' || modalName === 'UpdateImgUrl')
     && (
     <BtnDelete
         type="button" 
         onClick={showModal}>
           {(modalName === 'EditProduct') 
-          ? <EditIcon/>
+          ? <EditIcon/> 
+            : (modalName === 'UpdateImgUrl')
+            ? <MdOutlineAddAPhoto size={20}/>
           : <DelIcon  />
           }
     </BtnDelete>
@@ -64,10 +67,11 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         (modalName === 'DeletingCategoryConfirm')  && `delCategoryConfirm`,
         (modalName === 'DeletingProductConfirm')  && `delProductConfirm`,
         (modalName === 'EditProduct')  && `editProduct`,
+        (modalName === 'UpdateImgUrl')  && `updateImgUrl`,
         )}
       open={open}
       title={( isSubmitting ) 
-        ? (modalName === 'EditProduct') 
+        ? (modalName === 'EditProduct') || (modalName === 'UpdateImgUrl')
           ? "updating.." 
           : "moving to trash.." 
         : `${title} ${capitalize(name)} ?`
@@ -88,7 +92,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         >
         <p>
         {( isSubmitting ) 
-        ? (modalName === 'EditProduct') 
+        ? (modalName === 'EditProduct') || (modalName === 'UpdateImgUrl')
           ? "writing to database.." 
           : "too late.." 
         : text 
@@ -102,6 +106,11 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
               setIsSubmitting={setIsSubmitting}
               setOpen={setOpen}
            />     
+          </div>
+        )}
+        {(modalName === 'UpdateImgUrl') && (
+          <div className='mt-6'>
+  
           </div>
         )}
         <div className='absolute bottom-[20px]'>
