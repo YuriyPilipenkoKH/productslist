@@ -7,11 +7,13 @@ const UploadImgForm= () => {
     const [uploadError, setUploadError] = useState<string | null>(null);
     const [uploadSuccess, setUploadSuccess] = useState<any>(null);
 
-    const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
+    const handleImageChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setImage(e.target.files[0]);
+        }
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!image) {
             setUploadError("Please select an image to upload.");
