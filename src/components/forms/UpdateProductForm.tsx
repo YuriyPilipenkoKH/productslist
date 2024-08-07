@@ -64,9 +64,10 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 					} else {
 							toast.error(`Failed to update ${capitalize(name)} product : ${result.error}`);
 					}
-        } catch (error) {
-					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-					toast.error(`An error occurred: ${errorMessage}`);
+        }
+			catch (error) {
+				const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+				toast.error(`An error occurred: ${errorMessage}`);
 			}
 			finally{
         setIsSubmitting(false)
