@@ -11,6 +11,7 @@ import EditIcon from '../icons/EditIcon';
 import { cn } from '@/lib/utils';
 import UpdateProductForm from '../forms/UpdateProductForm';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
+import UploadImgForm from '../forms/UploadImgForm';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -110,7 +111,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
         )}
         {(modalName === 'UpdateImgUrl') && (
           <div className='mt-6'>
-  
+            <UploadImgForm/>
           </div>
         )}
         <div className='absolute bottom-[20px]'>

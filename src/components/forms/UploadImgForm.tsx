@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AvatarForm = () => {
+const UploadImgForm= () => {
     const [image, setImage] = useState<File | null>(null);
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
@@ -57,4 +57,4 @@ const AvatarForm = () => {
     );
 };
 
-export default AvatarForm;
+export default UploadImgForm
