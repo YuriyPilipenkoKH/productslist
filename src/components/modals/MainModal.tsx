@@ -17,13 +17,14 @@ interface MainModalProps {
     modalTypes: ModalBaseTypes
     id: string
     name: string
+    imgUrl?: string | null
 }
 
-const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
+const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) => {
     const {
         modalName, 
         text, 
-        title
+        title,
     } = modalTypes
     const [loading, setLoading] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
@@ -31,6 +32,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name}) => {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     console.log(modalName)
+    console.log(imgUrl)
+  
 
     const showModal = () => {
         setOpen(true);

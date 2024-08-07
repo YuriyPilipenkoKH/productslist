@@ -69,7 +69,10 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 
     return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form 
+				onSubmit={handleSubmit}
+				autoComplete="off"
+				noValidate>
 				<input
 					hidden
 					name='id'

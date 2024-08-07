@@ -57,16 +57,18 @@ async function UpdateCategoryPage({ params }: Params) {
               {data?.products.map((product, idx:number) => (
                 <tr
                  key={idx}
-                 className='hover:bg-gray-700 transition duration-400'>
-                  <td className='px-2 py-3  border-b text-center border-gray-200'>
-                    {product.name}
+                 className=' hover:bg-gray-700 transition duration-400'>
+                  <td className='px-1 py-3  border-b text-center border-gray-200'>
+                        {product.name}
                   </td>
-                  <td className='flex justify-end gap-3 px-2 py-3  border-b text-center border-gray-200'>
+                  
+                  <td className='flex justify-center gap-3 px-2 py-3  border-b text-center border-gray-200'>
 
                     <MainModal 
                     modalTypes={UpdateImgUrlProps}
                     id={product.id}
                     name={product.name}
+                    imgUrl={product.imageUrl}
                                   />
                     <MainModal 
                     modalTypes={EditProductProps}
