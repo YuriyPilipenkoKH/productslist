@@ -1,13 +1,11 @@
 // 'use client'
 import { BackBtn } from '@/components/Button/Button';
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
-import DeleteProductForm from '@/components/forms/DeleteProductForm';
-import { PicWrapper } from '@/components/forms/FormStyles.styled';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
 import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
 import prisma from '@/lib/prisma'
-import { MdOutlineAddAPhoto } from "react-icons/md";
+
 
 import React from 'react'
 import { PiArrowFatLinesLeftFill } from 'react-icons/pi';

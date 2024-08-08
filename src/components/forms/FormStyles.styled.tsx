@@ -186,7 +186,7 @@ export const Avatar = styled('div')`
     display: grid;
     place-items: center;
     width: 40px;
-    height: 29px;
+    height: 40px;
     border: 2px solid var(--text-color);
     border-radius: 5px;
     
