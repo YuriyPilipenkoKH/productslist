@@ -5,8 +5,6 @@ export const DeletingCategoryConfirmProps: ModalBaseTypes = {
   dimentions: ['320px', '180px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
-  imageUrl: null,
-  
 };
 
 export const DeletingProductConfirmProps: ModalBaseTypes = {
@@ -14,31 +12,25 @@ export const DeletingProductConfirmProps: ModalBaseTypes = {
   dimentions: ['320px', '200px'],
   title: 'Are you sure deleting',
   text: 'There will be no return....',
-  imageUrl: null,
-  
 };
 
 export const EditProductProps: ModalBaseTypes = {
   modalName: 'EditProduct',
   dimentions: ['320px', '300px'],
-  title: 'Update',
+  title: 'Update product',
   text: 'You can edit anything',
-  imageUrl: null,
-  
 };
+
 export const UpdateImgUrlProps: ModalBaseTypes = {
   modalName: 'UpdateImgUrl',
   dimentions: ['320px', '300px'],
-  title: 'Update ImgUrl',
+  title: 'Update picture',
   text: 'You can add any picture',
-  imageUrl: null,
-  
 };
+
 export const ShowCategoryDetailsProps: ModalBaseTypes = {
   modalName: 'ShowCategoryDetails',
   dimentions: ['320px', '300px'],
   title: 'Details',
   text: 'You can edit any field?',
-  imageUrl: null,
-  
 };
