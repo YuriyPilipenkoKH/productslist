@@ -31,9 +31,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-    console.log(modalName)
-    console.log(imgUrl)
-  
+    // console.log(modalName)
+    // console.log(imgUrl)
 
     const showModal = () => {
         setOpen(true);
@@ -69,9 +68,9 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
         onClick={showModal}>
          {(modalName === 'EditProduct') 
           ? <EditIcon/> 
-            : (modalName === 'UpdateImgUrl')
+          : (modalName === 'UpdateImgUrl')
             ? <MdOutlineAddAPhoto size={20}/>
-          : <DelIcon  />
+            : <DelIcon  />
           }
       </BtnUpdate>
     )}

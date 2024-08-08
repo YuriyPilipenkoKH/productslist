@@ -12,7 +12,7 @@ interface UploadImgFormProps {
 }
 
 const UploadImgForm: React.FC<UploadImgFormProps> = ({
-		id, 
+	id, 
     name,
     setIsSubmitting,
     setOpen
@@ -23,7 +23,7 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
     const [uploadSuccess, setUploadSuccess] = useState<any>(null);
 
     const handleImageChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e)
+        // console.log(e)
         if (e.target.files && e.target.files[0]) {
             setImage(e.target.files[0]);
         }
