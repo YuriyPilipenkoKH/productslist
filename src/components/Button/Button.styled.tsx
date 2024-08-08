@@ -116,7 +116,7 @@ export const SBtnUpdate = styled('button')`
   color: var(--text-color);
   border-color: var(--text-color);
   border-radius: 5px;
-  padding: 0.25rem 0.5rem;
+  padding: 0;
   transition: all 0.4s ease;
   & >svg {
   fill: var(--text-color);

@@ -165,22 +165,22 @@ export const Avatar = styled('div')`
 `;
 
     interface AvatarWrapProps {
-        avatarurl: string;
-        fileurl: string;
+			imgUrl: string;
+			fileurl: string;
     }
 
     export const AvatarWrap = styled("div", {
 			shouldForwardProp: (prop: string) =>
-				isPropValid(prop) && !["avatarurl","fileurl"].includes(prop),
+				isPropValid(prop) && !["imgUrl","fileurl"].includes(prop),
 			})<AvatarWrapProps>(
-				({ avatarurl, fileurl }) => css`
-					background-image: ${fileurl ?  `url(${fileurl})` : `url(${avatarurl})`};
+				({ imgUrl, fileurl }) => css`
+					background-image: ${fileurl ?  `url(${fileurl})` : `url(${imgUrl})`};
 					background-size: cover ;
 					background-position: center;
 							
 				`
 			);
-			
+
 			//inline
     // export const AvatarWrap = styled("div", {
     // shouldForwardProp: (prop: string) =>
