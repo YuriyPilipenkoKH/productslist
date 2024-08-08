@@ -9,13 +9,15 @@ interface UploadImgFormProps {
     name: string,
     setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setFileUrl: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const UploadImgForm: React.FC<UploadImgFormProps> = ({
 	id, 
     name,
     setIsSubmitting,
-    setOpen
+    setOpen,
+	setFileUrl
 	}) => {
     const [image, setImage] = useState<File | null>(null);
     const [uploading, setUploading] = useState<boolean>(false);
@@ -24,8 +26,11 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 
     const handleImageChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         // console.log(e)
+
         if (e.target.files && e.target.files[0]) {
-            setImage(e.target.files[0]);
+			const selectedFile = e.target.files[0];
+            setImage(selectedFile);
+			setFileUrl(URL.createObjectURL(selectedFile));
         }
     };
 
