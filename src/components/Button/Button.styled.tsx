@@ -82,6 +82,8 @@ export const SBtnDelete = styled('button')`
   overflow: hidden;
   
   ${buttonStyles} ;
+  height: 40px;
+  width: 40px;
   background-color: transparent;
   color: var(--text-color);
   border-color: var(--text-color);
@@ -108,6 +110,8 @@ export const SBtnUpdate = styled('button')`
   overflow: hidden;
   
   ${buttonStyles} ;
+  height: 40px;
+  width: 40px;
   background-color: transparent;
   color: var(--text-color);
   border-color: var(--text-color);
