@@ -92,8 +92,6 @@ export const SBtnDelete = styled('button')`
   fill: var(--text-color);
   transition: all 0.4s ease;
   }
-
-
   &:hover  {
   color: var(--red);
   border-color: var(--red);
@@ -101,6 +99,32 @@ export const SBtnDelete = styled('button')`
   transition: all 0.4s ease;
   & >svg {
   fill: var(--red);
+  transition: all 0.4s ease;
+  }
+  }
+`;
+export const SBtnUpdate = styled('button')`
+  position: relative;
+  overflow: hidden;
+  
+  ${buttonStyles} ;
+  background-color: transparent;
+  color: var(--text-color);
+  border-color: var(--text-color);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.4s ease;
+  & >svg {
+  fill: var(--text-color);
+  transition: all 0.4s ease;
+  }
+  &:hover  {
+  color: var(--green);
+  border-color: var(--green);
+  background-color: transparent;
+  transition: all 0.4s ease;
+  & >svg {
+  fill: var(--green);
   transition: all 0.4s ease;
   }
   }

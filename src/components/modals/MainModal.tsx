@@ -1,7 +1,7 @@
 'use client'
 import { Modal } from 'antd';
 import React, { useState } from 'react'
-import { BtnDelete, CancelBtn, EditBtn} from '../Button/Button';
+import { BtnDelete, CancelBtn, BtnUpdate} from '../Button/Button';
 import { ModalBaseTypes } from '@/types/modalTypes';
 import DelIcon from '../icons/DelIcon';
 import capitalize from '@/lib/capitalize';
@@ -52,18 +52,28 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
 
   return (
     <>
-    {(modalName === 'DeletingCategoryConfirm' || modalName === 'DeletingProductConfirm' || modalName === 'EditProduct' || modalName === 'UpdateImgUrl')
+    {(modalName === 'DeletingCategoryConfirm' 
+    || modalName === 'DeletingProductConfirm')
     && (
     <BtnDelete
         type="button" 
         onClick={showModal}>
-          {(modalName === 'EditProduct') 
+         <DelIcon  />
+    </BtnDelete>
+    )}
+    {(modalName === 'EditProduct' 
+    || modalName === 'UpdateImgUrl') 
+    && (
+      <BtnUpdate
+        type="button" 
+        onClick={showModal}>
+         {(modalName === 'EditProduct') 
           ? <EditIcon/> 
             : (modalName === 'UpdateImgUrl')
             ? <MdOutlineAddAPhoto size={20}/>
           : <DelIcon  />
           }
-    </BtnDelete>
+      </BtnUpdate>
     )}
 
     <Modal

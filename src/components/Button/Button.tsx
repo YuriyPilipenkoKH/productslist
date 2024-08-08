@@ -1,5 +1,5 @@
 'use client'
-import { SAddNewBtn, SBtn, SBtnDelete, SCancelBtn, SEditBtn, SFlatBtn, SModalDelBtn, SPagBtn } from "./Button.styled";
+import { SAddNewBtn, SBtn, SBtnDelete, SBtnUpdate, SCancelBtn, SEditBtn, SFlatBtn, SModalDelBtn, SPagBtn } from "./Button.styled";
 import { useRouter } from 'next/navigation';
   interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
       children: React.ReactNode;
@@ -12,6 +12,9 @@ import { useRouter } from 'next/navigation';
 
   export const BtnDelete: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SBtnDelete type='button' {...props}> {children}</SBtnDelete>;
+  };
+  export const BtnUpdate: React.FC<ButtonProps> = ({ children, ...props }) => {
+      return <SBtnUpdate type='button' {...props}> {children}</SBtnUpdate>;
   };
 
   export const AddNewBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
