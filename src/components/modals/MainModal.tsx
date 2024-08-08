@@ -15,12 +15,15 @@ import UploadImgForm from '../forms/UploadImgForm';
 import { PicWrapper } from './Modals.styled';
 import { AvatarWrap } from '../forms/FormStyles.styled';
 
+
 interface MainModalProps {
     modalTypes: ModalBaseTypes
     id: string
     name: string
     imgUrl?: string | null
 }
+const test = process.env.NEXT_PUBLIC_TESTURL
+
 
 const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) => {
     const {
@@ -33,7 +36,6 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [fileUrl, setFileUrl] = useState<string>('');
-
     // console.log(modalName)
     console.log(imgUrl)
 
@@ -124,13 +126,10 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
           </div>
         )}
         {(modalName === 'UpdateImgUrl') && (
-          // <div className='mt-6'>
         <AvatarWrap
             fileurl={fileUrl}
-            imgUrl = {imgUrl ? imgUrl : "https://res.cloudinary.com/dwdkw1a4j/image/upload/v1712353257/phonebook/avatars/null/null.png.jpg"} 
-            className='mt-6 photo relative h-[200px]'
-                  >
-
+            imgUrl={imgUrl || test || ''}
+            className='mt-6 photo relative h-[200px]'>
             <UploadImgForm
               id={id}
               name={name}
@@ -138,8 +137,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
               setOpen={setOpen}
               setFileUrl={setFileUrl}
               />
-              </AvatarWrap>
-          // </div>
+        </AvatarWrap>
         )}
         <div className='absolute bottom-[20px]'>
         {(modalName === 'DeletingCategoryConfirm') && (

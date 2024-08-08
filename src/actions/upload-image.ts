@@ -11,6 +11,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
   });
 
+
 export const uploadImage = async (formData: FormData) => {
     const image = formData.get('image') as File | null;
     const id = formData.get('id') as string;
