@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 import UpdateProductForm from '../forms/UpdateProductForm';
 import { MdOutlineAddAPhoto } from 'react-icons/md';
 import UploadImgForm from '../forms/UploadImgForm';
+import { PicWrapper } from './Modals.styled';
 
 interface MainModalProps {
     modalTypes: ModalBaseTypes
@@ -32,7 +33,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     // console.log(modalName)
-    // console.log(imgUrl)
+    console.log(imgUrl)
 
     const showModal = () => {
         setOpen(true);
@@ -60,20 +61,19 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
          <DelIcon  />
     </BtnDelete>
     )}
-    {(modalName === 'EditProduct' 
-    || modalName === 'UpdateImgUrl') 
-    && (
-      <BtnUpdate
-        type="button" 
-        onClick={showModal}>
-         {(modalName === 'EditProduct') 
-          ? <EditIcon/> 
-          : (modalName === 'UpdateImgUrl')
-            ? <MdOutlineAddAPhoto size={20}/>
-            : <DelIcon  />
-          }
-      </BtnUpdate>
-    )}
+  {(modalName === 'EditProduct' || modalName === 'UpdateImgUrl') && (
+    <BtnUpdate type="button" onClick={showModal}>
+      {modalName === 'EditProduct' 
+      ?   <EditIcon />
+      : ( modalName === 'UpdateImgUrl' 
+        && ( imgUrl 
+          ?  <PicWrapper imgUrl={imgUrl} />
+          :  <MdOutlineAddAPhoto size={20} />
+        )
+      )}
+    </BtnUpdate>
+  )}
+
 
     <Modal
       className={cn('MainModal relative',

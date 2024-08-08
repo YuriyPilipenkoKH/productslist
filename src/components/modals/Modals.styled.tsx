@@ -12,7 +12,7 @@ const PicWrapperStyles = css`
     place-items: center;
     width: 40px;
     height: 40px;
-    border: 2px solid var(--text-color);
+    /* border: 2px solid var(--text-color); */
     border-radius: 5px;
 `
 
@@ -23,7 +23,7 @@ export const PicWrapper = styled("div", {
     })<PicWrapperProps>(
         ({ imgUrl }) => css`
             background-image: ${imgUrl ? `url(${imgUrl})` : 'none'};
-            background-size: cover;
+            background-size: cover ;
             background-position: center;
             ${PicWrapperStyles}
         `
