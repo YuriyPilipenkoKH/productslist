@@ -170,19 +170,30 @@ export const Avatar = styled('div')`
     }
 
     export const AvatarWrap = styled("div", {
-    shouldForwardProp: (prop: string) =>
-      isPropValid(prop) && !["avatarurl", "fileurl"].includes(prop),
-    })<AvatarWrapProps>(
-        ({ avatarurl, fileurl }) => {
-        return {
-            backgroundImage: fileurl ? `url(${fileurl})` : `url(${avatarurl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-        }
-        }
-    )
-
-
+			shouldForwardProp: (prop: string) =>
+				isPropValid(prop) && !["avatarurl","fileurl"].includes(prop),
+			})<AvatarWrapProps>(
+				({ avatarurl, fileurl }) => css`
+					background-image: ${fileurl ?  `url(${fileurl})` : `url(${avatarurl})`};
+					background-size: cover ;
+					background-position: center;
+							
+				`
+			);
+			
+			//inline
+    // export const AvatarWrap = styled("div", {
+    // shouldForwardProp: (prop: string) =>
+    //   isPropValid(prop) && !["avatarurl", "fileurl"].includes(prop),
+    // })<AvatarWrapProps>(
+    //     ({ avatarurl, fileurl }) => {
+    //     return {
+    //         backgroundImage: fileurl ? `url(${fileurl})` : `url(${avatarurl})`,
+    //         backgroundSize: 'cover',
+    //         backgroundPosition: 'center',
+    //     }
+    //     }
+    // )
 
   export const StyledSearchingForm = styled('form')`
     position: relative;
