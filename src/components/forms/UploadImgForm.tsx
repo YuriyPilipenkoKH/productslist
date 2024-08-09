@@ -22,15 +22,14 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
     const [image, setImage] = useState<File | null>(null);
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploadError, setUploadError] = useState<string | null>(null);
-    const [uploadSuccess, setUploadSuccess] = useState<any>(null);
+    const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
 
     const handleImageChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        // console.log(e)
-
+				setUploadError(null);
         if (e.target.files && e.target.files[0]) {
-			const selectedFile = e.target.files[0];
-            setImage(selectedFile);
-			setFileUrl(URL.createObjectURL(selectedFile));
+				const selectedFile = e.target.files[0];
+							setImage(selectedFile);
+				setFileUrl(URL.createObjectURL(selectedFile));
         }
     };
 
@@ -52,15 +51,17 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 			try {
 				const result = await uploadImage(formData);
 				if (result.success) {
+					console.log('result',result)
 						toast.success(`Product ${capitalize(name)} updated successfully`!);
 						// reset();
-						await wait(1000)
+						if(result.updatedProduct?.imageUrl){
+							setUploadSuccess(result.updatedProduct?.imageUrl)
+						}
+						await wait(2000)
 						setOpen(false)
 				} else {
 						toast.error(`Failed to update ${capitalize(name)} product : ${result.error}`);
 				}
-					// setUploadSuccess(response.data);
-
 				}
 			catch (error) {
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -95,7 +96,7 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 			</form>
 			{uploading && <p>Uploading...</p>}
 			{uploadError && <p style={{ color: 'red' }}>{uploadError}</p>}
-			{uploadSuccess && <p style={{ color: 'green' }}>Upload successful! URL: {uploadSuccess.secure_url}</p>}
+			{uploadSuccess && <p style={{ color: 'green' }}>Upload successful! URL: {uploadSuccess}</p>}
 		</div>
     );
 };

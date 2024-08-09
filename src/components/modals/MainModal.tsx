@@ -36,8 +36,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [fileUrl, setFileUrl] = useState<string>('');
-    // console.log(modalName)
-    console.log(imgUrl)
+
 
     const showModal = () => {
         setOpen(true);
