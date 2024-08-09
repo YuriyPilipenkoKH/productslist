@@ -197,6 +197,22 @@ export const SCancelBtn = styled('button')`
   }
 
 `;
+export const SConfirmBtn = styled('button')`
+  ${buttonStyles} ;
+
+  font-weight: 600;
+  border-radius:6px; 
+
+  background-color: #44a603;
+
+  &:hover {
+  background-color: #44a603a0;
+  }
+  &:disabled{
+  background-color: #888;
+  }
+
+`;
 export const SModalDelBtn = styled('button')`
   ${buttonStyles} ;
 

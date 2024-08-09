@@ -23,6 +23,9 @@ import { useRouter } from 'next/navigation';
   export const CancelBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SCancelBtn type='button' {...props}> {children}</SCancelBtn>;
   };
+  export const ConfirmBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
+      return <SCancelBtn type='button' {...props}> {children}</SCancelBtn>;
+  };
   export const ModalDelBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SModalDelBtn type='button' {...props}> {children}</SModalDelBtn>;
   };
