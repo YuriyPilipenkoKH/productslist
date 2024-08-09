@@ -1,5 +1,5 @@
 'use client'
-import { SAddNewBtn, SBtn, SBtnDelete, SBtnUpdate, SCancelBtn, SEditBtn, SFlatBtn, SModalDelBtn, SPagBtn } from "./Button.styled";
+import { SAddNewBtn, SBtn, SBtnDelete, SBtnUpdate, SCancelBtn, SConfirmBtn, SEditBtn, SFlatBtn, SModalDelBtn, SPagBtn } from "./Button.styled";
 import { useRouter } from 'next/navigation';
   interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
       children: React.ReactNode;
@@ -24,7 +24,7 @@ import { useRouter } from 'next/navigation';
       return <SCancelBtn type='button' {...props}> {children}</SCancelBtn>;
   };
   export const ConfirmBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
-      return <SCancelBtn type='button' {...props}> {children}</SCancelBtn>;
+      return <SConfirmBtn type='button' {...props}> {children}</SConfirmBtn>;
   };
   export const ModalDelBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SModalDelBtn type='button' {...props}> {children}</SModalDelBtn>;

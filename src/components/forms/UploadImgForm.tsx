@@ -4,6 +4,7 @@ import { uploadImage } from '@/actions/upload-image';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
+import { ConfirmBtn } from '../Button/Button';
 interface UploadImgFormProps {
     id:string,
     name: string,
@@ -90,13 +91,18 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 					onChange={handleImageChange} 
 					accept="image/*" 
 					/>
-					<button type="submit" disabled={uploading}>
+					<ConfirmBtn 
+						className='absolute bottom-[-70px]'
+						type="submit" 
+						disabled={uploading}>
 						Upload
-					</button>
+					</ConfirmBtn>
 			</form>
-			{uploading && <p>Uploading...</p>}
-			{uploadError && <p style={{ color: 'red' }}>{uploadError}</p>}
-			{uploadSuccess && <p style={{ color: 'green' }}>Upload successful! URL: {uploadSuccess}</p>}
+			<div>
+				{uploading && <p>Uploading...</p>}
+				{uploadError && <p style={{ color: 'red' }}>{uploadError}</p>}
+				{uploadSuccess && <p style={{ color: 'green' }}>Upload successful! URL: {uploadSuccess}</p>}
+			</div>
 		</div>
     );
 };
