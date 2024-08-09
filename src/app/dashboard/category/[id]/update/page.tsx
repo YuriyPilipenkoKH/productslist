@@ -26,9 +26,6 @@ async function UpdateCategoryPage({ params }: Params) {
     })
   return (
     <section className='p-4 space-y-6 min-h-screen flex flex-col'>
-      {/* <BackBtn >
-          <PiArrowFatLinesLeftFill />
-      </BackBtn> */}
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />
