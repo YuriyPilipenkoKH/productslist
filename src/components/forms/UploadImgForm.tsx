@@ -71,6 +71,8 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 			finally {
 					setUploading(false);
 					setIsSubmitting(false)
+					setUploadError(null);
+					setUploadSuccess(null);
 			}
     };
 
@@ -92,16 +94,18 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 					accept="image/*" 
 					/>
 					<ConfirmBtn 
-						className='absolute bottom-[-70px]'
+						className='absolute bottom-[-90px]'
 						type="submit" 
 						disabled={uploading}>
 						Upload
 					</ConfirmBtn>
 			</form>
-			<div>
-				{uploading && <p>Uploading...</p>}
-				{uploadError && <p style={{ color: 'red' }}>{uploadError}</p>}
-				{uploadSuccess && <p style={{ color: 'green' }}>Upload successful! URL: {uploadSuccess}</p>}
+			<div className='absolute bottom-[-30px] '>
+				{(uploading || uploadSuccess) 
+					?  <p>Uploading...</p>
+					:  <p style={{ color: 'green' }}> {uploadSuccess}</p>}
+				{uploadError && <p style={{ color: 'orangered' }}>{uploadError}</p>}
+
 			</div>
 		</div>
     );
