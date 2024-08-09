@@ -2,7 +2,6 @@ import { currentUser } from '@clerk/nextjs/server'
 import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
-import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
 import MainModal from '@/components/modals/MainModal'
 import { DeletingCategoryConfirmProps } from '@/data/modalProps'
 import { Category, Product } from '@prisma/client'
@@ -10,6 +9,7 @@ import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
 import ProductsCounter from '@/components/ProductsCounter'
+import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
 
 type CategoryWithProducts = Category & {
   products: Product[];

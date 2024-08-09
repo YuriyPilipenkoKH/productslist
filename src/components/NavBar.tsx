@@ -1,7 +1,7 @@
 import { UserButton } from '@clerk/nextjs';
 import {auth} from '@clerk/nextjs/server'
 import Logo from './Logo';
-import ThemeChanger from './ThemeChanger';
+// import ThemeChanger from './ThemeChanger';
 import { FlatBackBtn } from './Button/Button';
 import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
 
