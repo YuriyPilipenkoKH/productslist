@@ -72,8 +72,6 @@ async function Dashboard() {
                     id={category.id}
                     name={category.name}
                                   />
-                  {/* <DeleteCategoryForm
-                  id={category.id}/> */}
                   </td>
                 </tr>
               ))}

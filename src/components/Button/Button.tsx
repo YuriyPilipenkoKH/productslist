@@ -38,14 +38,24 @@ import { useRouter } from 'next/navigation';
         <SEditBtn 
             type='button' 
             {...props}
-            onClick={() => router.back()}
-        > 
+            onClick={() => router.back()}        > 
             {children}
         </SEditBtn>
       );
   };
   export const FlatBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
       return <SFlatBtn type='button' {...props}> {children}</SFlatBtn>;
+  };
+  export const FlatBackBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
+    const router = useRouter()
+      return (
+				<SFlatBtn 
+						type='button'   
+						{...props}
+						onClick={() => router.back()}> 
+							{children}
+      </SFlatBtn>
+			);
   };
   export const PagBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
     return <SPagBtn type='button' {...props}> {children}</SPagBtn>;
