@@ -26,14 +26,14 @@ async function UpdateCategoryPage({ params }: Params) {
     })
   return (
     <section className='p-4 space-y-6 min-h-screen flex flex-col'>
-      <BackBtn >
+      {/* <BackBtn >
           <PiArrowFatLinesLeftFill />
-      </BackBtn>
+      </BackBtn> */}
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />
         <hr />
-        <h2 className='text-center my-4 '>Products below</h2>
+        <h2 className='text-center my-2 '>Products below</h2>
         <div>
          <AddNewProductForm 
           categoryId= {data?.id || ''}/>
