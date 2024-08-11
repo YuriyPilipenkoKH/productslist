@@ -125,18 +125,20 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
           </div>
         )}
         {(modalName === 'UpdateImgUrl') && (
-        <AvatarWrap
-            fileurl={fileUrl}
-            imgUrl={imgUrl || test || ''}
-            className='mt-6 photo relative h-[200px]'>
-            <UploadImgForm
-              id={id}
-              name={name}
-              setIsSubmitting={setIsSubmitting}
-              setOpen={setOpen}
-              setFileUrl={setFileUrl}
-              />
-        </AvatarWrap>
+   
+          <AvatarWrap
+              fileurl={fileUrl}
+              imgUrl={imgUrl || test || ''}
+              className='mt-6 photo relative h-[200px]'>
+              <UploadImgForm
+                id={id}
+                name={name}
+                setIsSubmitting={setIsSubmitting}
+                setOpen={setOpen}
+                setFileUrl={setFileUrl}
+                />
+          </AvatarWrap>
+       
         )}
         <div className='absolute bottom-[20px]'>
         {(modalName === 'DeletingCategoryConfirm') && (

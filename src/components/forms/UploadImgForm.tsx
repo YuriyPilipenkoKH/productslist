@@ -105,7 +105,7 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 			</form>
 			<div className='absolute bottom-[-30px] w-[270px] overflow-hidden text-ellipsis whitespace-nowrap'>
 			{uploadSuccess 
-				? <UpSuccessWrap style={{ color: 'green' }}>{uploadSuccess}</UpSuccessWrap>	
+				? <UpSuccessWrap >{uploadSuccess}</UpSuccessWrap>	
 					: uploading
 						? <p>Uploading...</p>
 						: null }

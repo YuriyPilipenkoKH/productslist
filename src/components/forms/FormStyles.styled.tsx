@@ -197,10 +197,9 @@ export const Avatar = styled('div')`
 
 
 		export const UpSuccessWrap = styled('p')  `
-		color: crimson;
-		border: 1px solid lightcoral;
-		width: 290px;
-		height: 40px;
+		color: green;
+		/* border: 1px solid lightcoral; */
+		/* height: 50px; */
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;

@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background-color: #9a9b96;
+  --background-color: #777;
   --accent-color: #ff8356;
   --fone-color: #fef9f9;
+  --background-modal:  #9a9b96;
 
   --yellow: #ffc107;
   --white: #ffffff;
