@@ -1,9 +1,11 @@
 import { UserButton } from '@clerk/nextjs';
 import {auth} from '@clerk/nextjs/server'
 import Logo from './Logo';
-// import ThemeChanger from './ThemeChanger';
+import ThemeChanger from './ThemeChanger';
 import { FlatBackBtn } from './Button/Button';
 import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
+import dynamic from "next/dynamic";
+
 
 function NavBar() {
   const {userId} = auth()
@@ -14,14 +16,14 @@ function NavBar() {
           <FlatBackBtn >
               <PiArrowFatLinesLeftFill />
           </FlatBackBtn>
-        {/* <ThemeChanger /> */}
-
+        <ThemeChanger />
         {userId && (
-                  <UserButton 
-                  afterSignOutUrl="/sign-in"/>
+          <UserButton 
+          afterSignOutUrl="/sign-in"
+          />
         )}
     </nav>
   )
 }
 
-export default NavBar
+export default dynamic (() => Promise.resolve(NavBar), {ssr: false})
