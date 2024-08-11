@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
 import { ConfirmBtn } from '../Button/Button';
+import { UpSuccessWrap } from './FormStyles.styled';
 interface UploadImgFormProps {
     id:string,
     name: string,
@@ -104,7 +105,7 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 			</form>
 			<div className='absolute bottom-[-30px] w-[270px] overflow-hidden text-ellipsis whitespace-nowrap'>
 			{uploadSuccess 
-				? <p style={{ color: 'green' }}>{uploadSuccess}</p>	
+				? <UpSuccessWrap style={{ color: 'green' }}>{uploadSuccess}</UpSuccessWrap>	
 					: uploading
 						? <p>Uploading...</p>
 						: null }

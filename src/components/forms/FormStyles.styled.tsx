@@ -195,6 +195,19 @@ export const Avatar = styled('div')`
     //     }
     // )
 
+
+		export const UpSuccessWrap = styled('p')  `
+		color: crimson;
+		border: 1px solid lightcoral;
+		width: 290px;
+		height: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		`
+
   export const StyledSearchingForm = styled('form')`
     position: relative;
     width: 300px;
