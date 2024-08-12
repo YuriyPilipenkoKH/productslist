@@ -1,14 +1,9 @@
-// 'use client'
-import { BackBtn } from '@/components/Button/Button';
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
 import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
 import prisma from '@/lib/prisma'
 
-
-import React from 'react'
-import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
 interface Params {
     params: {
       id: string;

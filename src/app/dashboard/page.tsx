@@ -9,7 +9,7 @@ import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
 import ProductsCounter from '@/components/ProductsCounter'
-import AddNewCategoryForm from '@/components/forms/AddNewCategoryForm'
+import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
 
 type CategoryWithProducts = Category & {
   products: Product[];
