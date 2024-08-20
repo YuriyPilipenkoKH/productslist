@@ -1,6 +1,6 @@
 'use client'
 import { addCategory } from '@/actions/add-category'
-import React, { useState } from 'react'
+import React, { useActionState, useState } from 'react'
 import { AddNewBtn } from '../Button/Button'
 import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
 import { useForm } from 'react-hook-form';
@@ -37,6 +37,7 @@ export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			isValid ,
 			isSubmitting,
 		} = formState
+
 		const onSubmit = async (data: addNewCategorySchemaType) => {
 			const formData = new FormData();
 			formData.append('name', data.name);
