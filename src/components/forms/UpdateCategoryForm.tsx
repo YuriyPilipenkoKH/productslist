@@ -58,6 +58,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
         } catch (error) {
 					const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
 					toast.error(`An error occurred: ${errorMessage}`);
+					setLogError(errorMessage)
 			}
 	};
 
@@ -89,6 +90,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
 		{( errors?.name ) && (
 				<AuthError className="autherror">
 					{errors.name && <div>{errors?.name.message}</div>}
+					{!errors && logError && <div>{logError}</div>}
 				</AuthError>
 			)}
 		</div>	

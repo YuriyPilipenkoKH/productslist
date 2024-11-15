@@ -68,6 +68,7 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 			catch (error) {
 				const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
 				toast.error(`An error occurred: ${errorMessage}`);
+				setLogError(errorMessage)
 			}
 			finally{
         setIsSubmitting(false)
@@ -102,6 +103,7 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 		{( errors?.name ) && (
 				<AuthError className="autherror">
 					{errors.name && <div>{errors?.name.message}</div>}
+					{!errors && logError && <div>{logError}</div>}
 				</AuthError>
 			)}
 		</div>	

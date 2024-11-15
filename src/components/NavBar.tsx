@@ -1,5 +1,4 @@
-import { UserButton } from '@clerk/nextjs';
-import {auth} from '@clerk/nextjs/server'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
 import { FlatBackBtn } from './Button/Button';
@@ -8,7 +7,7 @@ import dynamic from "next/dynamic";
 
 
 function NavBar() {
-  const {userId} = auth()
+
 
   return (
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
@@ -17,11 +16,12 @@ function NavBar() {
               <PiArrowFatLinesLeftFill />
           </FlatBackBtn>
         <ThemeChanger />
-        {userId && (
-          <UserButton 
-          afterSignOutUrl="/sign-in"
-          />
-        )}
+        <SignedIn>
+          <UserButton afterSignOutUrl="/sign-in" />
+        </SignedIn>
+        <SignedOut>
+        <SignInButton />
+        </SignedOut>
     </nav>
   )
 }
