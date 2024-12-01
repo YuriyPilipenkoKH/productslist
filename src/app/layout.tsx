@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from '@clerk/nextjs'
 import { Toaster } from "react-hot-toast";
 import NavBar from "@/components/NavBar";
 import Container from "@/components/Container/Container";
@@ -22,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider >
+
     <html 
       lang="en"
       suppressHydrationWarning>
@@ -41,6 +40,6 @@ export default function RootLayout({
         </NextThemeProvider>
        </body>
     </html>
-    </ClerkProvider>
+
   );
 }

@@ -1,4 +1,4 @@
-import { currentUser } from '@clerk/nextjs/server'
+
 import React from 'react'
 import prisma from '@/lib/prisma'
 import Link from 'next/link'
@@ -16,8 +16,10 @@ type CategoryWithProducts = Category & {
 };
 
 async function Dashboard() {
-  const user = await currentUser()
-  const creator = user?.firstName || ""; // Provide a fallback value for creator
+  // const user = await currentUser()
+  // const creator = user?.firstName || ""; // Provide a fallback value for creator
+  const creator ='yuriy'
+
   const categories:CategoryWithProducts[] = await prisma.category.findMany({
     where: {
       creator

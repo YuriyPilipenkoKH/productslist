@@ -1,13 +1,11 @@
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import {auth} from '@clerk/nextjs/server'
-import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const {userId} = auth()
-  if(userId) {
-    redirect('/dashboard')
-  }
+
+  // if(userId) {
+  //   redirect('/dashboard')
+  // }
   return (
     <section className="py-6">
       <div className="text-center mx-auto py-12 px-4 ">

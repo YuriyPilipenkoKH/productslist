@@ -19,27 +19,27 @@
 
 
 
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server";
+// import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+// import { NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)'
-]);
+// const isProtectedRoute = createRouteMatcher([
+//   '/dashboard(.*)'
+// ]);
 
-const middleware = clerkMiddleware(async (auth, req) => {
-  const { userId } = await auth(); // Await the `auth` to retrieve the user ID
+// const middleware = clerkMiddleware(async (auth, req) => {
+//   const { userId } = await auth(); // Await the `auth` to retrieve the user ID
 
-  if (isProtectedRoute(req) && !userId) {
-    // Redirect to sign-in if the user is not authenticated
-    return NextResponse.redirect("/auth/signin");
-  }
+//   if (isProtectedRoute(req) && !userId) {
+//     // Redirect to sign-in if the user is not authenticated
+//     return NextResponse.redirect("/auth/signin");
+//   }
 
-  // Continue to the requested page if the user is authenticated or route is not protected
-  return NextResponse.next();
-});
+//   // Continue to the requested page if the user is authenticated or route is not protected
+//   return NextResponse.next();
+// });
 
-export default middleware;
+// export default middleware;
 
-export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
-};
+// export const config = {
+//   matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+// };
