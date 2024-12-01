@@ -1,9 +1,9 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+
 import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
 import { FlatBackBtn } from './Button/Button';
 import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 
 function NavBar() {
@@ -16,14 +16,11 @@ function NavBar() {
               <PiArrowFatLinesLeftFill />
           </FlatBackBtn>
         <ThemeChanger />
-        <SignedIn>
-          <UserButton afterSignOutUrl="/sign-in" />
-        </SignedIn>
-        <SignedOut>
-        <SignInButton />
-        </SignedOut>
+
     </nav>
   )
 }
 
-export default dynamic (() => Promise.resolve(NavBar), {ssr: false})
+export default NavBar
+
+// export default dynamic (() => Promise.resolve(NavBar), {ssr: false})
