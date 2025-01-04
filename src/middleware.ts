@@ -11,7 +11,6 @@ console.log('Middleware called' , req.nextUrl.pathname);
 })
 export const config = {
   matcher: [
-
     "/((?!.+\\.[\\w]+$|_next).*)",
     "/",
     "/(api|trpc)(.*)"
