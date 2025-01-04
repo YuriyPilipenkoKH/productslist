@@ -15,7 +15,7 @@ function NavBar() {
           <FlatBackBtn >
               <PiArrowFatLinesLeftFill />
           </FlatBackBtn>
-        <ThemeChanger />
+        {/* <ThemeChanger /> */}
 
     </nav>
   )

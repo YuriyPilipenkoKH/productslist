@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 import NavBar from "@/components/NavBar";
 import Container from "@/components/Container/Container";
 import { options } from "@/lib/hotToast";
-import { NextThemeProvider } from "@/providers/NextThemeProvider";
+// import { NextThemeProvider } from "@/providers/NextThemeProvider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,9 +24,10 @@ export default function RootLayout({
 
     <html 
       lang="en"
-      suppressHydrationWarning>
+      // suppressHydrationWarning
+      >
       <body className={inter.className}>
-        <NextThemeProvider >
+
           <Container>
                 <NavBar 
                 // searchParams={searchParams}
@@ -37,7 +38,7 @@ export default function RootLayout({
                   toastOptions={options} 
                   gutter={24} />
           </Container>
-        </NextThemeProvider>
+
        </body>
     </html>
 

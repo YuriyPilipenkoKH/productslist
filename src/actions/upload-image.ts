@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from "@/lib/prisma"
+import prisma from "../../prisma/prisma"
 import { revalidatePath } from "next/cache"
 import { UploadApiResponse, v2 as cloudinary } from 'cloudinary';
 

@@ -2,7 +2,7 @@ import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
 import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
-import prisma from '@/lib/prisma'
+import prisma from '../../../../../../prisma/prisma'
 
 interface Params {
     params: {

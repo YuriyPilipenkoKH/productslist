@@ -54,7 +54,8 @@
 
 
 body {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-color: #999 !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: all 1s ease;

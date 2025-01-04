@@ -1,6 +1,6 @@
 
 import React from 'react'
-import prisma from '@/lib/prisma'
+import prisma from '../../../prisma/prisma'
 import Link from 'next/link'
 import MainModal from '@/components/modals/MainModal'
 import { DeletingCategoryConfirmProps } from '@/data/modalProps'
