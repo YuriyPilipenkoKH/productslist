@@ -20,6 +20,7 @@ model User {
   email         String    @unique
   password      String?
   image         String?
+  categories Category[]
   accounts      Account[]
   createdAt     DateTime  @default(now())
   emailVerified DateTime?
@@ -64,4 +65,5 @@ model Category {
   products  Product[]
   creator   String
   imageUrl  String?
+  user      User      @relation(fields: [id], references: [id])
 }
