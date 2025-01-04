@@ -7,6 +7,8 @@ import { revalidatePath } from "next/cache"
 export const addCategory = async (formData: FormData) => {
     const name = formData.get('name') 
     const creator = formData.get('creator') 
+    console.log(name,creator);
+    
   
     try {
         const newCategory = await prisma.category.create({
