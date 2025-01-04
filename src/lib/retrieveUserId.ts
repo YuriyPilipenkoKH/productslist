@@ -1,14 +1,20 @@
 "use server"
+
+import prisma from "../../prisma/prisma"
+
  
 
-export async function retrieveUserId() {
-    // const user = await currentUser()
+export async function retrieveUserId(email:string) {
+    const user = await prisma.user.findUnique({
+        where: {
+            email
+        }
+    })
 
-    // if(!user) {
-    //   console.log('User not found')  
-    //   }
-    // if(user) {
-    //     console.log('UserID', user?.id);
-    //    return user?.id 
-    //   }
+    if(!user) {
+      console.log('User not found')  
+      }
+
+       return user?.id 
+
 }
