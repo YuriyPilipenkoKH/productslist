@@ -11,6 +11,7 @@ import ProductsCounter from '@/components/ProductsCounter'
 import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
 import { auth } from '../../../auth'
 import { redirect } from 'next/navigation'
+import { retrieveUserId } from '@/lib/retrieveUserId'
 
 
 type CategoryWithProducts = Category & {
@@ -27,6 +28,8 @@ async function Dashboard() {
   const {user} = session
   const creator = user?.name || "Unknown"
 
+  const userId = await retrieveUserId(user?.email)
+
   const categories:CategoryWithProducts[] = await prisma.category.findMany({
     where: {
       creator
@@ -40,7 +43,7 @@ async function Dashboard() {
         <div>
          <AddNewCategoryForm 
          creator={creator}
-         userId={creator}
+         userId={userId}
          />
         </div>
         {categories.length > 0 ? (
