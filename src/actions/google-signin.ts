@@ -2,5 +2,6 @@
 import { signIn } from "../../auth";
 
 export const googleSignIn = async () => {
-      return await signIn("google");
+
+  return await signIn("google");
 }

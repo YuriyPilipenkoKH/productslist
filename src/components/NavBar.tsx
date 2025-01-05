@@ -4,7 +4,7 @@ import ThemeChanger from './ThemeChanger';
 import { LogInButton, LogoutButton } from './Button/Button';
 
 import { auth } from '../../auth';
-import { redirect } from 'next/navigation';
+
 
 
 
