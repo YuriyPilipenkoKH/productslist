@@ -12,9 +12,7 @@ function NavBar() {
   return (
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
         <Logo/>
-          <FlatBackBtn >
-              <PiArrowFatLinesLeftFill />
-          </FlatBackBtn>
+
           <LogoutButton/>
         {/* <ThemeChanger /> */}
 
