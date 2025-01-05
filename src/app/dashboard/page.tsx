@@ -10,15 +10,24 @@ import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
 import ProductsCounter from '@/components/ProductsCounter'
 import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
+import { auth } from '../../../auth'
+import { redirect } from 'next/navigation'
+
 
 type CategoryWithProducts = Category & {
   products: Product[];
 };
 
 async function Dashboard() {
-  // const user = await currentUser()
-  // const creator = user?.firstName || ""; // Provide a fallback value for creator
-  const creator ='yuriy'
+    // Fetch session server-side
+  const session = await auth();
+  console.log('session',session);
+  if (!session) {
+    redirect('/'); 
+  }
+  
+  const {user} = session
+  const creator = user?.name?.trim().split(" ")[0] || "Unknown"
 
   const categories:CategoryWithProducts[] = await prisma.category.findMany({
     where: {
