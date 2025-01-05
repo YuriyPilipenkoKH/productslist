@@ -19,7 +19,7 @@ type CategoryWithProducts = Category & {
 };
 
 async function Dashboard() {
-    // Fetch session server-side
+    // Fetch session 
   const session = await auth();
   console.log('session',session);
   if (!session) {
