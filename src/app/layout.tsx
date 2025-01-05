@@ -18,29 +18,24 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params,
-}: Readonly<{
+ }: Readonly<{
   children: React.ReactNode;
-  params: { slug?: string[] }; // Dynamic route segments
-}>) {
-  const currentPath = `/${params.slug?.join("/") || ""}`; // Construct the current path from params
-
-  return (
+ }>) {
+   return (
     <html lang="en"  >  
       <body className={inter.className}>
         <SessionProvider>
-        <Container>
-
-          <NavBar 
-          // searchParams={searchParams}
-          />
-          {children}
-          <Toaster 
-            position="top-center" 
-            toastOptions={options} 
-            gutter={24} />
-        </Container>
-            </SessionProvider>
+          <Container>
+            <NavBar 
+            // searchParams={searchParams}
+            />
+            {children}
+            <Toaster 
+              position="top-center" 
+              toastOptions={options} 
+              gutter={24} />
+          </Container>
+        </SessionProvider>
        </body>
     </html>
   );

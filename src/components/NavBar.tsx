@@ -3,12 +3,8 @@ import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
 import { LogInButton, LogoutButton } from './Button/Button';
 import { useSession } from "next-auth/react";
-import { auth } from '../../auth';
 import { usePathname } from 'next/navigation';
 
-interface NavBarProps {
-  currentPath: string
-}
 
 function NavBar() {
   const currentPath = usePathname();
