@@ -1,19 +1,19 @@
-
+"use client"; 
 import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
 import { LogInButton, LogoutButton } from './Button/Button';
-
+import { useSession } from "next-auth/react";
 import { auth } from '../../auth';
+import { usePathname } from 'next/navigation';
 
 interface NavBarProps {
   currentPath: string
 }
 
-async function NavBar({ currentPath }: NavBarProps) {
-  // const path = new URL(currentPath).pathname
+function NavBar() {
+  const currentPath = usePathname();
+  const { data: session, status } = useSession();
   console.log('currentPath',currentPath);
-  const session = await auth();
-  console.log('session',session);
  
   // const {user} = session
 
