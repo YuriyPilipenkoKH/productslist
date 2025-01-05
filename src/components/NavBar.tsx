@@ -1,7 +1,7 @@
 
 import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
-import { LogoutButton } from './Button/Button';
+import { LogInButton, LogoutButton } from './Button/Button';
 
 import { auth } from '../../auth';
 import { redirect } from 'next/navigation';
@@ -17,7 +17,7 @@ async function NavBar() {
   return (
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
         <Logo/>
-        {session && <LogoutButton/>}
+        {session ? <LogoutButton/> : <LogInButton/>}
           
         {/* <ThemeChanger /> */}
 

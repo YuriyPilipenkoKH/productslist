@@ -80,6 +80,17 @@ export const LogoutButton = () => {
     </SEditBtn>
   );
 };
+export const LogInButton = () => {
+  const router = useRouter()
+
+  return (
+    <SEditBtn 
+      className="btn btn-primary login-btn"
+      onClick={() => router.push('/login')}  >
+        LogIn
+    </SEditBtn>
+  );
+};
 
 
 
