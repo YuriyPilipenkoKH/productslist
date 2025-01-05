@@ -19,15 +19,14 @@ type CategoryWithProducts = Category & {
 };
 
 async function Dashboard() {
-    // Fetch session 
+
   const session = await auth();
-  console.log('session',session);
   if (!session) {
     redirect('/login'); 
   }
   
   const {user} = session
-  const creator = user?.name?.trim().split(" ")[0] || "Unknown"
+  const creator = user?.name || "Unknown"
 
   const categories:CategoryWithProducts[] = await prisma.category.findMany({
     where: {

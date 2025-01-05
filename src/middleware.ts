@@ -5,16 +5,15 @@ import NextAuth from "next-auth";
 
 const { auth } = NextAuth({
   ...authConfig,
-  // secret: process.env.NEXTAUTH_SECRET, 
 });
 
 export default auth(async (req) => {
 // custom middleware logic
-console.log('Middleware called' , req.nextUrl.pathname);
-console.log(req.auth);
-
+// console.log('Middleware called' , req.nextUrl.pathname);
+// console.log(req.auth);
 
 })
+
 export const config = {
   matcher: [
     "/((?!.+\\.[\\w]+$|_next).*)",

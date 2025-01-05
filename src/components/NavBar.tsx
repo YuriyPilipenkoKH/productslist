@@ -9,8 +9,6 @@ import { usePathname } from 'next/navigation';
 function NavBar() {
   const currentPath = usePathname();
   const { data: session, status } = useSession();
-  console.log('currentPath',currentPath);
- 
   // const {user} = session
 
   return (
