@@ -1,6 +1,8 @@
 'use client'
+import { logOut } from "@/actions/logout";
 import { SAddNewBtn, SBtn, SBtnDelete, SBtnUpdate, SCancelBtn, SConfirmBtn, SEditBtn, SFlatBtn, SModalDelBtn, SPagBtn } from "./Button.styled";
 import { useRouter } from 'next/navigation';
+import toast from "react-hot-toast";
   interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
       children: React.ReactNode;
     }
@@ -59,6 +61,24 @@ import { useRouter } from 'next/navigation';
   };
   export const PagBtn: React.FC<ButtonProps> = ({ children, ...props }) => {
     return <SPagBtn type='button' {...props}> {children}</SPagBtn>;
+};
+
+export const LogoutButton = () => {
+  const handleLogout = async () => {
+    const result =  await logOut();
+    if (result?.success) {
+      toast.success(
+        result?.message
+      );
+  };
+}
+  return (
+    <button 
+      className="btn btn-primary logout-btn"
+      onClick={handleLogout}  >
+        Logout
+    </button>
+  );
 };
 
 
