@@ -10,8 +10,7 @@ export const addNewCategorySchema: ZodType<{
     .regex(/^[a-zA-Z]+$|^[0-9]+$|^[\w\s]+$|^[\w\s_]+$/, { 
         message: "Use letters, numbers & underscore" 
     }), 
-    userId: z
-    .string()     
+    
 
     
 })

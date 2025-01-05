@@ -11,7 +11,7 @@ import ProductsCounter from '@/components/ProductsCounter'
 import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
 import { auth } from '../../../auth'
 import { redirect } from 'next/navigation'
-import { retrieveUserId } from '@/actions/retrieveUserId'
+import { retrieveUserId } from '@/actions/retrieve-userId'
 
 
 type CategoryWithProducts = Category & {
@@ -27,8 +27,13 @@ async function Dashboard() {
   
   const {user} = session
   const creator = user?.name || "Unknown"
-
-  const userId = await retrieveUserId(user?.email)
+  // Check if email is valid
+  if (!user?.email) {
+    console.error("User email is missing");
+    redirect('/login'); // Or handle the missing email case as needed
+  }
+  const userId = await retrieveUserId(user.email)
+  
 
   const categories:CategoryWithProducts[] = await prisma.category.findMany({
     where: {
@@ -43,7 +48,7 @@ async function Dashboard() {
         <div>
          <AddNewCategoryForm 
          creator={creator}
-         userId={userId}
+         userId={userId || ""}
          />
         </div>
         {categories.length > 0 ? (

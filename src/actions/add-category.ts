@@ -8,7 +8,7 @@ export const addCategory = async (formData: FormData) => {
     const name = formData.get('name') as string;
     const creator = formData.get('creator') as string;
     const userId = formData.get('userId') as string;
-    console.log(name,creator);
+    console.log(name,creator,userId );
     
   
     try {
