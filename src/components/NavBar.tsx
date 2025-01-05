@@ -3,7 +3,7 @@ import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
 import { FlatBackBtn } from './Button/Button';
 import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
-// import dynamic from "next/dynamic";
+
 
 
 function NavBar() {
@@ -15,6 +15,7 @@ function NavBar() {
           <FlatBackBtn >
               <PiArrowFatLinesLeftFill />
           </FlatBackBtn>
+          
         {/* <ThemeChanger /> */}
 
     </nav>
@@ -23,4 +24,3 @@ function NavBar() {
 
 export default NavBar
 
-// export default dynamic (() => Promise.resolve(NavBar), {ssr: false})
