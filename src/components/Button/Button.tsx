@@ -73,11 +73,11 @@ export const LogoutButton = () => {
   };
 }
   return (
-    <button 
+    <SEditBtn 
       className="btn btn-primary logout-btn"
       onClick={handleLogout}  >
-        Logout
-    </button>
+        LogOut
+    </SEditBtn>
   );
 };
 
