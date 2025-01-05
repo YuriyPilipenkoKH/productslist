@@ -12,11 +12,11 @@ import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
 import { auth } from '../../../auth'
 import { redirect } from 'next/navigation'
 import { retrieveUserId } from '@/actions/retrieve-userId'
+import { grabCategories } from '@/actions/grab-categories'
+import { CategoryWithProducts } from '@/types/Category'
 
 
-type CategoryWithProducts = Category & {
-  products: Product[];
-};
+
 
 async function Dashboard() {
 
@@ -33,16 +33,7 @@ async function Dashboard() {
     redirect('/login'); // Or handle the missing email case as needed
   }
   const userId = await retrieveUserId(user.email)
-  
-
-  const categories:CategoryWithProducts[] = await prisma.category.findMany({
-    where: {
-      creator
-    },
-    include: {
-      products: true, // Include related products
-    },
-  })
+  const categories =await grabCategories(creator)
   return (
     <section className='dashboard py-4 space-y-6 min-h-screen flex flex-col'>
         <div>
