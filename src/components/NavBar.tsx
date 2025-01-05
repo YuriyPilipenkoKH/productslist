@@ -11,11 +11,8 @@ import { redirect } from 'next/navigation';
 async function NavBar() {
   const session = await auth();
   console.log('session',session);
-  if (!session) {
-    redirect('/'); 
-  }
-  
-  const {user} = session
+ 
+  // const {user} = session
 
   return (
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
