@@ -1,19 +1,27 @@
 
 import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
-import { FlatBackBtn, LogoutButton } from './Button/Button';
-import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
+import { LogoutButton } from './Button/Button';
+
+import { auth } from '../../auth';
+import { redirect } from 'next/navigation';
 
 
 
-function NavBar() {
-
+async function NavBar() {
+  const session = await auth();
+  console.log('session',session);
+  if (!session) {
+    redirect('/'); 
+  }
+  
+  const {user} = session
 
   return (
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
         <Logo/>
-
-          <LogoutButton/>
+        {session && <LogoutButton/>}
+          
         {/* <ThemeChanger /> */}
 
     </nav>
