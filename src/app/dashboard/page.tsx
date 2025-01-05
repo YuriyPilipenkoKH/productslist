@@ -1,4 +1,3 @@
-
 import React from 'react'
 import prisma from '../../../prisma/prisma'
 import Link from 'next/link'
@@ -41,6 +40,7 @@ async function Dashboard() {
         <div>
          <AddNewCategoryForm 
          creator={creator}
+         userId={creator}
          />
         </div>
         {categories.length > 0 ? (

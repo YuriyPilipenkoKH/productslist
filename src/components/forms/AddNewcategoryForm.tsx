@@ -12,10 +12,11 @@ import capitalize from '@/lib/capitalize'
 
 interface AddNewCategoryFormProps {
 	creator: string
+	userId: string
 }
 
 export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
-	creator
+	creator, userId
 	}) => {
 		console.log(creator);
 		
@@ -44,6 +45,7 @@ export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 			const formData = new FormData();
 			formData.append('name', data.name);
 			formData.append('creator', creator);
+			formData.append('userId', userId);
 
 			try {
 					const result = await addCategory(formData);
@@ -72,8 +74,14 @@ export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 				name='creator'
 				defaultValue={creator}
 				/>
+			<input
+				hidden
+				id='userId'
+				name='userId'
+				defaultValue={userId}
+				/>
 			<FormInput 
-			 {...register('name')}
+			 {...register('name',)}
 				 placeholder=	{( isSubmitting ) 
 				? "Process" 
 				: 'category name'}

@@ -5,17 +5,19 @@ import { revalidatePath } from "next/cache"
 
 
 export const addCategory = async (formData: FormData) => {
-    const name = formData.get('name') 
-    const creator = formData.get('creator') 
+    const name = formData.get('name') as string;
+    const creator = formData.get('creator') as string;
+    const userId = formData.get('userId') as string;
     console.log(name,creator);
     
   
     try {
         const newCategory = await prisma.category.create({
             data: {
-                name: name as string,
-                creator: creator as string,
-            }
+                name,
+                creator,
+                userId, // Include `userId` in the data
+            },
         })
         revalidatePath('/dashboard')
         return { success: true, newCategory };
