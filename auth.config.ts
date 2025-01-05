@@ -9,4 +9,10 @@ export default {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Allow redirecting only to allowed paths
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    },
+  },
 } satisfies NextAuthConfig;
