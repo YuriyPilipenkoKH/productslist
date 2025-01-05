@@ -1,7 +1,7 @@
 
 import Logo from './Logo';
 import ThemeChanger from './ThemeChanger';
-import { FlatBackBtn } from './Button/Button';
+import { FlatBackBtn, LogoutButton } from './Button/Button';
 import { PiArrowFatLinesLeftFill } from 'react-icons/pi';
 
 
@@ -15,7 +15,7 @@ function NavBar() {
           <FlatBackBtn >
               <PiArrowFatLinesLeftFill />
           </FlatBackBtn>
-          
+          <LogoutButton/>
         {/* <ThemeChanger /> */}
 
     </nav>
