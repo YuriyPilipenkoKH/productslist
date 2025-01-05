@@ -23,7 +23,7 @@ async function Dashboard() {
   const session = await auth();
   console.log('session',session);
   if (!session) {
-    redirect('/'); 
+    redirect('/login'); 
   }
   
   const {user} = session

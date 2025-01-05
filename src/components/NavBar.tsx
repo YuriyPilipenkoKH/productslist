@@ -22,10 +22,8 @@ async function NavBar({ currentPath }: NavBarProps) {
         <Logo/>
         {session 
         ?  <LogoutButton/> 
-        : (currentPath !== '/login') &&  <LogInButton/>}
-          
+        : (currentPath !== '/login') &&  <LogInButton/>}   
         {/* <ThemeChanger /> */}
-
     </nav>
   )
 }

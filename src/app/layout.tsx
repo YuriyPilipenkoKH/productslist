@@ -26,26 +26,19 @@ export default async function RootLayout({
   const currentPath = `/${params.slug?.join("/") || ""}`; // Construct the current path from params
 
   return (
-
-    <html 
-      lang="en"
-      // suppressHydrationWarning
-      >
+    <html lang="en"  >  
       <body className={inter.className}>
-
-          <Container>
-                <NavBar currentPath={currentPath}
-                // searchParams={searchParams}
-                />
-                {children}
-                <Toaster 
-                  position="top-center" 
-                  toastOptions={options} 
-                  gutter={24} />
-          </Container>
-
+        <Container>
+          <NavBar currentPath={currentPath}
+          // searchParams={searchParams}
+          />
+          {children}
+          <Toaster 
+            position="top-center" 
+            toastOptions={options} 
+            gutter={24} />
+        </Container>
        </body>
     </html>
-
   );
 }
