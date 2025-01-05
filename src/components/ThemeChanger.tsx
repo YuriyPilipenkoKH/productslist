@@ -25,12 +25,13 @@ function ThemeChanger() {
   )
 
   if (resolvedTheme === 'dark') {
-    return <PiHeadlightsBold onClick={() => setTheme('light')} />
+    return <BsMoonStars onClick={() => setTheme('light')} />
   }
 
   if (resolvedTheme === 'light') {
-    return <BsMoonStars onClick={() => setTheme('dark')} />
+    return <PiHeadlightsBold  onClick={() => setTheme('dark')} />
   }
 }
 
 export default ThemeChanger
+//PiHeadlightsBold  BsMoonStars

@@ -7,7 +7,7 @@ export default  function Home() {
       <div className="text-center mx-auto py-12 px-4 ">
 
       <Link href={'/dashboard'} className="block p-4">
-        <span className="text-3xl font-extrabold text-black">
+        <span className="text-3xl font-extrabold ">
           Produts List
         </span>
       </Link>
