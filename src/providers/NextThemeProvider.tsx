@@ -1,6 +1,6 @@
-
+'use client'
 import { ReactNode } from 'react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider  } from 'next-themes';
 
 interface Props {
   children: ReactNode;
@@ -8,12 +8,12 @@ interface Props {
 
 export function NextThemeProvider({ children }: Props) {
   return (
-    <NextThemesProvider 
+    <ThemeProvider
       attribute="class" 
       defaultTheme="dark"
-      // enableSystem
+      enableSystem
       >
       {children}
-    </NextThemesProvider>
+    </ThemeProvider>
   )
 }

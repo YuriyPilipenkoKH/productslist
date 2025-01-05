@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 import NavBar from "@/components/NavBar";
 import Container from "@/components/Container/Container";
 import { options } from "@/lib/hotToast";
-// import { NextThemeProvider } from "@/providers/NextThemeProvider";
+import { NextThemeProvider } from "@/providers/NextThemeProvider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,8 +22,9 @@ export default async function RootLayout({
   children: React.ReactNode;
  }>) {
    return (
-    <html lang="en"  >  
+    <html lang="en"  suppressHydrationWarning >  
       <body className={inter.className}>
+        <NextThemeProvider >
         <SessionProvider>
           <Container>
             <NavBar 
@@ -36,6 +37,7 @@ export default async function RootLayout({
               gutter={24} />
           </Container>
         </SessionProvider>
+        </NextThemeProvider>
        </body>
     </html>
   );
