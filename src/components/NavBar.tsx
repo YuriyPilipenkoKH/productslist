@@ -5,10 +5,13 @@ import { LogInButton, LogoutButton } from './Button/Button';
 
 import { auth } from '../../auth';
 
+interface NavBarProps {
+  currentPath: string
+}
 
-
-
-async function NavBar() {
+async function NavBar({ currentPath }: NavBarProps) {
+  const path = new URL(currentPath).pathname
+  console.log('currentPath',path);
   const session = await auth();
   console.log('session',session);
  
@@ -17,7 +20,9 @@ async function NavBar() {
   return (
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
         <Logo/>
-        {session ? <LogoutButton/> : <LogInButton/>}
+        {session 
+        ?  <LogoutButton/> 
+        : (path !== '/login') &&  <LogInButton/>}
           
         {/* <ThemeChanger /> */}
 
