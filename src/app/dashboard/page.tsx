@@ -11,7 +11,7 @@ import ProductsCounter from '@/components/ProductsCounter'
 import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
 import { auth } from '../../../auth'
 import { redirect } from 'next/navigation'
-import { retrieveUserId } from '@/lib/retrieveUserId'
+import { retrieveUserId } from '@/actions/retrieveUserId'
 
 
 type CategoryWithProducts = Category & {
