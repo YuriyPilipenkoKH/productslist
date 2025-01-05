@@ -18,11 +18,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { slug?: string[] }; // Dynamic route segments
 }>) {
-  const headersList = await headers();
-  const currentPath = headersList.get('referer') || '/';
+  const currentPath = `/${params.slug?.join("/") || ""}`; // Construct the current path from params
+
   return (
 
     <html 

@@ -10,8 +10,8 @@ interface NavBarProps {
 }
 
 async function NavBar({ currentPath }: NavBarProps) {
-  const path = new URL(currentPath).pathname
-  console.log('currentPath',path);
+  // const path = new URL(currentPath).pathname
+  console.log('currentPath',currentPath);
   const session = await auth();
   console.log('session',session);
  
@@ -22,7 +22,7 @@ async function NavBar({ currentPath }: NavBarProps) {
         <Logo/>
         {session 
         ?  <LogoutButton/> 
-        : (path !== '/login') &&  <LogInButton/>}
+        : (currentPath !== '/login') &&  <LogInButton/>}
           
         {/* <ThemeChanger /> */}
 
