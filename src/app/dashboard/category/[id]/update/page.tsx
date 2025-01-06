@@ -17,13 +17,13 @@ async function UpdateCategoryPage({ params }: Params) {
     const data = await grabProducts(id)
 
   return (
-    <section className='p-4 space-y-6 min-h-screen flex flex-col'>
-      <h2 className='text-center my-0 '>Category </h2>
+    <section className='p-2 space-y-6 min-h-screen flex flex-col'>
+      <h2 className='text-center '>Category </h2>
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />
         <hr />
-        <h2 className='text-center my-0 '>Products </h2>
+        <h2 className='text-center'>Products </h2>
         <div>
          <AddNewProductForm 
           categoryId= {data?.id || ''}/>
@@ -33,10 +33,10 @@ async function UpdateCategoryPage({ params }: Params) {
           <table>
             <thead>
               <tr>
-                <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider'>
+                <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider headst'>
                 Name
                 </th>
-                <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider'>
+                <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider headst'>
                 Action
                 </th>
               </tr>

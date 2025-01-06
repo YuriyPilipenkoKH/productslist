@@ -32,7 +32,7 @@ async function Dashboard() {
   const categories = await grabCategories(creator)
 
   return (
-    <section className='dashboard py-4 space-y-6 min-h-screen flex flex-col'>
+    <section className='dashboard py-6 space-y-6 min-h-screen flex flex-col'>
         <div>
          <AddNewCategoryForm 
          creator={creator}
