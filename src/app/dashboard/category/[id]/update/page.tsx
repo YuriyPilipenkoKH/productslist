@@ -1,8 +1,9 @@
-import AddNewProductForm from '@/components/forms/AddNewProductForm';
+
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
 import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
 import { grabProducts } from '@/actions/grab-products';
+import AddNewProductForm from '@/components/forms/AddNewProductForm';
 
 interface Params {
   params: Promise<{

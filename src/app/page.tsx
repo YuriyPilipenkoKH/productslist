@@ -8,7 +8,7 @@ export default  function Home() {
 
       <Link href={'/dashboard'} className="block p-4">
         <span className="text-3xl font-extrabold ">
-          Produts List
+          Products List
         </span>
       </Link>
         <span className="text-sm">
