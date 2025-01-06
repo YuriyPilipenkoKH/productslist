@@ -12,6 +12,17 @@ export const addProduct = async (formData: FormData) => {
       throw new Error('Form values must be strings');
     }
     try {
+        const existingProduct = await prisma.product.findFirst({
+            where: {
+              name: name,
+              categoryId: categoryId,
+            },
+          });
+      
+          if (existingProduct) {
+						return { success: false, message: 'product with this name already exists in the selected category' };
+           
+          }
         const newProduct = await prisma.product.create({
             data: {
                 name,

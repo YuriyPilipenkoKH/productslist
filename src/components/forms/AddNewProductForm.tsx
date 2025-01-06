@@ -46,7 +46,12 @@ const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 			if (result.success) {
 					toast.success(`Product ${capitalize(data.name)} added successfully`!);
 					reset();
-			} else {
+			} 
+			if (!result.success && result.message) {
+				toast.error(result.message);
+			} 
+			
+			else {
 					toast.error(`Failed to add ${capitalize(data.name)} product : ${result.error}`);
 			}
 		} 
