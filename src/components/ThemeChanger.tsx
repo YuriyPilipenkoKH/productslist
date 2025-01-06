@@ -20,7 +20,8 @@ function ThemeChanger() {
       sizes="36x36"
       alt="Loading Light/Dark Toggle"
       priority={false}
-      title="Loading Light/Dark Toggle"
+      title="Loading Light/Dark Toggle" 
+      className='fill-[var(--background-color)] bg-[var(--background-color)]'
     />
   )
 
