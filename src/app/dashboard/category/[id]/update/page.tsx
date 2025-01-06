@@ -12,7 +12,7 @@ interface Params {
 
 async function UpdateCategoryPage({ params }: Params) {
 
-  const { id } = params;
+  const { id } = await params
     const data = await prisma.category.findUnique({
         where: { id },
         include: {
