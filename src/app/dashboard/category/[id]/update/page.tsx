@@ -2,7 +2,7 @@ import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
 import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
-import prisma from '../../../../../../prisma/prisma'
+import { grabProducts } from '@/actions/grab-products';
 
 interface Params {
     params: {
@@ -13,12 +13,7 @@ interface Params {
 async function UpdateCategoryPage({ params }: Params) {
 
   const { id } = await params
-    const data = await prisma.category.findUnique({
-        where: { id },
-        include: {
-            products: true
-        }
-    })
+    const data = await grabProducts(id)
 
   return (
     <section className='p-4 space-y-6 min-h-screen flex flex-col'>

@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 function Logo() {
   const [isOptimized, setIsOptimized] = useState(false)
   const [isloading, setIsloading] = useState(false)
+  
   return (
     <Link href='/'>
         <Image 
