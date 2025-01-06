@@ -5,14 +5,14 @@ import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from
 import { grabProducts } from '@/actions/grab-products';
 
 interface Params {
-    params: {
-      id: string;
-    };
-  }
+  params: Promise<{
+    id: string;
+  }>;
+}
 
 async function UpdateCategoryPage({ params }: Params) {
 
-  const { id } =  params
+  const { id } = await params
     const data = await grabProducts(id)
 
   return (
