@@ -55,16 +55,21 @@ const UpdateProductForm: React.FC<UpdateProductFormProps> = ({
 			formData.append('id', id);
 
 			try {
-					const result = await updateProduct(formData);
-					if (result.success) {
-							toast.success(`Product ${capitalize(name)} updated successfully`!);
-							reset();
-							await wait(1000)
-							setOpen(false)
-					} else {
-							toast.error(`Failed to update ${capitalize(name)} product : ${result.error}`);
-					}
-        }
+				const result = await updateProduct(formData);
+				if (result.success) {
+						toast.success(`Product ${capitalize(name)} updated successfully`!);
+						reset();
+						await wait(1000)
+						setOpen(false)
+				}
+				if (!result.success && result.message) {
+					toast.error(result.message);
+				} 
+				
+				if (!result.success && result.error) {
+					toast.error(result.error);
+				}
+			}
 			catch (error) {
 				const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
 				toast.error(`An error occurred: ${errorMessage}`);

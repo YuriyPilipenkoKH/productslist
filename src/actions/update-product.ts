@@ -14,12 +14,23 @@ export const updateProduct = async (formData: FormData) => {
  
     
     try {
-        const updatedProduct = await prisma.product.update({
-            where: { id },
-            data: { name }
-        })
-        revalidatePath(`/dashboard`)
-        return { success: true, updatedProduct  };
+      const existingProduct = await prisma.product.findFirst({
+          where: {
+            name: name,
+            
+          },
+        });
+    
+        if (existingProduct) {
+          return { success: false, message: 'product with this name already exists in the selected category' };
+          
+        }
+      const updatedProduct = await prisma.product.update({
+          where: { id },
+          data: { name }
+      })
+      revalidatePath(`/dashboard`)
+      return { success: true, updatedProduct  };
     }
     catch (error) {
         console.log('Error'+ error)
