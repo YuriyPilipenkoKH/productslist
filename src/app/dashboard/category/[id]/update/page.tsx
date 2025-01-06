@@ -12,7 +12,7 @@ interface Params {
 
 async function UpdateCategoryPage({ params }: Params) {
 
-  const { id } = await params
+  const { id } =  params
     const data = await grabProducts(id)
 
   return (
@@ -31,10 +31,10 @@ async function UpdateCategoryPage({ params }: Params) {
           <table>
             <thead>
               <tr>
-                <th className='px-5 py-3 border-b-1  text-gray-800 text-sm uppercase tracking-wider'>
+                <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider'>
                 Name
                 </th>
-                <th className='px-5 py-3 border-b-1  text-gray-800 text-sm uppercase tracking-wider'>
+                <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider'>
                 Action
                 </th>
               </tr>

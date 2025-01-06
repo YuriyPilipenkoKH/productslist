@@ -12,7 +12,6 @@ import { redirect } from 'next/navigation'
 import { retrieveUserId } from '@/actions/retrieve-userId'
 import { grabCategories } from '@/actions/grab-categories'
 import { CategoryWithProducts } from '@/types/Category'
-import prisma from '../../../prisma/prisma'
 
 
 async function Dashboard() {

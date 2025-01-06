@@ -1,6 +1,6 @@
 'use client'
 import { addCategory } from '@/actions/add-category'
-import React, { useActionState, useState } from 'react'
+import React, {  useState } from 'react'
 import { AddNewBtn } from '../Button/Button'
 import { AuthError, Form_Universal, FormInput } from './FormStyles.styled'
 import { useForm } from 'react-hook-form';
