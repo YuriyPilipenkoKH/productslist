@@ -1,9 +1,7 @@
 import React from 'react'
-import prisma from '../../../prisma/prisma'
 import Link from 'next/link'
 import MainModal from '@/components/modals/MainModal'
 import { DeletingCategoryConfirmProps } from '@/data/modalProps'
-import { Category, Product } from '@prisma/client'
 import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
@@ -14,8 +12,7 @@ import { redirect } from 'next/navigation'
 import { retrieveUserId } from '@/actions/retrieve-userId'
 import { grabCategories } from '@/actions/grab-categories'
 import { CategoryWithProducts } from '@/types/Category'
-
-
+import prisma from '../../../prisma/prisma'
 
 
 async function Dashboard() {
@@ -33,7 +30,15 @@ async function Dashboard() {
     redirect('/login'); // Or handle the missing email case as needed
   }
   const userId = await retrieveUserId(user.email)
-  const categories =await grabCategories(creator)
+  const categories = await grabCategories(creator)
+  // const categories:CategoryWithProducts[] = await prisma.category.findMany({
+  //   where: {
+  //     creator
+  //   },
+  //   include: {
+  //     products: true, 
+  //   },
+  // })
   return (
     <section className='dashboard py-4 space-y-6 min-h-screen flex flex-col'>
         <div>
@@ -69,7 +74,6 @@ async function Dashboard() {
                   </td>
        
                   <td className= 'flex items-center justify-end gap-4 px-1 py-3 text-sm font-medium text-center '>
-
                     <ShowDetails
                     className='mtext'
                     href={`/dashboard/category/${category.id}/update`}>
