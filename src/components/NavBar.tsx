@@ -19,9 +19,9 @@ function NavBar() {
     <nav className='flex items-center justify-between p-4 border-b-slate-200'>
         <Logo/>
         <ThemeChanger />
-        {mounted && session 
-        ?  <LogoutButton/> 
-        : (currentPath !== '/login') && mounted  &&  <LogInButton/>}   
+        {session 
+        ? mounted &&  <LogoutButton/> 
+        : mounted  && (currentPath !== '/login') &&  <LogInButton/>}   
     </nav>
   )
 }
