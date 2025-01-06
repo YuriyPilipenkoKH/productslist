@@ -31,14 +31,7 @@ async function Dashboard() {
   }
   const userId = await retrieveUserId(user.email)
   const categories = await grabCategories(creator)
-  // const categories:CategoryWithProducts[] = await prisma.category.findMany({
-  //   where: {
-  //     creator
-  //   },
-  //   include: {
-  //     products: true, 
-  //   },
-  // })
+
   return (
     <section className='dashboard py-4 space-y-6 min-h-screen flex flex-col'>
         <div>

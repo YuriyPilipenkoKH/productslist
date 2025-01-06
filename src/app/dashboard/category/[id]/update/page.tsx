@@ -19,9 +19,7 @@ async function UpdateCategoryPage({ params }: Params) {
             products: true
         }
     })
-    // if (!data) {
-    //   return <div>Category not found</div>; // Handle case where category doesn't exist
-    // }
+
   return (
     <section className='p-4 space-y-6 min-h-screen flex flex-col'>
         <UpdateCategoryForm 
