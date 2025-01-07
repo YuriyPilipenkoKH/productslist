@@ -1,15 +1,17 @@
 import React from 'react'
 
-interface Params {
+interface ProductDetailsProps {
   params: Promise<{
     id: string;
   }>;
 }
 
-const ProductDetails = async({ params }: Params)  => {
-  const { id } = await params
+const ProductDetails = async({ params }: ProductDetailsProps)  => {
+  const { id} = await params
   return (
-    <div>ProductDetails</div>
+    <div>
+      {id}
+    </div>
   )
 }
 
