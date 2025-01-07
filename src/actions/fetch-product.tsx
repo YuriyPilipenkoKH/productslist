@@ -6,7 +6,7 @@ export async function fetchProduct(id:string) {
       where: { id },
   })
   if(!product) {
-    console.log('products not found')  
+    console.log('product not found')  
     }
     console.log(product);
     
