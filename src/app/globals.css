@@ -185,5 +185,9 @@ img {
   margin-top: auto;
 
 }
-
+.MainModal >div[tabindex='-1'],
+.MainModal >div[tabindex='0'] {
+    display: grid;
+    place-items: center;
+  }
 

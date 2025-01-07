@@ -1,9 +1,6 @@
-
-import UpdateCategoryForm from '@/components/forms/UpdateCategoryForm'
 import MainModal from '@/components/modals/MainModal';
 import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from '@/data/modalProps';
 import { grabProducts } from '@/actions/grab-products';
-import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import Link from 'next/link';
 import capitalize from '@/lib/capitalize';
 import FormWrappingUI from '@/components/forms/FormWrappingUI';
@@ -18,15 +15,10 @@ async function UpdateCategoryPage({ params }: Params) {
 
   const { id } = await params
   const data = await grabProducts(id)
-    // console.log(data);
-    
 
   return (
     <section className='p-2 space-y-6 min-h-screen flex flex-col relative'>
       <h2 className='text-center '>Category {capitalize(data?.name)} </h2>
-        {/* <UpdateCategoryForm 
-        id={data?.id || ''} 
-        name={data?.name || ''} /> */}
         <div className='relative my-1'  >
           <FormWrappingUI 
           formName={'UpdateCategoryForm'} 
@@ -42,12 +34,10 @@ async function UpdateCategoryPage({ params }: Params) {
           id={data?.id || ''} 
           name={data?.name || ''} 
           />
-         {/* <AddNewProductForm 
-          categoryId= {data?.id || ''}/> */}
         </div>
         {(data?.products?.length ?? 0) > 0 ? (
 
-          <table>
+          <table className='m-0'>
             <thead>
               <tr>
                 <th className='px-5 py-3 border-b-1   text-sm uppercase tracking-wider headst'>
