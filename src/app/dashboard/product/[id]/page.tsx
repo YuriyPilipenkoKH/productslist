@@ -1,3 +1,4 @@
+import { fetchCategory } from '@/actions/fetch-category';
 import { fetchProduct } from '@/actions/fetch-product';
 import React from 'react'
 
@@ -14,6 +15,8 @@ const ProductDetailsPage = async({ params }: ProductDetailsProps)  => {
     return null
   }
   const {categoryId, name, imageUrl} = product
+  const category = await fetchCategory(categoryId)
+  
   return (
     <div>
       {name}
