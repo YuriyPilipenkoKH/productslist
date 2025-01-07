@@ -164,11 +164,11 @@ export const ShowDetails = styled(Link)`
 export const SAddNewBtn = styled('button')`
   ${buttonStyles} ;
 
-  width: 60px;
+  width: 100px;
   height: 60px;
   color: #cbd5e1;
   border: 4px solid var(--dark-green);
-  border-radius: 50%;
+  border-radius: 12px;
   padding: 0.25rem 1rem;
   font-weight: 600;
   background-color: var(--dark-green);
