@@ -19,8 +19,11 @@ const ProductDetailsPage = async({ params }: ProductDetailsProps)  => {
   const category = await fetchCategory(categoryId)
 
   return (
-    <div className='flex flex-col gap-4'>
-      {product?.name}
+    <div className='flex flex-col gap-5 items-center justify-center'>
+      <h3>{product?.name}</h3>
+      <div className='w-48 h-40 bg-cover bg-center bg-no-repeat'
+        style={{ backgroundImage: `url(${imageUrl})` }}>
+      </div>
       <Link href={`/dashboard/category/${category?.id}/update`}>
       back to {category?.name}
       </Link>

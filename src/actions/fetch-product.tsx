@@ -8,7 +8,6 @@ export async function fetchProduct(id:string) {
   if(!product) {
     console.log('product not found')  
     }
-    console.log(product);
-    
+  
   return product
 }

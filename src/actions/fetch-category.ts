@@ -11,7 +11,6 @@ export async function fetchCategory(id:string) {
   if(!category) {
     console.log('category not found')  
     }
-    console.log(category);
     
   return category
 }
