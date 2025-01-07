@@ -4,6 +4,7 @@ import UpdateCategoryForm from './UpdateCategoryForm'
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import AddNewProductForm from './AddNewProductForm';
+import { FaRegSquarePlus } from "react-icons/fa6";
 
 interface FormWrappingUIProps {
   id:string,
@@ -23,7 +24,12 @@ const FormWrappingUI:React.FC<FormWrappingUIProps> = ({
       <button 
         className='bg-transparent absolute right-3 top-[-44px]'
         onClick={() =>setOpen(!open)}>
-       {!open ? <CiEdit /> : <AiOutlineCloseCircle/>}
+       {open 
+       ? <AiOutlineCloseCircle/> 
+       : (formName === 'UpdateCategoryForm')
+       ? <CiEdit/>
+       : <FaRegSquarePlus/>
+       }
       </button>
     {open && (formName === 'UpdateCategoryForm') && (
       <UpdateCategoryForm 
