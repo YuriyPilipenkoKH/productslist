@@ -6,6 +6,7 @@ import { grabProducts } from '@/actions/grab-products';
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import Link from 'next/link';
 import capitalize from '@/lib/capitalize';
+import FormWrappingUI from '@/components/forms/FormWrappingUI';
 
 interface Params {
   params: Promise<{
@@ -21,12 +22,15 @@ async function UpdateCategoryPage({ params }: Params) {
     
 
   return (
-    <section className='p-2 space-y-6 min-h-screen flex flex-col'>
+    <section className='p-2 space-y-6 min-h-screen flex flex-col relative'>
       <h2 className='text-center '>Category {capitalize(data?.name)} </h2>
-        <UpdateCategoryForm 
+        {/* <UpdateCategoryForm 
+        id={data?.id || ''} 
+        name={data?.name || ''} /> */}
+        <FormWrappingUI  
         id={data?.id || ''} 
         name={data?.name || ''} />
-        <hr />
+        <hr style={{margin:0}}/>
         <h2 className='text-center'>Products </h2>
         <div>
          <AddNewProductForm 

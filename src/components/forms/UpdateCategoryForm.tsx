@@ -65,7 +65,7 @@ const UpdateCategoryForm: React.FC<UpdateCategoryFormProps> = ({
   return (
     <Form_Universal
 		onSubmit={handleSubmit(onSubmit)}
-		className='flex gap-2 items-center'
+		className='flex gap-2 items-center mb-4'
 		autoComplete='off'
 		noValidate>
 			<input
