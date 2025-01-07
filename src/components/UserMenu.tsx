@@ -11,6 +11,11 @@ const UserMenu = () => {
     useEffect(() =>  setMounted(true), [])
     const user = session?.user
     const userInitial = user?.name ? user.name.charAt(0).toUpperCase() : '';
+
+    if (!mounted) return (
+      <div className='placeholder w-12 h-12 bg-transparent'>
+      </div>
+    )
   return (
     <div
     //  className='flex flex-col gap-2 items-center justify-center relative'

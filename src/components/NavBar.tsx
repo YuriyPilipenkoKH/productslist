@@ -21,7 +21,7 @@ function NavBar() {
         <Logo/>
         <ThemeChanger />
         {session 
-        ? mounted &&  <UserMenu/> 
+        ? mounted && status === 'authenticated' && <UserMenu/> 
         : mounted  && (currentPath !== '/login') &&  <LogInButton/>}   
     </nav>
   )
