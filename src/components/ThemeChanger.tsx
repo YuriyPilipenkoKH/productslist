@@ -18,11 +18,19 @@ function ThemeChanger() {
   )
 
   if (resolvedTheme === 'dark') {
-    return <BsMoonStars onClick={() => setTheme('light')} />
+    return (
+    <div className='my-auto'>
+      <BsMoonStars onClick={() => setTheme('light')} />
+    </div>
+    )
   }
 
   if (resolvedTheme === 'light') {
-    return <PiHeadlightsBold  onClick={() => setTheme('dark')} />
+    return (
+      <div className='my-auto'>
+      <PiHeadlightsBold  onClick={() => setTheme('dark')} />
+    </div>
+    )
   }
 }
 
