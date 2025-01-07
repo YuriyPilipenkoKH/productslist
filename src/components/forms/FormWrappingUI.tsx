@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import UpdateCategoryForm from './UpdateCategoryForm'
 
 interface FormWrappingUIProps {
   id:string,
@@ -9,7 +11,9 @@ const FormWrappingUI:React.FC<FormWrappingUIProps> = ({
 	id, name
 	}) => {
   return (
-    <div>FormWrappingUI</div>
+    <UpdateCategoryForm 
+    id={id} 
+    name={name} />
   )
 }
 
