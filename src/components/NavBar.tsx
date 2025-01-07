@@ -5,6 +5,7 @@ import { LogInButton, LogoutButton } from './Button/Button';
 import { useSession } from "next-auth/react";
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import UserMenu from './UserMenu';
 
 
 function NavBar() {
@@ -20,7 +21,7 @@ function NavBar() {
         <Logo/>
         <ThemeChanger />
         {session 
-        ? mounted &&  <LogoutButton/> 
+        ? mounted &&  <UserMenu/> 
         : mounted  && (currentPath !== '/login') &&  <LogInButton/>}   
     </nav>
   )
