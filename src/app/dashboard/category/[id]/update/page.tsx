@@ -15,6 +15,8 @@ async function UpdateCategoryPage({ params }: Params) {
 
   const { id } = await params
     const data = await grabProducts(id)
+    console.log(data);
+    
 
   return (
     <section className='p-2 space-y-6 min-h-screen flex flex-col'>
