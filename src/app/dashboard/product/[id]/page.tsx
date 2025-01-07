@@ -6,7 +6,7 @@ interface ProductDetailsProps {
   }>;
 }
 
-const ProductDetails = async({ params }: ProductDetailsProps)  => {
+const ProductDetailsPage = async({ params }: ProductDetailsProps)  => {
   const { id} = await params
   return (
     <div>
@@ -15,4 +15,4 @@ const ProductDetails = async({ params }: ProductDetailsProps)  => {
   )
 }
 
-export default ProductDetails
+export default ProductDetailsPage
