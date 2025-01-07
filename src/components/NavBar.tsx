@@ -17,7 +17,7 @@ function NavBar() {
   // const {user} = session
 
   return (
-    <nav className='flex items-center justify-between p-4 border-b-slate-200'>
+    <nav className='flex items-center justify-between relative p-4 border-b-slate-200'>
         <Logo/>
         <ThemeChanger />
         {session 
