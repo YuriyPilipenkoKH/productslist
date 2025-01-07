@@ -16,7 +16,7 @@ async function UpdateCategoryPage({ params }: Params) {
 
   const { id } = await params
     const data = await grabProducts(id)
-    console.log(data);
+    // console.log(data);
     
 
   return (
