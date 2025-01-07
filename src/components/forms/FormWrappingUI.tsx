@@ -1,6 +1,13 @@
 import React from 'react'
 
-const FormWrappingUI = () => {
+interface FormWrappingUIProps {
+  id:string,
+  name: string,
+}
+
+const FormWrappingUI:React.FC<FormWrappingUIProps> = ({
+	id, name
+	}) => {
   return (
     <div>FormWrappingUI</div>
   )
