@@ -17,15 +17,12 @@ const ProductDetailsPage = async({ params }: ProductDetailsProps)  => {
   }
   const {categoryId, name, imageUrl} = product
   const category = await fetchCategory(categoryId)
-  if(!category) {
-    return null
-  }
-  const {name: categoryName} = category
+
   return (
     <div className='flex flex-col gap-4'>
-      {name}
-      <Link href={'/'}>
-      back to {categoryName}
+      {product?.name}
+      <Link href={`/dashboard/category/${category?.id}/update`}>
+      back to {category?.name}
       </Link>
     </div>
   )
