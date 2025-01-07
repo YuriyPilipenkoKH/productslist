@@ -3,6 +3,5 @@ export interface ModalBaseTypes {
     dimentions: string[];
     title: string;
     text: string;
-
-    
+   
   }

@@ -3,14 +3,16 @@ import React, { useEffect, useState } from 'react'
 import UpdateCategoryForm from './UpdateCategoryForm'
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import AddNewProductForm from './AddNewProductForm';
 
 interface FormWrappingUIProps {
   id:string,
   name: string,
+  formName : 'UpdateCategoryForm' | 'AddNewProductForm'
 }
 
 const FormWrappingUI:React.FC<FormWrappingUIProps> = ({
-	id, name
+	id, name, formName
 	}) => {
     const [open, setOpen] = useState(false)    
     // const [mounted, setMounted] = useState(false)
@@ -23,11 +25,15 @@ const FormWrappingUI:React.FC<FormWrappingUIProps> = ({
         onClick={() =>setOpen(!open)}>
        {!open ? <CiEdit /> : <AiOutlineCloseCircle/>}
       </button>
-    {open && (
+    {open && (formName === 'UpdateCategoryForm') && (
       <UpdateCategoryForm 
       id={id} 
       name={name} />
-   )}
+    )}
+    {open && (formName === 'AddNewProductForm') && (
+      <AddNewProductForm 
+      categoryId= {id || ''}/>
+    )}
     </div>
   )
 }

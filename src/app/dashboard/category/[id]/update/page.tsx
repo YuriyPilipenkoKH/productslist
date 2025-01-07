@@ -27,14 +27,16 @@ async function UpdateCategoryPage({ params }: Params) {
         {/* <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} /> */}
-        <FormWrappingUI  
+        <FormWrappingUI 
+        formName={'UpdateCategoryForm'} 
         id={data?.id || ''} 
-        name={data?.name || ''} />
+        name={data?.name || ''} 
+        />
         <hr style={{margin:0}}/>
         <h2 className='text-center'>Products </h2>
         <div>
-         <AddNewProductForm 
-          categoryId= {data?.id || ''}/>
+         {/* <AddNewProductForm 
+          categoryId= {data?.id || ''}/> */}
         </div>
         {(data?.products?.length ?? 0) > 0 ? (
 
