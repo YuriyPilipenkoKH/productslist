@@ -5,6 +5,7 @@ import { DeletingProductConfirmProps, EditProductProps, UpdateImgUrlProps } from
 import { grabProducts } from '@/actions/grab-products';
 import AddNewProductForm from '@/components/forms/AddNewProductForm';
 import Link from 'next/link';
+import capitalize from '@/lib/capitalize';
 
 interface Params {
   params: Promise<{
@@ -15,13 +16,13 @@ interface Params {
 async function UpdateCategoryPage({ params }: Params) {
 
   const { id } = await params
-    const data = await grabProducts(id)
+  const data = await grabProducts(id)
     // console.log(data);
     
 
   return (
     <section className='p-2 space-y-6 min-h-screen flex flex-col'>
-      <h2 className='text-center '>Category </h2>
+      <h2 className='text-center '>Category {capitalize(data?.name)} </h2>
         <UpdateCategoryForm 
         id={data?.id || ''} 
         name={data?.name || ''} />
