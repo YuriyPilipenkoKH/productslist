@@ -12,9 +12,14 @@ const UserMenu = () => {
     const userInitial = user?.name ? user.name.charAt(0).toUpperCase() : '';
   return (
     <>
-    {status === 'authenticated' && (
+    {status === 'authenticated' && !open && (
       <div className='w-12 h-12 bg-[var(--dark-green)] flex items-center justify-center rounded-full'>
         {userInitial}
+      </div>
+    )}
+    {status === 'authenticated' && open && (
+      <div className=''>
+
       </div>
     )}
     </>
