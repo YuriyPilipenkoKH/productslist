@@ -8,7 +8,7 @@ export async function retrieveUserId(email:string) {
         }
     })
     if(!user) {
-      console.log('User not found')  
+      console.error('User not found')  
       }
        return user?.id 
 }

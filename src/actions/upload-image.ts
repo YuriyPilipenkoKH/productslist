@@ -52,8 +52,7 @@ export const uploadImage = async (formData: FormData) => {
         );
         stream.end(buffer);
       });
-      console.log(`curl`, result?.secure_url)
-
+      // console.log(`curl`, result?.secure_url)
 
       const updatedProduct = await prisma.product.update({
         where: { id },
@@ -63,7 +62,7 @@ export const uploadImage = async (formData: FormData) => {
         return { success: true, updatedProduct  };
     }
     catch (error) {
-        console.log('Error'+ error)
+        console.error('Error'+ error)
         let errorMessage = 'An unexpected error occurred';
         if (error instanceof Error) {
             errorMessage = error.message;

@@ -33,7 +33,7 @@ export const addProduct = async (formData: FormData) => {
         return { success: true, newProduct };
     }
     catch (error) {
-        console.log('Error'+ error)
+        console.error('Error'+ error)
         let errorMessage = 'An unexpected error occurred';
         if (error instanceof Error) {
             errorMessage = error.message;

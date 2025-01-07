@@ -9,7 +9,7 @@ export async function grabProducts(id:string) {
       }
   })
   if(!products) {
-    console.log('products not found')  
+    console.error('products not found')  
     }
   return products
 }

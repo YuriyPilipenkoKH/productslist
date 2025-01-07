@@ -53,7 +53,6 @@ const UploadImgForm: React.FC<UploadImgFormProps> = ({
 			try {
 				const result = await uploadImage(formData);
 				if (result.success) {
-					console.log('result',result)
 						toast.success(`Product ${capitalize(name)} updated successfully`!);
 						// reset();
 						if(result.updatedProduct?.imageUrl){

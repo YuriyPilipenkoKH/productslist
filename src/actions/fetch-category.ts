@@ -9,7 +9,7 @@ export async function fetchCategory(id:string) {
       },
   })
   if(!category) {
-    console.log('category not found')  
+    console.error('category not found')  
     }
     
   return category

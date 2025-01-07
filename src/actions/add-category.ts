@@ -8,9 +8,7 @@ export const addCategory = async (formData: FormData) => {
     const name = formData.get('name') as string;
     const creator = formData.get('creator') as string;
     const userId = formData.get('userId') as string;
-    console.log(name,creator,userId );
     
-  
     try {
         const newCategory = await prisma.category.create({
             data: {
@@ -23,7 +21,7 @@ export const addCategory = async (formData: FormData) => {
         return { success: true, newCategory };
     }
      catch (error) {
-        console.log('Error'+ error)
+        console.error('Error'+ error)
         let errorMessage = 'An unexpected error occurred';
         if (error instanceof Error) {
             errorMessage = error.message;

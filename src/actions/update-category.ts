@@ -22,7 +22,7 @@ export const updateCategory = async (formData: FormData) => {
         return { success: true, updatedCategory  };
     }
     catch (error) {
-        console.log('Error'+ error)
+        console.error('Error'+ error)
         let errorMessage = 'An unexpected error occurred';
         if (error instanceof Error) {
             errorMessage = error.message;

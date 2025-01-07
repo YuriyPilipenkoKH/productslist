@@ -13,7 +13,7 @@ export async function grabCategories(creator:string) {
       },
     })
       if(!categories) {
-        console.log('categories not found')  
+        console.error('categories not found')  
         }
          return categories 
    }
