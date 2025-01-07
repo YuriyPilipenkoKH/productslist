@@ -131,9 +131,9 @@ img {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  position: absolute;
+  /* position: absolute;
   right: 0;
-  top: 16px;
+  top: 16px; */
   z-index: 5;
 
 }

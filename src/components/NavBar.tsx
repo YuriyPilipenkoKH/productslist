@@ -19,10 +19,12 @@ function NavBar() {
   return (
     <nav className='flex items-center justify-between relative p-4 border-b-slate-200'>
         <Logo/>
-        <ThemeChanger />
-        {session 
-        ? mounted && status === 'authenticated' && <UserMenu/> 
-        : mounted  && (currentPath !== '/login') &&  <LogInButton/>}   
+        <div className='flex gap-4 items-baseline'>
+          <ThemeChanger />
+          {session
+          ? mounted && status === 'authenticated' && <UserMenu/>
+          : mounted  && (status === 'unauthenticated') && (currentPath !== '/login') &&  <LogInButton/>}
+        </div>
     </nav>
   )
 }

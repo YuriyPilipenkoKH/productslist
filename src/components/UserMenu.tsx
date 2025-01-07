@@ -17,9 +17,7 @@ const UserMenu = () => {
       </div>
     )
   return (
-    <div
-    //  className='flex flex-col gap-2 items-center justify-center relative'
-     >
+    <div  className='h-12' >
     {status === 'authenticated' && ! open && (
       <div className='w-12 h-12 bg-[var(--dark-green)] flex items-center justify-center rounded-full'
       onClick={() => setOpen(!open)}>
