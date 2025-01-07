@@ -21,7 +21,7 @@ const FormWrappingUI:React.FC<FormWrappingUIProps> = ({
   return (
     <div  className=''>
       <button 
-        className='bg-transparent absolute right-2 top-[10px]'
+        className='bg-transparent absolute right-3 top-[-44px]'
         onClick={() =>setOpen(!open)}>
        {!open ? <CiEdit /> : <AiOutlineCloseCircle/>}
       </button>
