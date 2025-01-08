@@ -19,7 +19,7 @@ const ProductDetailsPage = async({ params }: ProductDetailsProps)  => {
   const {categoryId, name, imageUrl} = product
   const category = await fetchCategory(categoryId)
   // Provide a fallback URL for when imageUrl is null
-  const fallbackImage = '/path-to-default-image.jpg';
+  // const fallbackImage = '/path-to-default-image.jpg';
   return (
     <div className='flex flex-col gap-5 items-center justify-center'>
       <h3>{product?.name}</h3>
