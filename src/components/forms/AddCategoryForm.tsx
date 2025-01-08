@@ -15,7 +15,7 @@ interface AddNewCategoryFormProps {
 	userId: string
 }
 
-export const AddNewCategoryForm: React.FC<AddNewCategoryFormProps> = ({
+export const AddCategoryForm: React.FC<AddNewCategoryFormProps> = ({
 	creator, userId
 	}) => {
 		const [logError, setLogError] = useState<string>('')

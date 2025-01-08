@@ -6,7 +6,7 @@ import { ShowDetails } from '@/components/Button/Button.styled'
 import EditIcon from '@/components/icons/EditIcon'
 import capitalize from '@/lib/capitalize'
 import ProductsCounter from '@/components/ProductsCounter'
-import {AddNewCategoryForm} from '@/components/forms/AddNewCategoryForm'
+import { AddCategoryForm } from '@/components/forms/AddCategoryForm'
 import { auth } from '../../../auth'
 import { redirect } from 'next/navigation'
 import { retrieveUserId } from '@/actions/retrieve-userId'
@@ -34,7 +34,7 @@ async function Dashboard() {
   return (
     <section className='dashboard py-6 space-y-6 min-h-screen flex flex-col'>
         <div>
-         <AddNewCategoryForm 
+         <AddCategoryForm 
          creator={creator}
          userId={userId || ""}
          />
