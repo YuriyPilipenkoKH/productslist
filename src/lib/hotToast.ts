@@ -9,7 +9,7 @@ export const options={
       },
     },
     error: {
-      duration: 3000,  
+      duration: 6000,  
       style: {
         background: 'crimson',
         border: '2px solid black',
