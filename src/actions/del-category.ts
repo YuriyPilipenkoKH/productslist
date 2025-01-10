@@ -19,7 +19,7 @@ export const deleteCategory = async (formData: FormData) => {
 			if (relatedProducts.length > 0) {
 				return {
 					success: false,
-					error: "Cannot delete category because it has related products. Please delete the products first.",
+					error: "Cannot delete category because it has related products. Please delete the products first, or confirm deleting category along with all related products",
 					relatedProducts
 				};
 			}

@@ -37,13 +37,11 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [canceling, setCanceling] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [fileUrl, setFileUrl] = useState<string>('');
+    const [related, setRelated] = useState<string[] | null>(null)
 
-    console.log('open',open);
-    console.log('canceling',canceling);
-    console.log('isSubmitting',isSubmitting);
-
+    console.log('related',related );
+    const list = related?.slice(0, 2).join(', ');
     
-
     const showModal = () => {
         setOpen(true);
     };
@@ -59,6 +57,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
         await wait(1000) 
         setOpen(false);
         await wait(1000) 
+        setRelated(null)
         setCanceling(false)
     };
 
@@ -119,9 +118,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
         {( isSubmitting ) 
         ? (modalName === 'EditProduct') || (modalName === 'UpdateImgUrl')
           ? "writing to database.." 
-          : "too late.." 
-        : text 
-        }
+          : "too late.."
+        : related
+          ? `${list} are related products`
+          : text    
+         }
+        {/* text   */}
         </p>
         {(modalName === 'EditProduct') && (
           <div className='mt-6'>
@@ -157,6 +159,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
             canceling ={canceling}
+            setRelated={setRelated}
             />
         )}
         {(modalName === 'DeletingProductConfirm')  && (

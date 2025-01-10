@@ -13,6 +13,7 @@ interface DeleteCategoryFormProps {
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   canceling: boolean
+  setRelated: React.Dispatch<React.SetStateAction<string[] | null>>
   }
 
 const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ 
@@ -20,12 +21,13 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
   name,
   setIsSubmitting,
   setOpen,
-  canceling
+  canceling,
+  setRelated
  }) => {
   const [logError, setLogError] = useState<string | null>(null)
-  console.log('logError ',logError );
-  console.log('canceling in form',canceling );
   
+  console.log('logError ',logError );
+ 
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,6 +38,8 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
     try {
 
       const result = await deleteCategory(formData);
+      console.log('result',result );
+      
       if (result.success) {
           toast.success(`Category ${capitalize(name)} deleted successfully!`);
           await wait(1000)
@@ -43,7 +47,10 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
       } 
       if (!result.success && result.relatedProducts) {
         setLogError(result.error)
-          // toast.error(`Failed to delete ${capitalize(name)} category: ${result.error}`);
+
+        const relatedProductNames = result.relatedProducts.map((product: { id: string; name: string; categoryId: string }) => product.name);
+        setRelated(relatedProductNames)
+
       }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -63,7 +70,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
       try {
         const result = await deleteProductsByCategory(id);
         if (result.success) {
-            toast.success(`Category ${capitalize(name)} deleted successfully!`);
+            toast.success(`Category ${capitalize(name)} deleted totally!`);
             await wait(1000)
             setOpen(false)
         } 
@@ -94,7 +101,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
         />
         <ModalDelBtn
          type='submit' >
-          {logError ? ' Delete anyway' : 'Delete'}
+          {logError ? ' Delete all' : 'Delete'}
         </ModalDelBtn>
       </form>
     </div>
