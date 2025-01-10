@@ -14,6 +14,7 @@ import { MdOutlineAddAPhoto } from 'react-icons/md';
 import UploadImgForm from '../forms/UploadImgForm';
 import { PicWrapper } from './Modals.styled';
 import { AvatarWrap } from '../forms/FormStyles.styled';
+import { wait } from '@/lib/wait';
 
 
 interface MainModalProps {
@@ -37,6 +38,11 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [fileUrl, setFileUrl] = useState<string>('');
 
+    console.log('open',open);
+    console.log('canceling',canceling);
+    console.log('isSubmitting',isSubmitting);
+
+    
 
     const showModal = () => {
         setOpen(true);
@@ -48,9 +54,12 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
         setOpen(false);
         }, 3000);
     };
-    const handleCancel = () => {
-        setCanceling(true)
+    const handleCancel = async() => {
+      setCanceling(true)
+        await wait(1000) 
         setOpen(false);
+        await wait(1000) 
+        setCanceling(false)
     };
 
   return (

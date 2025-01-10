@@ -67,16 +67,15 @@ async function Dashboard() {
        
                   <td className= 'flex items-center justify-end gap-4 px-1 py-3 text-sm font-medium text-center '>
                     <ShowDetails
-                    className='mtext'
-                    href={`/dashboard/category/${category.id}/update`}>
-                      <EditIcon/>
-                      {/* details */}
+                      className='mtext'
+                      href={`/dashboard/category/${category.id}/update`}>
+                        <EditIcon/>
                     </ShowDetails>
                     <MainModal 
-                    modalTypes={DeletingCategoryConfirmProps}
-                    id={category.id}
-                    name={category.name}
-                                  />
+                      modalTypes={DeletingCategoryConfirmProps}
+                      id={category.id}
+                      name={category.name}
+                                    />
                   </td>
                 </tr>
               ))}

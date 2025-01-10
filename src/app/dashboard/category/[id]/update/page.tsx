@@ -54,14 +54,11 @@ async function UpdateCategoryPage({ params }: Params) {
                  key={idx}
                  className=' hover:bg-gray-700 transition duration-400'>
                   <td className='px-1 py-3  border-b text-center border-gray-200'>
-
-                        <Link href={`/dashboard/product/${product.id}`}>
-                        {product.name}
-                        </Link>
+                    <Link href={`/dashboard/product/${product.id}`}>
+                    {product.name}
+                    </Link>
                   </td>
-                  
                   <td className='flex justify-center gap-3 px-2 py-3  border-b text-center border-gray-200'>
-
                     <MainModal 
                     modalTypes={UpdateImgUrlProps}
                     id={product.id}
@@ -79,7 +76,6 @@ async function UpdateCategoryPage({ params }: Params) {
                     name={product.name}
                                   />
                   </td>
-
                 </tr>
               ))}
             </tbody>
