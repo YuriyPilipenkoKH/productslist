@@ -123,7 +123,6 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
           ? `${list} are related products`
           : text    
          }
-        {/* text   */}
         </p>
         {(modalName === 'EditProduct') && (
           <div className='mt-6'>
@@ -136,20 +135,18 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
           </div>
         )}
         {(modalName === 'UpdateImgUrl') && (
-   
           <AvatarWrap
-              fileurl={fileUrl}
-              imgUrl={imgUrl || test || ''}
-              className='mt-6 photo relative h-[200px]'>
-              <UploadImgForm
-                id={id}
-                name={name}
-                setIsSubmitting={setIsSubmitting}
-                setOpen={setOpen}
-                setFileUrl={setFileUrl}
-                />
+          fileurl={fileUrl}
+          imgUrl={imgUrl || test || ''}
+          className='mt-6 photo relative h-[200px]'>
+          <UploadImgForm
+            id={id}
+            name={name}
+            setIsSubmitting={setIsSubmitting}
+            setOpen={setOpen}
+            setFileUrl={setFileUrl}
+            />
           </AvatarWrap>
-       
         )}
         <div className='absolute bottom-[20px]'>
         {(modalName === 'DeletingCategoryConfirm') && (
@@ -159,6 +156,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
             canceling ={canceling}
+            related={related}
             setRelated={setRelated}
             />
         )}

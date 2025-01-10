@@ -13,6 +13,7 @@ interface DeleteCategoryFormProps {
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   canceling: boolean
+  related: string[] | null
   setRelated: React.Dispatch<React.SetStateAction<string[] | null>>
   }
 
@@ -22,11 +23,13 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
   setIsSubmitting,
   setOpen,
   canceling,
+  related,
   setRelated
  }) => {
-  const [logError, setLogError] = useState<string | null>(null)
-  
+      const [logError, setLogError] = useState<string | null>(null)
+
   console.log('logError ',logError );
+  console.log('related in form',related );
  
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -71,6 +74,8 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
         const result = await deleteProductsByCategory(id);
         if (result.success) {
             toast.success(`Category ${capitalize(name)} deleted totally!`);
+            setRelated(null)
+            setLogError(null)
             await wait(1000)
             setOpen(false)
         } 
@@ -93,7 +98,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
   return (
     <div className='flex flex-col gap-4 text-purple-500'>
     <div>{logError }</div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={related ? handleTotalSubmit : handleSubmit}>
         <input
           hidden
           name='id'

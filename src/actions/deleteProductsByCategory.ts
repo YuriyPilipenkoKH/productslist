@@ -1,3 +1,5 @@
+'use server'
+
 import { revalidatePath } from "next/cache";
 import prisma from "../../prisma/prisma";
 
@@ -12,6 +14,10 @@ export const deleteProductsByCategory = async (categoryId: string) => {
     await prisma.product.deleteMany({
       where: { categoryId },
     });
+      // Delete the category
+			await prisma.category.delete({
+        where: { id: categoryId }
+    })
 
     return { success: true };
   } catch (error) {
