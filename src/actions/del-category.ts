@@ -10,7 +10,20 @@ export const deleteCategory = async (formData: FormData) => {
         throw new Error('Form values must be strings');
       }
 
-    try {
+    try { 
+        // Check for related products
+        const relatedProducts = await prisma.product.findMany({
+          where: { categoryId: id },
+        });
+    
+        if (relatedProducts.length > 0) {
+          return {
+            success: false,
+            error: "Cannot delete category because it has related products. Please delete the products first.",
+          };
+        }
+    
+        // Delete the category
         await prisma.category.delete({
             where: { id }
         })
