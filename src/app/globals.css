@@ -154,7 +154,7 @@ img {
   
 }
 .delCategoryConfirm >div>.ant-modal-content{
-  min-height: 220px;
+  min-height: 250px;
 }
 .delProductConfirm >div>.ant-modal-content{
   height: 160px;
@@ -190,4 +190,3 @@ img {
     display: grid;
     place-items: center;
   }
-

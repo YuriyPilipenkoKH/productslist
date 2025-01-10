@@ -1,6 +1,6 @@
 'use client'
 import { deleteCategory } from '@/actions/del-category';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ModalDelBtn } from '../Button/Button';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
@@ -11,15 +11,18 @@ interface DeleteCategoryFormProps {
   name: string
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  canceling: boolean
   }
 
 const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({ 
   id, 
   name,
   setIsSubmitting,
-  setOpen
+  setOpen,
+  canceling
  }) => {
-  const [logError, setLogError] = useState<string>('')
+  const [logError, setLogError] = useState<string | null>(null)
+  // setLogError(null)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,6 +31,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
     formData.append('id', id);
    
     try {
+
         const result = await deleteCategory(formData);
         if (result.success) {
             toast.success(`Category ${capitalize(name)} deleted successfully!`);
@@ -45,20 +49,30 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
       finally{
         setIsSubmitting(false)
       }
-};
+    };
+
+    useEffect(() => {
+      if(canceling) {
+        setLogError(null)
+        setOpen(false)
+      }
+      }, [canceling])
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        hidden
-        name='id'
-        defaultValue={id}
-      />
-      <div>{logError }</div>
-      <ModalDelBtn
-       type='submit' >
-        Delete 
-      </ModalDelBtn>
-    </form>
+    <div className='flex flex-col gap-4 text-purple-500'>
+    <div>{logError }</div>
+      <form onSubmit={handleSubmit}>
+        <input
+          hidden
+          name='id'
+          defaultValue={id}
+        />
+        <ModalDelBtn
+         type='submit' >
+          {logError ? ' Delete anyway' : 'Delete'}
+        </ModalDelBtn>
+      </form>
+    </div>
   );
 };
 

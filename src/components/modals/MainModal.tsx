@@ -99,8 +99,8 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
           
       <CancelBtn
           key="back" 
-          className='cancel_btn w-[70px] rounded-md '
-          disabled={ isSubmitting }
+          className='cancel_btn w-[70px] rounded-md z-10'
+          // disabled={ isSubmitting }
           onClick={handleCancel}>
       Cancel
       </CancelBtn>
@@ -147,6 +147,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
             name={name}
             setIsSubmitting={setIsSubmitting}
             setOpen={setOpen}
+            canceling ={canceling}
             />
         )}
         {(modalName === 'DeletingProductConfirm')  && (
