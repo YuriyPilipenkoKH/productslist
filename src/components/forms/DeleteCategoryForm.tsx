@@ -1,6 +1,6 @@
 'use client'
 import { deleteCategory } from '@/actions/del-category';
-import React from 'react';
+import React, { useState } from 'react';
 import { ModalDelBtn } from '../Button/Button';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
@@ -19,6 +19,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
   setIsSubmitting,
   setOpen
  }) => {
+  const [logError, setLogError] = useState<string>('')
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,8 +33,10 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
             toast.success(`Category ${capitalize(name)} deleted successfully!`);
             await wait(1000)
             setOpen(false)
-        } else {
-            toast.error(`Failed to delete ${capitalize(name)} category: ${result.error}`);
+        } 
+        if (!result.success && result.relatedProducts) {
+          setLogError(result.error)
+            // toast.error(`Failed to delete ${capitalize(name)} category: ${result.error}`);
         }
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -50,6 +53,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
         name='id'
         defaultValue={id}
       />
+      <div>{logError }</div>
       <ModalDelBtn
        type='submit' >
         Delete 

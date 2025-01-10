@@ -20,6 +20,7 @@ export const deleteCategory = async (formData: FormData) => {
 				return {
 					success: false,
 					error: "Cannot delete category because it has related products. Please delete the products first.",
+					relatedProducts
 				};
 			}
 	
