@@ -5,6 +5,7 @@ import { ModalDelBtn } from '../Button/Button';
 import toast from 'react-hot-toast';
 import capitalize from '@/lib/capitalize';
 import { wait } from '@/lib/wait';
+import { deleteProductsByCategory } from '@/actions/deleteProductsByCategory';
 
 interface DeleteCategoryFormProps {
   id: string;
@@ -22,6 +23,9 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
   canceling
  }) => {
   const [logError, setLogError] = useState<string | null>(null)
+  console.log('logError ',logError );
+  console.log('canceling ',canceling );
+  
   // setLogError(null)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -50,6 +54,27 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
         setIsSubmitting(false)
       }
     };
+    const handleTotalSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setIsSubmitting(true)
+      const formData = new FormData();
+      formData.append('id', id);
+
+      try {
+        const result = await deleteProductsByCategory(id);
+        if (result.success) {
+            toast.success(`Category ${capitalize(name)} deleted successfully!`);
+            await wait(1000)
+            setOpen(false)
+        } 
+      } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+        toast.error(`An error occurred: ${errorMessage}`);
+      }
+      finally{
+        setIsSubmitting(false)
+      }
+    }  
 
     useEffect(() => {
       if(canceling) {
