@@ -7,10 +7,10 @@ const SignInButton = () => {
   const [message, formAction, isPending] = useActionState(googleSignIn, undefined)
     return (
     <form
-      className='w-full'
+      className='max-w-[500px]'
       action={formAction}
       >
-      <button className='flex w-full justify-center border rounded-lg p-2 space-x-2 items-center'>
+      <button className='flex w-full justify-center border rounded-lg p-2 space-x-2 items-center px-20'>
           <p>LogIn With Google</p> <FcGoogle className='h-5 w-5' />
       </button>
       <p>{isPending ? "Loading..." : message}</p>
