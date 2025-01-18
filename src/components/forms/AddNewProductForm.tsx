@@ -12,7 +12,6 @@ interface ddNewProductFormProps {
 	categoryId: string
 }
 
-
 const AddNewProductForm: React.FC<ddNewProductFormProps> = ({
 	categoryId
 	}) => {

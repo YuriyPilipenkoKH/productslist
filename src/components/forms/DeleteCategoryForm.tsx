@@ -28,10 +28,6 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
  }) => {
       const [logError, setLogError] = useState<string | null>(null)
 
-  console.log('logError ',logError );
-  console.log('related in form',related );
- 
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true)
@@ -39,10 +35,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
     formData.append('id', id);
    
     try {
-
       const result = await deleteCategory(formData);
-      console.log('result',result );
-      
       if (result.success) {
           toast.success(`Category ${capitalize(name)} deleted successfully!`);
           await wait(1000)
@@ -53,8 +46,7 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
 
         const relatedProductNames = result.relatedProducts.map((product: { id: string; name: string; categoryId: string }) => product.name);
         setRelated(relatedProductNames)
-
-      }
+     }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
       toast.error(`An error occurred: ${errorMessage}`);
@@ -63,13 +55,12 @@ const DeleteCategoryForm: React.FC<DeleteCategoryFormProps> = ({
       setIsSubmitting(false)
     }
     };
+
     const handleTotalSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setIsSubmitting(true)
       const formData = new FormData();
       formData.append('id', id);
-      console.log('total submit')
-
       try {
         const result = await deleteProductsByCategory(id);
         if (result.success) {

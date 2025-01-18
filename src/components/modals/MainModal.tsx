@@ -39,8 +39,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
     const [fileUrl, setFileUrl] = useState<string>('');
     const [related, setRelated] = useState<string[] | null>(null)
 
-    console.log('related',related );
-    const list = related?.slice(0, 2).join(', ');
+    const list = related?.slice(0, 2).join(', ') || '';
     
     const showModal = () => {
         setOpen(true);

@@ -9,15 +9,9 @@ export default auth(async (req) => {
 // custom middleware logic
 // console.log('Middleware called' , req.nextUrl.pathname);
 // console.log(req.auth);
-
 })
 
 export const config = {
-  // matcher: [
-  //   "/((?!.+\\.[\\w]+$|_next).*)",
-  //   "/",
-  //   "/(api|trpc)(.*)"
-  // ]
 
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
