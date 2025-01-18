@@ -5,3 +5,7 @@ export interface ModalBaseTypes {
     text: string;
    
   }
+
+  export interface ImageTypes {
+    imgUrl?: string;
+  }

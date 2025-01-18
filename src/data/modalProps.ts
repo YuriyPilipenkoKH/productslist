@@ -1,4 +1,4 @@
-import { ModalBaseTypes } from '@/types/modalTypes';
+import { ImageTypes, ModalBaseTypes } from '@/types/modalTypes';
 
 export const DeletingCategoryConfirmProps: ModalBaseTypes = {
   modalName: 'DeletingCategoryConfirm',
@@ -33,4 +33,8 @@ export const ShowCategoryDetailsProps: ModalBaseTypes = {
   dimentions: ['320px', '300px'],
   title: 'Details',
   text: 'You can edit any field?',
+};
+
+export const ImageProps:ImageTypes = {
+    imgUrl: 'https://res.cloudinary.com/dwdkw1a4j/image/upload/v1737183735/productslist/modal/hy3csc4xjo3lvs18wy3p.svg'
 };
