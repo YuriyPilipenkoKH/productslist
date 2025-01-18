@@ -7,5 +7,5 @@ export interface ModalBaseTypes {
   }
 
   export interface ImageTypes {
-    imgUrl?: string;
+    imgUrl: string;
   }

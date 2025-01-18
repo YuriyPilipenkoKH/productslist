@@ -15,6 +15,7 @@ import UploadImgForm from '../forms/UploadImgForm';
 import { PicWrapper } from './Modals.styled';
 import { AvatarWrap } from '../forms/FormStyles.styled';
 import { wait } from '@/lib/wait';
+import { ImageProps } from '@/data/modalProps';
 
 
 interface MainModalProps {
@@ -136,7 +137,7 @@ const MainModal: React.FC<MainModalProps> = ({ modalTypes, id ,name, imgUrl}) =>
         {(modalName === 'UpdateImgUrl') && (
           <AvatarWrap
           fileurl={fileUrl}
-          imgUrl={imgUrl || test || ''}
+          imgUrl={imgUrl || ImageProps.imgUrl || ''}
           className='mt-6 photo relative h-[200px]'>
           <UploadImgForm
             id={id}

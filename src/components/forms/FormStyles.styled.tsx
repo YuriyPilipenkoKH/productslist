@@ -175,9 +175,9 @@ export const Avatar = styled('div')`
 			})<AvatarWrapProps>(
 				({ imgUrl, fileurl }) => css`
 					background-image: ${fileurl ?  `url(${fileurl})` : `url(${imgUrl})`};
-					background-size: cover ;
+					background-size: contain ;
 					background-position: center;
-							
+					background-repeat: no-repeat;		
 				`
 			);
 
