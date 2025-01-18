@@ -11,9 +11,9 @@ export default  function Home() {
           Products List
         </span>
       </Link>
-        <span className="text-sm">
+        <div className="text-sm max-w-[700px] mx-auto">
         This project is a Next.js application leveraging Server Actions for efficient server-side functionality, Auth.js for secure and scalable authentication, and Vercel Postgres for reliable database storage. The app includes full CRUD  operations for managing products, offering a complete platform for e-commerce, content management, or inventory system
-        </span>
+        </div>
       <div className="flex-shrink-0">
         <div className="mt-12 inline-flex rounded-md">
         </div>
